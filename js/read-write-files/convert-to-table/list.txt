@@ -1,0 +1,7 @@
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\lib
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\list-files.bat
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\list.txt
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\run.html
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\text.txt
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\lib\a-run.js
+C:\1-Roman\Documents\3-programming\3-help\js\read-write-files\convert-to-table\lib\style.css

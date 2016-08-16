@@ -1,0 +1,14 @@
+x (Extract with full paths) command
+
+Extracts files from an archive with their full paths in the current directory, or in an output directory if specified.
+
+See the e (Extract) command description for more details.
+Examples
+
+  7z x archive.zip
+
+extracts all files from the archive archive.zip to the current directory.
+
+  7z x archive.zip -oc:\soft *.cpp -r
+
+extracts all *.cpp files from the archive archive.zip to c:\soft folder.

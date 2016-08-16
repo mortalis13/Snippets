@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script src="../../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+$(function(){
+	$("#showData").click(function(){
+    var url=$("#jsonFile").val()
+    var output=$("#output")
+    
+		$.get(url,function(data) {
+      function showConent(){
+        output.find("#content").empty()
+        var pre=$("<pre>").text(data)
+        output.find("#title").html("<h2>Output:</h2>["+url+"]")
+        // output.find("#title").html("<h2>Output: ["+url+"]</h2>")
+        output.find("#content").append(pre)
+        
+        output.fadeIn()
+      }
+      
+      if(output.is(':visible')){
+        output.fadeOut({
+          done:function(){
+            showConent()
+          }
+        })
+      }
+      else{
+        showConent()
+      }
+      
+      // output.fadeIn()
+      // output.fadeIn({
+      //   done:function(){
+      //     output.find("#content").empty()
+          
+      //     var pre=$("<pre>").text(data)
+      //     output.find("#content").append(pre)
+      //   }
+      // })
+      
+      
+      // $("#output").show()
+		},"text")
+		
+	/*
+    var xhr=$.ajax({url:jsonFile,success:function(data){
+			alert(data);
+		},dataType:"text",ifModified:true})
+  */
+  
+	})
+})
+</script>
+
+<style>
+  body{
+  	font-family:"trebuchet ms";
+  }
+  #output{
+    display: none;
+    /*border:1px solid #444;*/
+    border-radius:5px;
+    box-shadow: 1px 1px 4px rgba(50,50,50,0.6);
+    padding:2rem;
+    margin:2rem 5rem;
+  }
+  #output #title{
+    text-align: center;
+  }
+  #output #title h2{
+    text-decoration: underline;
+  }
+  #output pre{
+    white-space:pre-wrap;
+  }
+</style>
+
+</head>
+
+<body>
+  Show data from file (local file in the same directory):
+  <input type="file" id="jsonFile" size="40"/>
+  <input type="button" value="Show Data" id="showData"/>
+  
+  <div id="output">
+    <div id="title"></div>
+    <div id="content"></div>
+  </div>
+</body>
+</html>

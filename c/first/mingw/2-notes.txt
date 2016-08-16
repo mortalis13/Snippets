@@ -1,0 +1,20 @@
+
+1. Install MinGW
+2. Add C:\MinGW\bin to PATH
+3. Run
+
+  gcc first.c -o first.exe
+
+
+------------------------
+
+  
+-- Full process --
+
+1. create an object file
+  
+  gcc -c first.cpp
+  
+2. link the object file to executable
+
+  gcc first.o -o first.exe

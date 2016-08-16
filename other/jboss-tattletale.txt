@@ -1,0 +1,42 @@
+
+java -Xmx512m -jar tattletale.jar [-exclude=<excludes>] <sourcedir> [<outputdir>]
+
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-eap6_0.jar C:\1-Datos\eclipse\ws-regexp\REGEXP\webapp\target\regexp.war C:\1-Datos\eclipse\3-reports\report-regexp
+
+
+--------------------------
+
+java -Xmx512m -jar tattletale.jar "C:\1-Datos\eclipse\ws-regexp\REGEXP"
+
+java -Xmx512m -jar tattletale.jar C:\1-Datos\eclipse\mars\eclipse-tests\Tests C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar tattletale.jar C:\1-Datos\eclipse\mars\eclipse-tests\Tests C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.2.0.Beta2\tattletale.jar C:\1-Datos\eclipse\mars\eclipse-tests\Tests C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.2.0.Beta2\tattletale.jar C:\1-Datos\eclipse\eclipse-test\TestK C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.2.0.Beta2\tattletale.jar C:\1-Datos\eclipse\mars\temp\TestM C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.2.0.Beta2\tattletale.jar C:\1-Datos\eclipse\eclipse-test\t C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.2.0.Beta2\tattletale.jar C:\1-Datos\eclipse\2-dist\regexp.ear C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-eap6_0.jar C:\1-Datos\eclipse\2-dist\regexp.ear C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.1.2.Final\tattletale.jar C:\1-Datos\eclipse\2-dist\regexp.ear C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.1.2.Final\tattletale.jar C:\1-Datos\eclipse\mars\eclipse-tests\Tests C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.1.2.Final\tattletale.jar C:\1-Datos\eclipse\ws-regexp\REGEXP\webapp C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.1.2.Final\tattletale.jar C:\1-Datos\eclipse\eclipse-test\t C:\1-Datos\eclipse\3-reports\test
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.1.2.Final\tattletale.jar C:\1-Datos\eclipse\ws-regexp\REGEXP\webapp\target\regexp C:\1-Datos\eclipse\3-reports\test1
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-eap6_0.jar C:\1-Datos\eclipse\ws-regexp\REGEXP\webapp\target\regexp C:\1-Datos\eclipse\3-reports\test2
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-eap6_0.jar C:\1-Datos\eclipse\2-dist\regexp\regexpWAR-0.0.1 C:\1-Datos\eclipse\3-reports\test3
+
+c:\tools\Java\jdk1.7.0_55\bin\java -Xmx512m -jar c:\tools\libs\tattletale-1.2.0.Beta2\tattletale.jar C:\1-Datos\eclipse\2-dist\regexp\regexpWAR-0.0.1 C:\1-Datos\eclipse\3-reports\test4

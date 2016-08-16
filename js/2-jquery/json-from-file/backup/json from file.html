@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../../1-lib/jquery-1.11.1.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<script>
+$(function(){
+	$("#appendTable").click(function(){
+		var x1="123",x2="abc";
+		var tab=$("<table>",{"class":"ntab"})
+		$("body").append(tab)
+		tab.append("<tr><td>"+x1+"<td>"+x2)
+	})
+	
+	$("#jsonFileText").click(function(){$("#jsonFile").click()})
+	$("#jsonFile").change(function(){$("#jsonFileText").val($(this).val())})
+	
+	$("#showData").click(function(){
+		//var jsonFile="load.json"
+		var jsonFile=$("#jsonFile").val();
+		var root="ROOT"
+		
+		if($(".ntab").length!=0)
+			$(".ntab").remove()
+		
+		var tab=$("<table>",{"class":"ntab"})
+		$("body").append(tab)
+    
+//-----------------------------------------------------------------    
+    
+    var arrayItems=false
+    
+    function htmlEncode(value) {
+      if(!value) return false
+      return value.replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      // return value.replace('<','&lt;').replace('>','&gt;')
+    }
+
+    function wrapKey(key){
+      return "<span class='key'>"+ key +"</span>"
+    }
+    
+    function wrapValue(value){
+      return "<pre class='value'>" + htmlEncode(value) + "</pre>"
+      // return "<code class='value'>" + value + "</code>"
+    }
+    
+    function wrapObject(obj,key){
+      var count=obj.length
+      if(count===undefined)
+        count=Object.keys(obj).length
+      
+      var headerClass="object-header"
+      var objectClass="object"
+      
+      if($.isArray(obj)){
+        headerClass+=" array-header"
+        objectClass="  array"
+      }
+      
+      var output="<h3 class='"+headerClass+"'>" + "<span class='" + objectClass + "'>" + key + "</span>" + " [" + count + "]" + "</h3>"
+      
+      return output
+    }
+    
+    function renderJSON(obj) {
+        var keys = [], result = ""
+        
+        for (var key in obj) {
+          if (obj[key] && typeof obj[key] === 'object') {
+            result += "<div class='tree'>" + wrapObject(obj[key],key);
+            result += renderJSON(obj[key]);
+            result += "</div>";
+          } else {
+            result += "<div class='tree'>" + wrapKey(key) + ": " + wrapValue(obj[key]) + "</div>";
+          }
+
+          keys.push(key);
+        }
+        return result;
+    }
+		
+		function getData(data,parent,last){
+			var i=0
+			for(var x in data){
+				if($.isArray(data[x])){
+					tab.append("<tr><td colspan=2 class='doubleRowUp'>")
+					tab.append("<tr><td colspan=2 class='doubleRowDown'>")
+					parent=parent||root
+					tab.append("<tr><td><b>"+x.toString().toUpperCase()+"<td>"+"<b>ARRAY</b> (<i>"+parent+")")
+					getData(data[x],x)
+				}
+				else if($.isPlainObject(data[x])){
+					tab.append("<tr><td colspan=2>")
+					tab.append("<tr><td><b>"+x.toString().toUpperCase()+"<td>"+"<b>OBJECT</b> (<i>"+parent+")")
+					if(i==data.length-1)
+						getData(data[x],x,true)
+					else
+						getData(data[x],x)
+				}
+				else{
+					if(i==data.length-1||(last&&i==Object.keys(data).length-1))
+						tab.append("<tr class='lastRow'><td>"+x+"<td>"+data[x])
+					else
+						tab.append("<tr><td>"+x+"<td>"+data[x])
+				}
+				i++
+			}
+		}
+		
+		//with $.each()
+		
+		/*function getData(data,parent,last){
+			var i=0
+			$.each(data,function(x){
+				if(data[x] instanceof Array){
+					tab.append("<tr><td colspan=2 class='doubleRowUp'>")
+					tab.append("<tr><td colspan=2 class='doubleRowDown'>")
+					parent=parent||root
+					tab.append("<tr><td><b>"+x.toString().toUpperCase()+"<td>"+"<b>ARRAY</b> (<i>"+parent+")")
+					getData(data[x],x)
+				}
+				else if(data[x] instanceof Object){
+					tab.append("<tr><td colspan=2>")
+					tab.append("<tr><td><b>"+x.toString().toUpperCase()+"<td>"+"<b>OBJECT</b> (<i>"+parent+")")
+					if(i==data.length-1)
+						getData(data[x],x,true)
+					else
+						getData(data[x],x)
+				}
+				else{
+					if(i==data.length-1||(last&&i==Object.keys(data).length-1))
+						tab.append("<tr class='lastRow'><td>"+x+"<td>"+data[x])
+					else
+						tab.append("<tr><td>"+x+"<td>"+data[x])
+				}
+				i++
+			})
+		}*/
+		
+		$.getJSON(jsonFile,function(data){
+      var val=renderJSON(data)
+      $("#result").html(val)
+      
+			// getData(data)
+		})
+	})
+	
+	//$("#showData").click()
+})
+</script>
+
+<style>
+
+</style>
+</head>
+
+<body>
+
+Show data from <b>.json</b> file (put to the same directory and select):
+<input type="file" id="jsonFile" size="40"/>
+<input type="button" value="Show Data" id="showData"/>
+<br><br>
+
+<div id="result"></div>
+
+<!-- <input type="button" value="Append Table" id="appendTable"/> -->
+<br><br>
+
+</body>
+</html>

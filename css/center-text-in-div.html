@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+	#centerLineHeight{
+		border:1px solid;
+		width:250px;
+		height:100px;
+		line-height:100px;
+		text-align:center;
+	}
+	
+	#centerDivTableCell{
+		display:table;
+		width:250px;
+		height:100px;
+		border:1px solid;
+	}
+	#centerDivTableCell div{
+		display:table-cell;
+		vertical-align:middle;
+		text-align:center;
+		/*border:1px solid;*/
+	}
+	
+	#centerSpan{
+		width: 250px;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+		border:1px solid;
+	}
+	#centerSpan span {
+	    display: inline-block;
+	    vertical-align: middle;
+	    line-height: normal;      
+	}
+	
+	#centerSpanTableCell{
+		display: table;
+		width: 250px;
+		height: 100px;
+		text-align: center;
+		border:1px solid;
+	}
+	#centerSpanTableCell span{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	#centerTableCell{
+		display: table-cell;
+		vertical-align: middle;
+		width:250px;
+		height:100px;
+		border:1px solid;
+		text-align:center;
+	}	
+	
+	#centerPseudoElement{
+		width:250px;
+		height:100px;
+		text-align:center;
+		border:1px solid;
+	}
+	#centerPseudoElement:before{
+		content:'';
+		height:100%;
+		display:inline-block;
+		vertical-align:middle;
+		border:1px solid;		
+	}
+	#centerPseudoElement div{
+		display:inline-block;
+		border:1px solid;		
+	}
+</style>
+<body>
+<div id="centerLineHeight">
+	Centered Text (line height)
+</div>
+<br>
+
+<div id="centerDivTableCell">
+	<div>
+		Centered Text (div table cell)
+	</div>
+</div>
+<br>
+
+<div id="centerSpan">
+	<span>Centered Text (span)<span>
+</div>
+<br>
+
+<div id="centerSpanTableCell">
+	<span>Centered Text (span table cell)</span>
+</div>
+<br>
+
+<div id="centerTableCell">
+	Centered Text (table cell)
+</div>
+<br>
+
+<div id="centerPseudoElement">
+	<div>Centered Text (pseudo element)</div>
+</div>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+get all extensions except .gif
+
+\.((?!gif).+)
+
+about.html
+archive.html
+bookmarks.html
+bookmarks.html?value1=test
+bookmarks.html?value2=alpha
+contact.html
+css/style.css
+download.html
+files/samplepdf.pdf
+img/bg_menu.gif
+img/bg_t.gif
+img/bullet.gif
+img/top_bg.gif
+index.html
+js/rel.js
+js/textsizer.js
+links.html
+links.html?target=page%20with%20spaces.html
+page%20with%20spaces.html
+portfolio.html
+support.html
+unicode.html

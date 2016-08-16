@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Analog Clock</title>
+
+<script>
+	var amplitude=90,startAngle=90,tempo=500,timeout=40
+	var animation,start,correction,statusDiv,running=false
+
+	window.onload=function(){
+		statusDiv=document.getElementById("status")
+		var pendulum = document.getElementById("pendulum")
+		pendulum.setAttribute("transform", "rotate(" + startAngle + ",50,50)")
+		
+		document.getElementById("run").addEventListener("click",function(){
+			clearTimeout(animation)
+			if(running){
+				running=false
+				pendulum.setAttribute("transform", "rotate(" + startAngle + ",50,50)")
+				statusDiv.innerHTML="Animation Stopped"
+			}
+			else{
+				running=true
+				statusDiv.innerHTML="Animation Started"
+				correction=2*Math.asin(startAngle/amplitude)
+				start=(new Date()).getTime()
+				movePendulum()
+			}
+		},false)
+	}
+
+	function movePendulum(){
+		var angle
+		var pi=Math.PI,sin=Math.sin,asin=Math.asin,abs=Math.abs,sqrt=Math.sqrt
+		
+		var now=(new Date()).getTime()
+		var time=now-start
+		time=time/tempo
+		time=(time-correction)/2
+
+		var easeVal=sin(time)
+		angle=-amplitude*easeVal
+		
+		//statusDiv.innerHTML+="<br>"+(time).toFixed(2)+"&nbsp;&nbsp;&nbsp;&nbsp;"+easeVal.toFixed(2)
+											//+"&nbsp;&nbsp;&nbsp;&nbsp;"+angle.toFixed(2)
+
+		var pendulum = document.getElementById("pendulum")
+		pendulum.setAttribute("transform", "rotate(" + angle + ",50,50)")
+		animation=setTimeout(movePendulum,timeout)
+	}
+</script>
+
+<style>
+	#clock {                         
+	   stroke: black;                
+	   stroke-linecap: round;        
+	   fill: #eef;                   
+	}
+	#pendulum {stroke-width: 1px;}  
+</style>
+</head>
+
+<body>
+  <button id=run>Run Test</button><br>
+  
+  <svg id="clock" viewBox="0 0 100 100" width="500" height="500"> 
+    <circle id="face" cx="50" cy="50" r="45"/>  
+    <g id="pendulum">
+		<line id="stick" x1="50" y1="50" x2="50" y2="80"/>
+		<circle id="end" cx="50" cy="85" r="5"/>  
+    </g>
+  </svg><br>
+  <div id="status"></div>
+</body>
+</html>

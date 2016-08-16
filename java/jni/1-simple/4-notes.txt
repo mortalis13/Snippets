@@ -1,0 +1,42 @@
+
+// JNI Example (with Visual C++ DLL)
+
+
+I. Compile .java to .class
+----------------
+
+  javac NativeDemo.java
+
+
+II. Generate .h header from .class
+----------------
+
+  javah -jni NativeDemo
+  
+  
+III. Create DLL
+
+1. Open Visual Studio Command Prompt
+2. Run command
+
+  cl /LD /I "c:\Archivos de programa\Java\jdk1.7.0_79\include" /I "c:\Archivos de programa\Java\jdk1.7.0_79\include\win32" NativeDemo.c
+
+    /I - add directory to search for includes (#include <jni.h>)
+    /LD - create DLL
+    
+
+IV. Run program
+
+  java NativeDemo
+      
+
+=============
+
+
+==Result==
+
+  This is ob.i before the native method:10
+  Starting the native method.
+  i = 10
+  Ending the native method.
+  This is ob.i after the native method:20

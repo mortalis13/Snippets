@@ -1,0 +1,57 @@
+
+// Exporting and Importing Variables (MinGW)
+
+
+I. Create DLL
+----------------
+
+1. Create object file 
+
+  gcc -c -o add_var.o add_var.c -D ADD_EXPORTS
+
+    -D - define macro
+
+2. Create DLL
+
+  gcc -o add_var.dll add_var.o -s -shared -Wl,--subsystem,windows
+
+    -s - strip symbols
+    -shared - shared library
+    -Wl - pass options to the linker
+
+-------------------
+
+--Short way--
+
+  gcc -o add_var.dll -s -shared add_var.c -D ADD_EXPORTS -Wl,--subsystem,windows
+
+
+=============
+
+
+II. Link EXE with DLL
+
+1. Create program object file
+
+  gcc -c -o add_vartest.o add_vartest.c
+
+2. Create EXE linked with the DLL
+
+  gcc -o add_vartest.exe -s add_vartest.o -L . -l add_var
+
+    -L - path to the library
+    -l - library name
+
+-------------------
+
+--Short way--
+
+  gcc -o add_vartest.exe -s add_vartest.c -L . -l add_var
+
+
+=============
+
+
+==Result==
+
+  7 + 41 = 48

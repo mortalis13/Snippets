@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+$(function(){
+	$("#fadeOut").click(function(){$(".fade").fadeOut(1000)})
+	$("#fadeIn").click(function(){$(".fade").fadeIn(1000)})
+  $("#blink").click(function(){$(".fade").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn()})
+  $("#animationOff").change(function(){$.fx.off=this.checked})
+  $(".fadeTo").hover(function(){$(this).fadeTo(200,1)},function(){$(this).fadeTo(200,0.3)})
+	$(".slide .title").click(function(){$('.slide p').slideToggle()})
+})
+</script>
+
+<style>
+	.fade{
+		border:2px solid navy;
+	}
+	.fadeTo{
+		cursor:default;
+		border:2px solid red;
+		opacity:0.3;
+	}	
+  .slide{
+    margin-top:2rem;
+  }
+  .slide .title{
+    font-weight: 700;
+    cursor:pointer;
+    text-decoration: underline;
+  }
+</style>
+</head>
+
+<body>
+<input type="button" value="Fade Out" id="fadeOut"/>
+<input type="button" value="Fade In" id="fadeIn"/>
+<input type="button" value="Blink" id="blink"/>
+
+<label for="animationOff">Disable Animation</label>
+<input type="checkbox" id="animationOff"/>
+
+<p class="fade">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec metus ligula. Aliquam pretium lectus eu venenatis auctor? Etiam sit amet nunc nec justo cursus scelerisque. Nam feugiat maximus arcu, nec venenatis libero pellentesque et. Fusce eget nisl lacinia dolor varius placerat. Pellentesque odio justo, sagittis sit amet lobortis non; scelerisque in neque. Duis velit urna, tincidunt at consectetur in, facilisis eget ante. Nulla porta erat lectus, sit amet porta ante hendrerit a. Nunc faucibus, felis in tempor lacinia, est nibh malesuada purus, nec malesuada libero purus id ipsum. Suspendisse potenti.
+</p>
+
+<p class="fadeTo">
+Ut sed aliquam diam. Aliquam leo arcu, blandit sit amet consectetur vel, facilisis vitae nulla. Praesent erat diam, aliquet id consequat sit amet, mattis ac turpis. Duis vel facilisis dui. Vivamus eu mauris sem. Nulla placerat fringilla gravida. Ut porttitor at libero ac blandit.
+</p>
+
+<div class="slide">
+  <div class="title">Click to slide</div>
+  
+  <p>
+  Pellentesque iaculis cursus purus, at tincidunt urna. Fusce ut vulputate ligula. Aenean ultricies elit at commodo porta. Nulla eget massa quis diam interdum convallis. Ut tortor leo, dignissim vitae turpis nec, sodales tristique ligula. Donec pellentesque interdum libero nec egestas! Donec in urna sem. Donec pulvinar, arcu non consequat imperdiet, velit diam finibus ligula, quis tincidunt urna nisi ut sem. Duis sodales quam eu nisi accumsan rhoncus.
+  </p>
+</div>
+
+</body>
+</html>

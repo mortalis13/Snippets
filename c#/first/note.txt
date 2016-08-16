@@ -1,0 +1,13 @@
+
+1. Add "C:\Windows\Microsoft.NET\Framework\[last-version]" to the PATH
+(it contains csc.exe C# compiler)
+
+2. Open cmd, go to the dir, type
+
+  csc First.cs
+  
+3. Type
+
+  First.exe
+  
+to run the compiled program

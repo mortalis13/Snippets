@@ -1,0 +1,71 @@
+Command Line Syntax
+
+  7z <command> [<switch>...] <base_archive_name> [<arguments>...]
+
+  <arguments> ::= <switch> | <wildcard> | <filename> | <list_file>
+  <switch>::= <switch_symbol><switch_characters>[<option>]
+  <switch_symbol> ::= '/' | '-' 
+  <list_file> ::= @{filename}
+
+Expressions in square brackets (between '[' and ']') are optional.
+
+Expressions in curly braces ('{' and '}') mean that instead of that Expression (including braces), the user must substitute some string.
+
+Expression
+
+  expression1 | expression2 | ... | expressionN
+
+means that any (but only one) from these expressions must be specified.
+
+Commands and switches can be entered in upper or lower case.
+
+Command is the first non-switch argument.
+
+The "base_archive_name" must be the first filename on the command line after the command.
+
+The switches and other filenames can be in any order.
+
+Wildcards or filenames with spaces must be quoted:
+
+    "Dir\Program files\*"
+    Dir\"Program files"\*
+
+Switch options can be combined to save command line length. However, some switch options take optional string arguments and therefore, must be the last option in a combined argument token string because 7-Zip accepts the rest of the argument token as the optional argument.
+
+7-Zip uses wild name matching similar to Windows 95:
+
+    '*' means a sequence of arbitrary characters.
+    '?' means any character.
+
+7-Zip doesn't uses the system wildcard parser. 7-Zip doesn't follow the archaic rule by which *.* means any file. 7-Zip treats *.* as matching the name of any file that has an extension. To process all files, you must use a * wildcard.
+
+Examples:
+*.txt - means all files with an extension of ".txt"
+?a* - means all files with a second character of "a"
+*1* - means all names that contains character "1"
+*.*.* - means all names that contain two at least "." characters
+
+The default wildcard "*" will be used if there is no filename/wildcard in the command line.
+
+Slash ('\') at the end of a path means a directory. Without a Slash ('\') at the end of the path, the path can refer either to a file or a directory.
+List file
+
+You can supply one or more filenames or wildcards for special list files (files containing lists of files). The filenames in such list file must be separated by new line symbol(s).
+
+For list files, 7-Zip uses UTF-8 encoding by default. You can change encoding using -scs switch.
+
+Multiple list files are supported.
+
+For example, if the file "listfile.txt" contains the following:
+
+    My programs\*.cpp
+    Src\*.cpp
+
+then the command
+
+    7z a -tzip archive.zip @listfile.txt
+
+adds to the archive "archive.zip" all "*.cpp" files from directories "My programs" and "Src".
+Short and Long File Names
+
+7-Zip supports short file names (like FILENA~1.TXT) in some cases. However, it's strongly recommended to use only the real (long) file names.

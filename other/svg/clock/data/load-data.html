@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	#status{
+		width:300px;
+		height:50px;
+		border:2px solid;
+		padding:10px;
+		margin-top:30px;
+		font-family:"arial";
+		display:none;
+	}
+  pre{
+    display: inline-block;
+    background:#eee;
+    padding:1em;
+  }  
+  code{
+    background:#eee;
+    padding:1em;
+  }  
+</style>
+
+<script src="../../../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+	$(function(){
+		$("#load").click(function(){
+			$("#status").load("clock-data.txt",function(){
+				var data=$("#status").html()
+				var rows=data.split("\n")
+        
+				for(var x in rows){
+          if(!rows[x].trim()) continue
+					if(!(x%5)) continue                                      // skip hour lines (already set in the clock) => [12,1,2,..,11]
+            
+					var p=rows[x].split("\t")                                // coordinates are separated with Tabs
+					var lineString="<line x1='"+p[0]+"' y1='"+p[1]+"' x2='"+p[2]+"' y2='"+p[3]+"'/>"
+          
+					$("#result").append(document.createTextNode(lineString))
+					$("#result").append("<br />")
+				}
+        
+			})
+		})
+	})
+</script>
+</head>
+
+<body>
+  Creates lines markup for <b>seconds</b> in the <b>clock</b> from the [x,y] coordintaes<br>
+  The file has lines with this structure:
+  <div>
+    <pre>x1  y1  x2  y2</pre>
+  </div>
+
+	<input type="button" value="Load Data" id="load" autofocus /><br><br>
+
+	<div id="result"></div>
+	<div id="status"></div>
+</body>
+</html>

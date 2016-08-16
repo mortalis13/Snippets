@@ -1,0 +1,45 @@
+<style>
+	body{
+		background:#aaa;
+		font-family:"arial","trebuchet ms";
+	}
+	#x{
+		width:400px;
+		margin:0 auto;
+		/*border:1px solid;*/
+	}
+	#x h3{
+		text-align:center;
+		border-width:1px;
+		border-color:#000;
+		border-style:solid solid none;
+		border-radius:3px 3px 0 0;
+		text-shadow:0 0 .5em rgba(0,0,0,.1);
+		height:8px;
+		position:relative;
+	}
+	#x h3:after{
+		position:absolute;
+		left:0;
+		border-color:#bebebe;
+		content:"";
+		border-radius:3px 3px 0 0;
+		border-style:solid solid none;
+		border-width:1px;
+		height:100%;
+		width:100%;
+	}
+	#x h3 span{
+		color:#333;
+		font-size:0.95em;
+		position:relative;
+		top:-0.7em;
+		background:#aaa;
+		padding:3px 10px;
+		z-index:1;
+	}
+</style>
+
+<div id="x">
+<h3><span>text</span></h3>
+</div>

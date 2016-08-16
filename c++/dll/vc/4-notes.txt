@@ -1,0 +1,39 @@
+
+// Creating and Using a DLL (Visual C++)
+(from https://msdn.microsoft.com/en-us/library/ms235636.aspx)
+
+
+0. Preparations
+
+1. Install Visual Studio with Visual C++
+2. Open VS Command Prompt (see "first/vs/notes.txt")
+3. Run the commands
+
+
+I. Create DLL
+----------------
+
+  cl /DMATHFUNCSDLL_EXPORTS /LD MathFuncsDll.cpp
+  
+    /D - define macro
+    /LD - create DLL
+  
+
+II. Link EXE with DLL
+
+  cl MyExecRefsDll.cpp /EHsc /link MathFuncsDll.lib
+  
+    /EHsc - enable exception handling
+    /link - link DLL to the EXE
+
+
+=============
+
+
+==Result==
+
+  a + b = 106.4
+  a - b = -91.6
+  a * b = 732.6
+  a / b = 0.0747475
+  Caught exception: b cannot be zero!

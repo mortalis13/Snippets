@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="style.css">
+<script src="../../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+	window.onload=function(){
+    
+    var addMsg=""
+    
+    function status(msg){
+      $(".status").html(msg)
+    }
+    
+		function getContent(config) {
+      var url, callback, error
+      url=config.url
+      callback=config.callback
+      error=config.error
+      
+			var xhr = new XMLHttpRequest();                                                  // Create new XHR object
+			xhr.open("GET", url);                                                            // Specify URL to fetch
+			xhr.onload = function() {                                                        // onload is easier than onreadystatechange
+        callback(xhr.response);                                                        // Pass the blob to our callback
+        status('<span class="success">File loaded successfully</span>')
+      }                                                                                 // Note .response, not .responseText
+      xhr.onerror=function(){
+        var stat=' [status: '+this.status+']'
+        var file=$("#f").val()
+        status('<span class="error">Error loading file:</span> '+file+stat)
+        if(error) error(xhr.response)
+      }
+			xhr.send(null);                                                                    // Send the request now
+		}
+    
+    function htmlEncode(value) {
+      if(!value) return false
+      return value.replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    }
+    
+    function wrapPre(data){
+      return '<pre class="output">'+htmlEncode(data)+'</pre>'
+    }
+		
+    /*
+     * For local files in the same directory
+     */
+		document.getElementById("test").onclick=function(){
+      var url='test.html'
+      
+      // url='test.txt'
+      // url="file:///C:/1-Roman/Documents/7-GiHub/tinymce-code-formatting/readme.txt"
+      // url="file:///C:/1-Roman/Documents/7-GiHub/tinymce-code-formatting/tinymce-code-formatting.php"
+      // url="METALLICA.com _ Products _ White 30 Years Pick Tin.htm"
+			
+			getContent({
+        url:url,
+        callback:function(data){
+            // debug 'data'
+          
+          if($("#use-div_out").is(":checked"))
+    				document.getElementById("div_out").innerHTML=data
+  				document.getElementById("ifr_out").srcdoc=data					//in Firefox 32
+  				document.getElementById("div_src").innerHTML=wrapPre(data)
+  			}
+      })
+		}
+    
+    /*
+     * For local files in the same directory and from other directories
+     * use 'html_data'
+     */
+    $("#load-file").click(function(){
+      var fileObject=$("#f")[0].files[0]
+      var data=URL.createObjectURL(fileObject)
+      var iframe=$("#ifr_out")
+      
+      iframe.attr("src",data)
+      
+      iframe.load(function() {
+        var data=iframe[0].contentDocument.body.innerHTML
+          // debug 'data'
+        
+        if($("#use-div_out").is(":checked"))
+          $("#div_out").html(data)
+        $("#div_src").html(wrapPre(data))
+      });
+      
+      status('<span class="success">File loaded successfully</span>')
+            
+    })
+    
+    document.getElementById("f").onchange=function(){
+      $("#load-file").click()
+    }
+    
+    $("#full-screen-iframe").click(function(){
+      $("#ifr_out").toggleClass('fullScreen')
+      
+      var bg='#fff'
+      if(!$("#use-iframe-white").is(":checked"))
+        bg='transparent'
+      $("#ifr_out").css("background",bg)
+    })
+    $("#full-screen-source").click(function(){
+      $("#div_src").toggleClass('fullScreen')
+    })
+    
+	}
+</script>
+
+</head>
+
+<body>
+
+  Read from <b>test.html</b>. Press 'Test'<br>
+  <input type="button" value="Test" id="test"/>  
+  <input type="button" value="Full Screen iFrame" id="full-screen-iframe"/>
+  <input type="button" value="Full Screen Source" id="full-screen-source"/>
+  <br><br>
+  
+  <label><input type="checkbox" id="use-div_out" checked> Use HTML Output</label>
+  <label><input type="checkbox" id="use-iframe-white" checked> Use White iFrame Background</label>
+  <br><br>
+  
+  <input type="file" id="f" size="50"/> <br>
+  <input type="button" value="Load File" id="load-file"/>  
+  
+  <div class="status"></div>
+
+  <hr>
+  <div class="html-output">
+    <div id="title"><h3>Output</h3></div>
+    <div id="ifr_container">
+      <div class="container-header">iFrame</div>
+      <iframe id="ifr_out"></iframe>
+    </div>
+    
+    <div id="div_container">
+      <div class="container-header">HTML Output</div>
+      <div id="div_out"></div>
+    </div>
+    
+    <div class="clear"></div>
+  </div>
+  
+  
+  <div id="src_container">
+    <div class="container-header">Source</div>
+    <div id="div_src"></div>
+  </div>
+    
+  
+</body>
+</html>

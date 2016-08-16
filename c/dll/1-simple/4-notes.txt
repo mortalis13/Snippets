@@ -1,0 +1,55 @@
+
+// Simple DLL (MinGW)
+
+
+I. Create DLL
+----------------
+
+1. Create object file 
+
+  gcc -c -o add_basic.o add_basic.c
+
+2. Create DLL
+
+  gcc -o add_basic.dll -s -shared add_basic.o -Wl,--subsystem,windows
+
+    -s - strip symbols
+    -shared - shared library
+    -Wl - pass options to the linker
+
+-------------------
+
+--Short way--
+
+  gcc -o add_basic.dll -s -shared add_basic.c -Wl,--subsystem,windows
+
+
+=============
+
+
+II. Link EXE with DLL
+
+1. Create program object file
+
+  gcc -c -o addtest_basic.o addtest_basic.c
+
+2. Create EXE linked with the DLL
+
+  gcc -o addtest_basic.exe -s addtest_basic.o -L . -l add_basic
+
+    -L - path to the library
+    -l - library name
+
+-------------------
+
+--Short way--
+
+  gcc -o addtest_basic.exe -s addtest_basic.c -L . -l add_basic
+
+
+=============
+
+
+==Result==
+
+  29

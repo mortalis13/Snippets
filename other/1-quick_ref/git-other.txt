@@ -1,0 +1,43 @@
+
+git log --oneline --graph --all --decorate
+git log -1 -p
+git log --since=2.weeks
+
+git ls-tree HEAD
+
+git diff --stat --summary [sha]..HEAD
+git diff --color-words
+
+
+== pull from the remote ==
+
+git fetch                |
+git diff origin/master   |  =>  git pull
+git merge origin/master  |
+
+
+====================================
+Edit .gitconfig in /Users/[user]
+Add the section for 'git [short]' command aliases
+
+[alias]
+  s = status
+  co = "commit -m"
+  
+Or command:
+  git config --global alias.[short] "[command]"
+  
+Use 'git s', 'git co' instead of 'git status', 'git commit -m'
+====================================
+
+
+git commit -m "edit" --amend
+# edit last commit message (will replace the message with new one)
+
+
+git config credential.helper store
+# save username and password
+
+
+git diff --cached
+# show diff when on stage (after 'git add')

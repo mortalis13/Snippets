@@ -1,0 +1,24 @@
+a (Add) command
+
+Adds files to archive.
+Examples
+
+  7z a archive1.zip subdir\
+
+adds all files and subfolders from folder subdir to archive archive1.zip. The filenames in archive will contain subdir\ prefix.
+
+  7z a archive2.zip .\subdir\*
+
+adds all files and subfolders from folder subdir to archive archive2.zip. The filenames in archive will not contain subdir\ prefix.
+
+  cd /D c:\dir1\
+  7z a c:\archive3.zip dir2\dir3\ 
+
+The filenames in archive c:\archive3.zip will contain dir2\dir3\ prefix, but they will not contain c:\dir1\ prefix.
+
+  7z a Files.7z *.txt -r
+
+adds all *.txt files from current folder and its subfolders to archive Files.7z.
+Notes
+
+7-Zip doesn't uses the system wildcard parser. 7-Zip doesn't follow the archaic rule by which *.* means any file. 7-Zip treats *.* as matching the name of any file that has an extension. To process all files, you must use a * wildcard.

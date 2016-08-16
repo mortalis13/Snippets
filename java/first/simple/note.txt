@@ -1,0 +1,12 @@
+
+1. cmd
+2. javac Test.java
+3. java -cp . Test
+4. Output => "Hi"
+
+JDK/bin should be in the PATH
+
+---
+
+javac -cp c:/add_libs/*;. thepackage/LogTest.java
+java -cp c:/add_libs/*;. thepackage.LogTest

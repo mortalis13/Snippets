@@ -1,0 +1,62 @@
+
+// Simple DLL (MinGW)
+(from http://www.mingw.org/wiki/sampleDLL)
+
+
+I. Create DLL
+----------------
+
+1. Create object file 
+
+  g++ -c -DBUILDING_EXAMPLE_DLL example_dll.cpp
+    
+    -D - define macro
+
+2. Create DLL
+
+  g++ -shared -o example_dll.dll example_dll.o -Wl,--out-implib,libexample_dll.a
+
+    -shared - shared library
+    -Wl - pass options to the linker
+    
+    --out-implib,libexample_dll.a - creates an import library libexample_dll.a
+
+-------------------
+
+--Short way--
+
+  g++ -shared -o example_dll.dll example_dll.cpp -DBUILDING_EXAMPLE_DLL -Wl,--out-implib,libexample_dll.a
+
+
+=============
+
+
+II. Link EXE with DLL
+
+1. Create program object file
+
+  g++ -c example_exe.cpp
+
+2. Create EXE linked with the DLL
+
+  g++ -o example_exe.exe example_exe.o -L. -lexample_dll
+
+    -L - path to the library
+    -l - library name (import library libexample_dll.a in this case (not .dll))
+
+-------------------
+
+--Short way--
+
+  g++ -o example_exe.exe example_exe.cpp -L. -lexample_dll
+
+
+=============
+
+
+==Result==
+
+  Hello World
+  666
+  CppFunc
+  MyClass.func()

@@ -1,0 +1,54 @@
+
+<style>
+  #success,#error{
+    display: none;
+    padding: 10px;
+    margin-top:10px;
+  }
+  #success{
+    background:#8e8;
+  }
+  #error{
+    background:#fb5;
+  }
+</style>
+
+<script src="../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $('#myForm').on('submit',function(e) {
+
+      $.ajax({
+        url:'toAction.php',
+        data:$(this).serialize(),
+        type:'POST',
+        
+        success:function(data){
+          console.log(data);
+          // $("#success").show().fadeOut(5000); //=== Show Success Message==
+          $("#success").show()
+          $("#success")[0].innerHTML+='. Output: '+data
+        },
+        
+        error:function(data){
+          // $("#error").show().fadeOut(5000); //===Show Error Message====
+          $("#error").show()
+        }
+        
+      });
+
+      e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
+      
+    });
+});
+</script>
+
+<form action="toAction.php" id="myForm">
+  <input type="text" value="Text" />
+  <input type="submit" value="Save" />
+  
+  <div id="success">Form submitted successfully</div>
+  <div id="error">Error in submission</div>
+</form>
+

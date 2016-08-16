@@ -1,0 +1,70 @@
+
+<script src="../../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+
+// Read the specified text file and display it in the <pre> element below
+function readfile(f, callback) {
+    var reader = new FileReader();  // Create a FileReader object
+    reader.readAsText(f);           // Read the file
+    
+    reader.onload = function() {    // Define an event handler
+        var result=reader.result;   // This is the file contents
+        callback(result)
+    }
+    
+    reader.onerror = function(e) {  // If anything goes wrong
+        console.log("Error", e);    // Just log it
+    };
+}
+
+function makeFileLink(text){
+  var data = new Blob([text], {type: 'text/plain'})
+  var textFile = URL.createObjectURL(data)
+  return textFile
+}
+
+function downloadTextFile(text,type){
+  if(!type) type='txt'
+    
+  var ref=makeFileLink(text)
+  var link=document.createElement("a")
+  link.href=ref
+  link.download="test-doc."+type
+  link.style.display="none"
+  document.body.appendChild(link)
+  link.click()
+}
+
+$(function(){
+  
+  $('#b').click(function(){
+    var file=$('#f')[0].files[0]
+    
+    readfile(file, function(result){
+      var out=$('#output').html('')
+      out.append(document.createTextNode(result))
+      
+      var res=result.split('\r\n')                              // '\r\n' or '\n'
+      var result=[]
+      res.forEach(function(item){
+        var text="Android Game: "
+        item=text+item
+        result.push(item)
+      })
+      
+      result=result.join('\r\n')
+      downloadTextFile(result)
+    })
+  })
+  
+})
+
+</script>
+
+Select the file and press the <b>button</b> to download the changed text file.<br>
+The script adds text at the start of each line.<br><br>
+<input type="file" id="f"></input><br>
+<input type="button" id="b" value="Download changed file"></input>
+
+<pre id="output"></pre>

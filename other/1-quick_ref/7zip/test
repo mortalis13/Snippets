@@ -1,0 +1,8 @@
+t (Test integrity of archive) command
+
+Tests archive files.
+Example
+
+  7z t archive.zip *.doc -r
+
+tests *.doc files in archive archive.zip.

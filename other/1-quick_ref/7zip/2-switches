@@ -1,0 +1,44 @@
+Command Line Switches
+Syntax
+
+<switch>::= <switch_symbol><switch_characters>[<option>]
+<switch_symbol> ::= '/' | '-' 
+
+On the command line, a switch consists of a switch specifier, either a dash (-) or a forward slash (/), followed by the name of the switch. Switch names cannot be abbreviated.
+
+Some switches take an argument after the switch name. No spaces or tabs are allowed within a switch specification. Switch names are not case sensitive, but arguments can be case sensitive.
+
+Switch can be used in any place in command line.
+
+See also Command Line Syntax for more details about using the command line.
+
+
+Switch quick reference
+Switch  Description
+--  Stop switches parsing
+-ai   Include archive filenames
+-an   Disable parsing of archive_name
+-ao   Overwrite mode
+-ax   Exclude archive filenames
+-i  Include filenames
+-m  Set Compression Method
+-o  Set Output directory
+-p  Set Password
+-r  Recurse subdirectories
+-scc  Set charset for for console input/output
+-scs  Set charset for list files
+-seml   Send archive by email
+-slp  Set Large Pages mode
+-slt  Show technical information
+-sfx  Create SFX archive
+-si   Read data from StdIn
+-so   Write data to StdOut
+-ssc  Set Sensitive Case mode
+-ssw  Compress files open for writing
+-t  Type of archive
+-u  Update options
+-v  Create Volumes
+-w  Set Working directory
+-x  Exclude filenames
+-y  Assume Yes on all queries
+

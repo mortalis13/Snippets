@@ -1,0 +1,8 @@
+change default locale
+
+create environment variable
+JAVA_TOOL_OPTIONS = -Duser.language=en
+
+java -Duser.country=DE -Duser.language=de -jar test.jar
+java -Duser.language=en -jar test.jar
+

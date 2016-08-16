@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<!-- document.body.childNodes[1].childNodes[2] -->
+
+<head>
+	<style>
+		body{
+			background:#eee;
+			font-size:1.2em;
+			font-family:"Trebuchet MS";
+		}
+		
+		#out{
+			display:table;
+			position:absolute;
+			left:400px;
+			top:300px;
+			width:300px;
+			height:400px;
+			border:1px solid;
+			background:rgba(255,250,204,.6);
+			padding:10px;
+		}
+		
+		#out div#textContainer{
+			display:table-row;
+		}
+		#out div#text{
+			display:table-cell;
+			border:1px solid red;
+		}
+		
+		#out div#buttonContainer{
+			display:table-row;
+			text-align:center;
+		}
+		#out div#button{
+			display:table-cell;
+			vertical-align:bottom;
+			border:1px solid red;
+		}
+
+		
+		#t1{
+			position:absolute;
+			left:900px;
+			top:300px;
+			width:300px;
+			height:400px;
+			border:1px solid;
+			background:rgba(255,250,204,.6);
+		}
+		#t1>div{
+			display:table;
+			
+			position:relative;
+			text-align:center;
+			border:1px solid red;
+			height:100px;
+			width:300px;
+		}
+		#t1 div#button{
+			display:table-cell;
+			vertical-align:bottom;
+		}
+	</style>
+	
+	<script src="jquery-2.0.0.js"></script>
+	<script>
+		$(function(){
+			function jj(){
+				return jj.doc
+			}
+			
+			jj.init=function(doc){
+				jj.doc=doc
+			}
+			
+			$("#test").click(function(){
+				jj.init("x1")
+				var text=jj()
+				var div=$("<div>").html(text)
+				div.css({"border":"1px solid","padding":"10px","width":"1000px","margin":"10px auto"})
+				div.appendTo("body")
+			})
+		}) 
+	</script>
+	
+	<title>Test</title>
+</head>
+
+<body>
+	<span id="txt">
+		25/10/2013 text 25/10/13<br>
+		Some text.<br>
+		25/10/13 phone 25/10/2013<br><br>
+		Notice that the parameters to the literal format do not use quotation marks to indicate strings, <br>
+		while the parameters to the constructor function do use quotation marks. <br>
+		So the following expressions create the same regular expression: <br>
+	</span><br>
+	<button id="test">Test</button>
+	
+	<div id="out">
+		<div id="textContainer">
+			<div id="text">
+				Text1<br>
+				Text2<br>
+			</div>
+		</div>
+		<div id="buttonContainer">
+			<div id="button">
+				<button>Close</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id="t1">
+		<div>
+			<div id="button">
+				<button>Close</button>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

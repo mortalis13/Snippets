@@ -1,0 +1,40 @@
+#maxLinks{
+	padding:5px;
+}
+#pagePath{
+	padding:5px;
+}
+br{
+	line-height:0px;
+}
+input[type="button"]{
+	/*height:30px;*/
+	/*margin:15px 0;*/
+}
+input[type="text"]{
+	padding:5px;
+	margin:5px 0;
+}	
+#loadSection label{
+	float:left;
+	width:160px;
+	margin-top:7px;
+}
+#openSection label{
+	float:left;
+	width:80px;
+	margin-top:7px;
+}	
+#loadSection, #openSection{
+	margin:20px 0;
+	/*border:1px solid;*/
+	padding-left:10px;
+}
+#loadSection #load{
+	margin:5px 0;
+}
+
+#status{
+	margin:10px;
+	padding:10px;
+}

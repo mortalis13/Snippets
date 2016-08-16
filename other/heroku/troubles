@@ -1,0 +1,5 @@
+	'heroku' does not appear to be a git repository
+heroku git:remote -a yourapp
+
+	Updates were rejected because the remote contains work that you do not have locally.
+git push -f heroku master

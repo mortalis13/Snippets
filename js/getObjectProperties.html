@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+	
+</style>
+
+<script>
+	window.onload=function(){
+		function getProps(){
+      console.log('Document properties:');
+			console.log(Object.keys(Object.getPrototypeOf(document)));
+		}
+		
+		document.getElementById("getProps").addEventListener("click",function(e){getProps()},false);
+	}
+</script>
+
+<body>
+	<input type="button" value="Get 'document' properties" id="getProps"/><br>
+  See console
+</body>
+</html>

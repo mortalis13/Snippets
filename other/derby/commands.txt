@@ -1,0 +1,11 @@
+
+> ij
+> startNetworkServer
+
+----------------------------------
+
+connect 'jdbc:derby://localhost:1527/chapter04DB';
+
+show tables;
+
+describe <table>;

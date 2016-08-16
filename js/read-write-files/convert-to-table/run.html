@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Edit HTML and download</title>
+	<link rel=stylesheet href="lib/style.css"/>
+  <script src="../../1-lib/jquery-1.11.1.js"></script>
+	<script src="lib/a-run.js"></script>
+</head>
+
+<body>
+  <div class="desc">Loads <b><a href='text.txt' target='_blank'>text.txt</a></b> text file, separates each line with a delimiter and creates table of values</div>
+  
+  <div class="options">
+    <div class="optionsWrap">
+    
+      <div class="inputMethod">
+        <div class="optionTitle">Input Method:</div>
+        <div class="optionFields">
+          <label><input type="radio" name="input" id="localFile" checked> Load 'text.txt'</label> 
+          <label><input type="radio" name="input" id="uploadFile"> Upload file</label>
+        </div>
+      </div>
+      
+      <div class="resultDest">
+        <div class="optionTitle">Result Destination:</div>
+        <div class="optionFields">
+          <label><input type="radio" name="output" id="showTable" checked> Show table</label> 
+          <label><input type="radio" name="output" id="downloadFile"> Download HTML</label>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <input type="file" name="" id="f">
+  
+  <br><br>
+  
+  <div class="wrap">
+  	<button id="buildTable" accesskey="b" autofocus>Build Table</button>
+  </div>
+</body>
+</html>

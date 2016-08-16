@@ -1,0 +1,56 @@
+
+pattern: .+?(\S+?)\n
+replace: $1
+
+classical music composers
+replace string with the last word (last name)
+
+ex.:
+Antonio Lucio Vivaldi => Vivaldi
+Antonin Dvorak        => Dvorak
+
+
+Test:
+
+Antonio Lucio Vivaldi
+Antonín Dvorák
+Aram Jachaturián
+Carl Orff
+Charles Camille Saint-Saëns
+Claude-Achille Debussy
+Dmitri Dmítrievich Shostakóvich
+Edvard Hagerup Grieg
+Felix Mendelssohn
+Francisco Tárrega
+Franz Joseph Haydn
+Franz Liszt
+Franz Peter Schubert
+Frédéric Chopin
+Fritz Kreisler
+Georg Friedrich Händel
+Georges Bizet
+Gioachino Rossini
+Giuseppe Fortunino Francesco Verdi
+Gueorgui Vasílievich Svirídov
+Jacques Offenbach
+Jeremiah Clarke
+Johann Pachelbel
+Johann Sebastian Bach
+Johann Strauss
+Johannes Brahms
+Joseph Maurice Ravel
+Jules Massenet
+Luciano Pavarotti
+Ludwig Van Beethoven
+Luigi Rodolfo Boccherini
+Michał Kleofas Ogiński
+Mijaíl Ivánovich Glinka
+Niccolò Paganini Bocciardo
+Nikolái Andréyevich Rimski-Kórsakov
+Piotr Ilich Chaikovski
+Richard Strauss
+Robert Schumann
+Serguéi Serguéievich Prokófiev
+Serguéi Vasílievich Rajmáninov
+Wilhelm Richard Wagner
+Wolfgang Amadeus Mozart

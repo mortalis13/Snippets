@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\gitUpdate]
+@="Git Update [c]"
+
+[HKEY_CLASSES_ROOT\Directory\shell\gitUpdate\command]
+@="\"C:\\1-Roman\\Documents\\3-programming\\4-snippets\\other\\git\\context\\git-current-update.bat\" \"%1\""

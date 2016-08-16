@@ -1,0 +1,19 @@
+<script src="whereami.js"></script>
+<script src="getmap.js"></script>
+<script>
+	window.onload=function(){
+		document.getElementById("b").onclick=function(){
+			var div=document.getElementById("d")
+			whereami(div)
+		}	
+		
+		document.getElementById("b1").onclick=function(){
+			var img=getmap()
+			document.body.appendChild(img)
+		}	
+	}
+</script>
+
+<input type="button" id="b" value="Get Coordinates"/>
+<input type="button" id="b1" value="Get Location Map"/>
+<div id="d"></div>

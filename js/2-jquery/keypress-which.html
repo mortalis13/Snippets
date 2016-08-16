@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>event.which demo</title>
+  <script src="../1-lib/jquery-1.11.1.js"></script>
+</head>
+
+<body>
+  <input id="whichkey" value="type something" autofocus>
+  <div id="log"></div>
+  <button id="reset">Reset</button>
+  
+  <script>
+    var initial='[keydown] Keys: '
+    $("#log").html(initial)
+    
+    $( "#whichkey" ).select()
+    $( "#whichkey" ).on( "keydown", function( event ) {
+      var html=$("#log").html()
+      if(html!=initial) html+=', '
+      $("#log").html(html+event.which);
+    
+      // event.preventDefault()
+    });
+    
+    $("#reset").click(function(){
+      $("#log").html(initial)
+      $( "#whichkey" ).val('')
+      $( "#whichkey" ).focus()
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js ve-not-available" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>MySQL/CheatSheet - Wikibooks, open books for an open world</title>
+<meta name="generator" content="MediaWiki 1.25wmf24">
+<link rel="shortcut icon" href="http://bits.wikimedia.org/favicon/wikibooks.ico">
+<link rel="stylesheet" href="MySQL_CheatSheet/load.css">
+
+</head>
+
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-MySQL_CheatSheet skin-vector action-view">
+    
+    
+    <div id="content" class="mw-body" role="main">
+      <a id="top"></a>
+
+              <div id="siteNotice"><div id="centralNotice"></div><!-- CentralNotice --></div>
+            <div class="mw-indicators">
+</div>
+      <h1 id="firstHeading" class="firstHeading" lang="en">MySQL/CheatSheet</h1>
+            <div id="bodyContent" class="mw-body-content">
+                  <div id="siteSub">From Wikibooks, open books for an open world</div>
+                <div id="contentSub"><span class="subpages">&lt; <a href="http://en.wikibooks.org/wiki/MySQL" title="MySQL">MySQL</a></span></div>
+                        <div id="jump-to-nav" class="mw-jump">
+          Jump to:          <a href="#mw-head">navigation</a>,          <a href="#p-search">search</a>
+        </div>
+        <div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+<span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Connect.2FDisconnect"><span class="tocnumber">1</span> <span class="toctext">Connect/Disconnect</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Query"><span class="tocnumber">2</span> <span class="toctext">Query</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Conditionals"><span class="tocnumber">3</span> <span class="toctext">Conditionals</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Data_Manipulation"><span class="tocnumber">4</span> <span class="toctext">Data Manipulation</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Browsing"><span class="tocnumber">5</span> <span class="toctext">Browsing</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Create_.2F_delete_.2F_select_.2F_alter_database"><span class="tocnumber">6</span> <span class="toctext">Create / delete / select / alter database</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Create.2Fdelete.2Fmodify_table"><span class="tocnumber">7</span> <span class="toctext">Create/delete/modify table</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Keys"><span class="tocnumber">8</span> <span class="toctext">Keys</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#create.2Fmodify.2Fdrop_view"><span class="tocnumber">9</span> <span class="toctext">create/modify/drop view</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Privileges"><span class="tocnumber">10</span> <span class="toctext">Privileges</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Main_data_types"><span class="tocnumber">11</span> <span class="toctext">Main data types</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Forgot_root_password.3F"><span class="tocnumber">12</span> <span class="toctext">Forgot root password?</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Repair_tables_after_unclean_shutdown"><span class="tocnumber">12.1</span> <span class="toctext">Repair tables after unclean shutdown</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Loading_data"><span class="tocnumber">12.2</span> <span class="toctext">Loading data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p></p>
+<h3><span class="mw-headline" id="Connect.2FDisconnect">Connect/Disconnect</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=1" title="Edit section: Connect/Disconnect">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>mysql -h &lt;host&gt; -u &lt;user&gt; -p&lt;passwd&gt;
+mysql -h &lt;host&gt; -u &lt;user&gt; -p
+Enter password: ********
+mysql -u user -p
+mysql
+mysql -h &lt;host&gt; -u &lt;user&gt; -p &lt;Database&gt;
+</pre>
+<h3><span class="mw-headline" id="Query">Query</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=2" title="Edit section: Query">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>SELECT * FROM table
+SELECT * FROM table1, table2, ...
+SELECT field1, field2, ... FROM table1, table2, ...
+SELECT ... FROM ... WHERE condition
+SELECT ... FROM ... WHERE condition GROUP BY field
+SELECT ... FROM ... WHERE condition GROUP BY field HAVING condition2
+SELECT ... FROM ... WHERE condition ORDER BY field1, field2
+SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC
+SELECT ... FROM ... WHERE condition LIMIT 10
+SELECT DISTINCT field1 FROM ...
+SELECT DISTINCT field1, field2 FROM ...
+</pre>
+<pre>SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition
+SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition
+SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...
+SELECT ... FROM t1 JOIN t2 USING(id) WHERE condition
+</pre>
+<h3><span class="mw-headline" id="Conditionals">Conditionals</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=3" title="Edit section: Conditionals">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>field1 = value1
+field1 &lt;&gt; value1
+field1 LIKE 'value _ %'
+field1 IS NULL
+field1 IS NOT NULL
+field1 IN (value1, value2)
+field1 NOT IN (value1, value2)
+condition1 AND condition2
+condition1 OR condition2
+</pre>
+<h3><span class="mw-headline" id="Data_Manipulation">Data Manipulation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=4" title="Edit section: Data Manipulation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>INSERT INTO table1 (field1, field2, ...) VALUES (value1, value2, ...)
+INSERT table1 SET field1=value_1, field2=value_2 ...
+</pre>
+<pre>LOAD DATA INFILE '/tmp/mydata.txt' INTO TABLE table1
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY '\\'
+</pre>
+<pre>DELETE FROM table1 / TRUNCATE table1
+DELETE FROM table1 WHERE condition
+-- join:
+DELETE FROM table1, table2 WHERE table1.id1 = table2.id2 AND condition
+</pre>
+<pre>UPDATE table1 SET field1=new_value1 WHERE condition
+-- join:
+UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ...
+WHERE table1.id1 = table2.id2 AND condition
+</pre>
+<h3><span class="mw-headline" id="Browsing">Browsing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=5" title="Edit section: Browsing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>SHOW DATABASES
+SHOW TABLES
+SHOW FIELDS FROM table / SHOW COLUMNS FROM table / DESCRIBE table / DESC table / EXPLAIN table
+SHOW CREATE TABLE table
+SHOW CREATE TRIGGER trigger
+SHOW TRIGGERS LIKE '%update%'
+SHOW PROCESSLIST
+KILL process_number
+SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '**yourdbname**';
+$ mysqlshow
+$ mysqlshow database
+</pre>
+<h3><span class="mw-headline" id="Create_.2F_delete_.2F_select_.2F_alter_database">Create / delete / select / alter database</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=6" title="Edit section: Create / delete / select / alter database">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>CREATE DATABASE [IF NOT EXISTS] mabase [CHARACTER SET charset] [COLLATE collation]
+CREATE DATABASE mabase CHARACTER SET utf8
+DROP DATABASE mabase
+USE mabase
+</pre>
+<pre>ALTER DATABASE mabase CHARACTER SET utf8
+</pre>
+<h3><span class="mw-headline" id="Create.2Fdelete.2Fmodify_table">Create/delete/modify table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=7" title="Edit section: Create/delete/modify table">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>CREATE TABLE table (field1 type1, field2 type2, ...)
+CREATE TABLE table (field1 type1 unsigned not null auto_increment, field2 type2, ...)
+CREATE TABLE table (field1 type1, field2 type2, ..., INDEX (field))
+CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1))
+CREATE TABLE table (field1 type1, field2 type2, ..., PRIMARY KEY (field1, field2))
+CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,
+  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA)
+    [ON UPDATE] [CASCADE|SET NULL|RESTRICT]
+    [ON DELETE] [CASCADE|SET NULL|RESTRICT])
+CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,
+  FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))
+CREATE TABLE table IF NOT EXISTS (...)
+</pre>
+<pre>CREATE TABLE new_tbl_name LIKE tbl_name
+  [SELECT ... FROM tbl_name ...]
+</pre>
+<pre>CREATE TEMPORARY TABLE table (...)
+</pre>
+<pre>CREATE table new_table_name as SELECT [ *|column1, column2 ] FROM table_name
+</pre>
+<pre>DROP TABLE table
+DROP TABLE IF EXISTS table
+DROP TABLE table1, table2, ...
+DROP TEMPORARY TABLE table
+</pre>
+<pre>ALTER TABLE table MODIFY field1 type1 
+ALTER TABLE table MODIFY field1 type1 NOT NULL ... 
+ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1
+ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 NOT NULL ...
+ALTER TABLE table ALTER field1 SET DEFAULT ...
+ALTER TABLE table ALTER field1 DROP DEFAULT
+ALTER TABLE table ADD new_name_field1 type1
+ALTER TABLE table ADD new_name_field1 type1 FIRST
+ALTER TABLE table ADD new_name_field1 type1 AFTER another_field
+ALTER TABLE table DROP field1
+ALTER TABLE table ADD INDEX (field);
+ALTER TABLE table ADD PRIMARY KEY (field);
+</pre>
+<pre>-- Change field order:
+ALTER TABLE table MODIFY field1 type1 FIRST
+ALTER TABLE table MODIFY field1 type1 AFTER another_field
+ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST
+ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER another_field
+</pre>
+<pre>ALTER TABLE old_name RENAME new_name;
+</pre>
+<h3><span class="mw-headline" id="Keys">Keys</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=8" title="Edit section: Keys">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>CREATE TABLE table (..., PRIMARY KEY (field1, field2))
+CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2 (t2_field1, t2_field2))
+ALTER TABLE table ADD PRIMARY KEY (field);
+ALTER TABLE table ADD CONSTRAINT constraint_name PRIMARY KEY (field, field2);
+</pre>
+<h3><span class="mw-headline" id="create.2Fmodify.2Fdrop_view">create/modify/drop view</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=9" title="Edit section: create/modify/drop view">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>CREATE VIEW view AS SELECT ... FROM table WHERE ...
+</pre>
+<h3><span class="mw-headline" id="Privileges">Privileges</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=10" title="Edit section: Privileges">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+</pre>
+<pre>GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
+</pre>
+<pre>SET PASSWORD = PASSWORD('new_pass')
+SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass')
+SET PASSWORD = OLD_PASSWORD('new_pass')
+</pre>
+<pre>DROP USER 'user'@'host'
+</pre>
+<h3><span class="mw-headline" id="Main_data_types">Main data types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=11" title="Edit section: Main data types">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>TINYINT   (1o: -127+128) 
+SMALLINT  (2o: +-65 000)
+MEDIUMINT (3o: +-16 000 000) 
+INT       (4o: +-2 000 000 000)
+BIGINT    (8o: +-9.10^18)
+  Precise interval: -(2^(8*N-1)) -&gt; (2^8*N)-1
+  /!\ INT(2) = "2 digits displayed" -- NOT "number with 2 digits max"
+</pre>
+<pre>INT NOT NULL auto_increment PRIMARY KEY -- auto-counter for PK
+</pre>
+<pre>FLOAT(M,D) DOUBLE(M,D) FLOAT(D=0-&gt;53) 
+  /!\ 8,3 -&gt; 12345,678 -- NOT 12345678,123!
+</pre>
+<pre>TIME (HH:MM) YEAR (AAAA) DATE (AAAA-MM-JJ) DATETIME (AAAA-MM-JJ HH:MM; années 1000-&gt;9999)
+  TIMESTAMP (like DATETIME, but 1970-&gt;2038, compatible with Unix)
+</pre>
+<pre>VARCHAR (single-line; explicit size)  
+TEXT (multi-lines; max size=65535) 
+BLOB (binary; max size=65535)
+  Variants for TEXT&amp;BLOB: TINY (max=255) MEDIUM (max=~16000) LONG (max=4Go)
+ Ex: VARCHAR(32), TINYTEXT, LONGBLOB, MEDIUMTEXT
+</pre>
+<pre>ENUM ('value1', 'value2', ...) -- (default NULL, or '' if NOT NULL)
+</pre>
+<h2><span class="mw-headline" id="Forgot_root_password.3F">Forgot root password?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=12" title="Edit section: Forgot root password?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<pre>$ /etc/init.d/mysql stop
+$ mysqld_safe --skip-grant-tables &amp;
+$ mysql # on another terminal
+mysql&gt; UPDATE mysql.user SET password=PASSWORD('nouveau') WHERE user='root';
+## Kill mysqld_safe from the terminal, using Control + \
+$ /etc/init.d/mysql start
+</pre>
+<h3><span class="mw-headline" id="Repair_tables_after_unclean_shutdown">Repair tables after unclean shutdown</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=13" title="Edit section: Repair tables after unclean shutdown">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>mysqlcheck --all-databases
+mysqlcheck --all-databases --fast
+</pre>
+<p><br></p>
+<h3><span class="mw-headline" id="Loading_data">Loading data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;action=edit&amp;section=14" title="Edit section: Loading data">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>mysql&gt; SOURCE input_file
+$ mysql database &lt; filename-20120201.sql
+$ cat filename-20120201.sql | mysql database
+</pre>
+
+<!-- 
+NewPP limit report
+Parsed by mw1169
+CPU time usage: 0.029 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 99/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 146/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/500
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    6.721      1 - Template:BookCat
+100.00%    6.721      1 - -total
+ 39.12%    2.629      1 - Template:FULLBOOKNAME
+-->
+
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:104532-0!*!*!!en!*!* and timestamp 20150411205544 and revision id 2840478
+ -->
+<noscript><img src="//en.wikibooks.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>                 <div class="printfooter">
+            Retrieved from "<a dir="ltr" href="http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;oldid=2840478">http://en.wikibooks.org/w/index.php?title=MySQL/CheatSheet&amp;oldid=2840478</a>"          </div>
+                          <div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://en.wikibooks.org/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="http://en.wikibooks.org/wiki/Category:MySQL" title="Category:MySQL">MySQL</a></li></ul></div></div>                       <div class="visualClear"></div>
+              </div>
+    </div>
+    
+    
+    
+
+
+
+
+
+  
+
+</body></html>

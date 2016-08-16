@@ -1,0 +1,75 @@
+
+// Creating and Using an Import Library (MinGW)
+
+
+I. Create DLL
+----------------
+
+1. Create object file 
+
+  gcc -c -o add.o add.c -D ADD_EXPORTS
+
+    -D - define macro
+
+2. Create DLL
+
+  gcc -o bin/add.dll add.o -s -shared -Wl,--subsystem,windows,--out-implib,lib/libadd.a
+
+    -s - strip symbols
+    -shared - shared library
+    -Wl - pass options to the linker
+    
+    --out-implib,libadd.a - creates an import library libadd.a
+
+-------------------
+
+--Short way--
+
+  gcc -o bin/add.dll -s -shared add.c -D ADD_EXPORTS -Wl,--subsystem,windows,--out-implib,lib/libadd.a
+
+
+=============
+
+
+II. Link EXE with DLL
+
+1. Create program object file
+
+  gcc -c -o addtest.o addtest.c
+
+2. Create EXE linked with the DLL
+
+  gcc -o addtest.exe -s addtest.o -L ./lib -l add
+
+    -L - path to the library
+    -l - library name
+
+-------------------
+
+--Short way--
+
+  gcc -o addtest.exe -s addtest.c -Llib -l add
+
+
+=============
+
+
+III. Run
+
+1. Add .dll folder to the PATH
+
+  path = bin
+  
+or
+
+  path %path%;bin
+
+2. Run the .exe, the .dll will be found in the bin folder
+
+
+=============
+
+
+==Result==
+
+  29

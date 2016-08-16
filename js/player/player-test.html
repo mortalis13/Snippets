@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	#status{
+		width:300px;
+		height:50px;
+		border:2px solid;
+		padding:10px;
+		margin-top:30px;
+		font-family:"arial";
+	}
+</style>
+
+<script src="../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+	$(function(){
+		showPlaybackRate()
+		
+		function showPlaybackRate(){
+			$("#status").html("Playback Speed: "+$("#music")[0].playbackRate.toFixed(2))
+		}
+		
+		$("#playPause").click(function(){
+			var a=$("#music")[0]
+			if(a.paused)
+				a.play()
+			else
+				a.pause()
+			showPlaybackRate()
+		})
+		
+		$("#stop").click(function(){
+			var a=$("#music")[0]
+			a.pause()
+			a.currentTime=a.initialTime
+			a.playbackRate=1.0
+			showPlaybackRate()
+		})
+		
+		$("#speedDown").click(function(){
+			$("#music")[0].playbackRate-=.1
+			showPlaybackRate()
+		})	
+		
+		$("#speedUp").click(function(){
+			$("#music")[0].playbackRate+=.1
+			showPlaybackRate()
+		})
+
+		$("#restoreSpeed").click(function(){
+			$("#music")[0].playbackRate=1.001-0.001
+			showPlaybackRate()
+		})
+	})
+</script>
+</head>
+
+<body>
+	<input type="button" value="Play/Pause" id="playPause"/>
+	<input type="button" value="Stop" id="stop"/><br style="margin-bottom:10px">
+	
+	<input type="button" value="Speed Down" id="speedDown"/>
+	<input type="button" value="Speed Up" id="speedUp"/>
+	<input type="button" value="Restore Speed" id="restoreSpeed"/><br><br>
+	
+	<audio id="music" controls preload>
+		<source src="audio/test.ogg" type="audio/ogg; codec='vorbis'">
+    <source src="audio/test.wav" type="audio/wav">
+    <!-- <source src="audio/test.wav" type="audio/mpeg"> -->
+	</audio>
+	
+	<div id="status"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+cd %~dp0
+
+I. Command Line
+
+1. Simple command
+for /d %a in (*) do 7z a %a.zip %a
+
+2. Folders with spaces
+for /d %a in (*) do 7z a "%a.zip" "%a"
+
+3. Arhives with folders content only
+for /d %a in (*) do 7z a %a.zip .\%a\*
+
+
+II. Batch file
+
+1. Simple command
+for /d %%a in (*) do 7z a %%a.zip %%a
+
+2. Folders with spaces
+for /d %%a in (*) do 7z a "%%a.zip" "%%a"
+
+3. Arhives with folders content only
+for /d %%a in (*) do 7z a %%a.zip .\%%a\*

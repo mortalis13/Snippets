@@ -1,0 +1,15 @@
+
+1. Positive lookahead
+
+  q(?=u)
+  
+qu
+qw
+
+2. Negative lookahead
+
+  q(?!u)
+
+qu
+qw
+

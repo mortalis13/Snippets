@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<style>body { font: 9pt sans-serif; }</style>
+<script src="jquery-2.0.0.js"/></script>
+
+<script>
+
+if (window.addEventListener)
+    window.addEventListener("message", handleMessage, false);
+else 
+    window.attachEvent("onmessage", handleMessage);  
+  
+function request (searchterm) {
+  $.ajax({
+    // type:'GET',
+    // crossDomain:true,
+    
+    dataType: "jsonp",
+    url: "https://api.twitter.com/1.1/search/tweets.json?q="+searchterm,
+    
+    // url: "https://api.twitter.com/1.1/search/tweets.json?",
+    // url: "http://search.twitter.com/search.json?callback=?",
+    // data: { q: searchterm },
+    
+    success: function(data) {  
+      var tweets = data.results;
+      var escaped = searchterm.replace("<", "<");
+      var html = "<h2>" + escaped + "</h2>";
+      if (tweets.length == 0) {
+          html += "No tweets found";
+      }
+      else {
+          html += "<dl>"; 
+          for(var i = 0; i < tweets.length; i++) {
+            var tweet = tweets[i];
+            var text = tweet.text;
+            var from = tweet.from_user;
+            var tweeturl = "http://twitter.com/#!/" +
+                from + "/status/" + tweet.id_str;
+            html += "<dt><a target='_blank' href='" +
+                tweeturl + "'>" + tweet.from_user +
+                "</a></dt><dd>" + tweet.text + "</dd>";
+          }
+          html += "</dl>";
+      }
+      document.body.innerHTML = html;
+    },
+    
+    error:function(a,b,c){
+      // console.log("x-error")
+      console.log("object: "+a)
+      console.log("status: "+a.status)
+      console.log("text: "+c)
+    }
+  }); 
+}  
+
+function request1 () {
+  var idiom='university'
+  
+  $.ajax({
+      type: "GET",
+      url: 'http://www.oxfordlearnersdictionaries.com/search/english/direct/',
+      data:{q:idiom},
+      async:true,
+      dataType : 'jsonp',   //you may use jsonp for cross origin request
+      crossDomain:true,
+      success: function(data, status, xhr) {
+        alert('ok')
+          // alert(xhr.responseText);
+          // alert(xhr.getResponseHeader('Location'));
+      },
+      error:function() {
+        alert('error')
+      }
+  });
+}
+
+function handleMessage(e) {
+  var searchterm = e.data; 
+  request(searchterm)
+  // request1()
+}
+
+$(function() {
+    // window.parent.postMessage("Twitter Search v0.1", "*");
+});
+
+</script>
+
+</head>
+
+<body>
+123
+</body>
+
+</html>

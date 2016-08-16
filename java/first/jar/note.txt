@@ -1,0 +1,19 @@
+
+1. cmd
+2. javac Test.java
+3. jar cvfm test.jar manifest.mf Test.class
+4. java -jar test.jar
+5. Output => "Hi"
+
+JDK/bin should be in the PATH
+manifest.mf should contain "Main-Class: <full.class.name>" and an empty line at the end
+
+---
+
+javac -cp c:/add_libs/*;. thepackage/LogTest.java
+java -cp c:/add_libs/*;. thepackage.LogTest
+
+---
+
+To run .jar with manifest which doesn't have Main-Class
+java -cp <jar-name>.jar <full.class.name>

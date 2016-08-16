@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\file_args_list]
+@="File Args List [c]"
+
+[HKEY_CLASSES_ROOT\*\shell\file_args_list\command]
+@="\"C:\\1-Roman\\Documents\\3-programming\\4-snippets\\other\\cmd\\context\\files-substitutions-list.bat\" \"%1\""

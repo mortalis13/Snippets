@@ -1,0 +1,26 @@
+
+- install JDK
+- install Android SDK
+- install NDK
+- install Ant
+- install MinGW
+
+================
+
+1. Go to the hello-jni folder, or to the project in the NDK/samples
+2. Generate build files
+
+  android update project -p . -t 1
+  
+3. Build native library
+
+  ndk-build
+  
+4. Package, install the app
+
+  ant debug install
+  
+5. Run the app
+
+  adb shell am start -a android.intent.action.MAIN -n com.example.hellojni/.HelloJni
+

@@ -1,0 +1,55 @@
+
+<?php
+
+// Search for 'previous' and 'next' article ids in DB to create Next/Prev links from each article page
+
+$conn=new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
+$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+
+$id=$conn->quote($id);
+if($user!="")
+  $userQuery=$conn->quote($user);
+
+// 1. Init vars
+
+$sql="set @rindex:=0, @rindex1:=0, @searchId:=$id;";	         
+$conn->query($sql);
+
+// 2. Get row number of the $id in the main query table (articles:date DESC) for current 'user' or all articles
+// Store the row number in the @r1 variable.
+// From the inner query we get table with [rindex,id] columns, 'rindex' - shows row number.
+// Then we select this row numbers column and get one row with the $id.
+
+if($user!="")
+  $sql="select rindex into @r1 from (select @rindex:=@rindex+1 rindex, id from news where user=$userQuery order by date desc) rr where id=@searchId;";			//get row number where 'id' is stored
+else
+  $sql="select rindex into @r1 from (select @rindex:=@rindex+1 rindex, id from news order by date desc) rr where id=@searchId;";
+$conn->query($sql);
+
+// 3. Get previous article id
+// The inner query shows table [rindex,id], 'rindex' again is just row numbers column.
+// Then we get 'id' from that table where row number is 1 row less (@r-1) from the current $id row from the previous query.
+// The final 'id' is in $prev var
+
+if($user!="")
+  $sql="select id from (select @rindex1:=@rindex1+1 rindex, id from news where user=$userQuery order by date desc) r where rindex=@r1-1";						//prev row number
+else
+  $sql="select id from (select @rindex1:=@rindex1+1 rindex, id from news order by date desc) r where rindex=@r1-1";
+$st=$conn->query($sql);
+$prev=$st->fetch();
+
+// 4. Reset the rows counter
+
+$sql="set @rindex1:=0;";
+$conn->query($sql);
+
+// 5. Get next article id
+// The same process as in the step 3 but for @r+1 (next) row
+// The final 'id' is in $next var
+
+if($user!="")
+  $sql="select id from (select @rindex1:=@rindex1+1 rindex,id from news where user=$userQuery order by date desc) r where rindex=@r1+1";					//next row number
+else
+  $sql="select id from (select @rindex1:=@rindex1+1 rindex,id from news order by date desc) r where rindex=@r1+1";
+$st=$conn->query($sql);
+$next=$st->fetch();

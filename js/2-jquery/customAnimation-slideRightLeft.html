@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+$(function(){
+	$("#showAll").click(function(){$("p").css({"width":400,opacity:1}).show("fast")})
+	$("#slideRightLeft").click(function(){$(".slide").animate({width:"toggle"},1000)})
+	$("#width").click(animateWidth)
+	
+	$("#linear").click(function(){$(".fadeOut").animate({opacity:0},1000,"linear")})
+	$("#swing").click(function(){$(".fadeOut").animate({opacity:0},1000,"swing")})
+	$("#mixMethod").click(mixMethod)
+})
+
+function animateWidth(){
+	$(".width").animate({width:"+=100"},{queue:false,duration:1000}).fadeOut(700)
+}
+function mixMethod(){
+	$(".fadeOut").animate({width:"hide",height:"hide",opacity:"hide"},{specialEasing:{width:"linear",height:"linear"},duration:1000})
+}
+</script>
+
+<style>
+	.slide{
+		border:1px solid;
+		width:400px;
+	}
+	.width{
+		border:2px solid;
+		width:400px;
+	}	
+	.fadeOut{
+		border:2px solid red;
+		width:400px;
+	}		
+</style>
+</head>
+
+<body>
+<input type="button" value="Show All" id="showAll"/>
+
+<br><br>
+
+<input type="button" value="Slide Right-Left" id="slideRightLeft"/>
+
+<br><br>
+
+<input type="button" value="Width Change" id="width"/>
+
+<br><br>
+
+<input type="button" value="Linear FadeOut" id="linear"/>
+<input type="button" value="Swing FadeOut" id="swing"/>
+<input type="button" value="Mix FadeOut" id="mixMethod"/>
+
+<p class="slide">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Pellentesque nec metus ligula. Aliquam pretium lectus eu venenatis auctor? 
+</p>
+
+<p class="width">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Pellentesque nec metus ligula. Aliquam pretium lectus eu venenatis auctor? 
+</p>
+
+<p class="fadeOut">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Pellentesque nec metus ligula. Aliquam pretium lectus eu venenatis auctor? 
+</p>

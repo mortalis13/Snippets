@@ -1,0 +1,27 @@
+
+1.1. Extract MinGW to c:/mingw32
+-or-
+1.2. Install MinGW, then select C++ Compiler in the GUI
+
+2. Add C:\MinGW\bin to PATH
+3. Go to the folder with first.cpp and run
+  
+  g++ first.cpp test.cpp -o first.exe
+  
+4. Run the exe
+
+  first.exe
+  
+  
+------------------------
+
+-- Full process --
+
+1. create object files
+  
+  g++ -c first.cpp -o first.o
+  g++ -c test.cpp -o test.o
+  
+2. link the object file to executable
+
+  g++ -o first.exe first.o test.o

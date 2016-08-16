@@ -1,0 +1,110 @@
+<html>
+<head>
+
+<script>
+  
+  function removeFocus(a){
+    var checkbox=document.getElementById('removeOutline')
+    if(checkbox.checked)
+      a.style.cssText="border:1px solid transparent"
+  }
+  
+  function setMouseOutFocus(){
+    var a=document.getElementsByTagName("a");
+    for(var i=0;i<a.length;i++){
+      a[i].onmouseup=(function(){
+        
+        var x=a[i]
+        return function(){removeFocus(x)}
+        
+      })()
+    }
+  }
+  
+  window.onload = function(){
+    setMouseOutFocus()
+  }
+</script>
+  
+<style>
+  code{
+    background:#eee;
+    padding: 0.2em 0.5em;
+  }
+  
+  .problems{
+    border: 1px solid #bbb;
+    width:40%;
+    margin-top: 1em;
+    padding: 1em;
+  }
+  .problems ul{
+    padding-left:30px;
+  }
+  
+  #tab td{
+    border:1px solid black;
+    padding:20px;
+    font-size:2em;
+  }
+  
+  a{
+    display:inline-block;
+    color:green;
+    text-decoration: none;
+    border:1px solid transparent;
+  }
+  a:focus{
+    outline:0px;
+    border:1px dotted black;
+  }
+  a:active{
+    border:1px solid transparent;
+  }
+</style>
+</head>
+
+<body>
+
+  Test for removing links <b>outline</b> on <b>mouseup</b> event. <br>
+  Click the links and watch that outline doesn't appear. <br>
+  <i>The script needs improvement from the <a href="http://newscms.co.nf">News CMS project</a>.</i>
+
+  <div class="problems">
+    <b><u>Problems</u>:</b>
+    <ul>
+      <li>If <b>Remove Outline</b> is on and then off the outline doesn't show on clicked links, because the function sets <code>style.border</code> to <code>transparent</code> and don't revert it.</li>
+    </ul>
+  </div>
+
+  <br>
+
+  <label><input type="checkbox" id="removeOutline"> Remove Outline</label>
+
+  <br><br>
+
+  <table border="0" cellspacing="0" id="tab">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td width="400" align="center">
+          <a href="#" id="q">a long title a long title a long title a long title a long title a long title </a>
+        </td>
+        <td> <a href="#">bbbb</a> </td>
+      </tr>
+      <tr>
+        <td> <a href="#">cccc</a> </td>
+        <td> <a href="#">dddd</a> </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <a class="operations" href="#"><span>News Archive</span></a><br>
+  
+</body>
+</html>

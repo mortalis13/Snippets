@@ -1,0 +1,50 @@
+
+// JNI Example with Java packages (with Visual C++ DLL)
+
+
+I. Compile .java to .class
+----------------
+
+  javac src/home/main/NativeDemo.java -d bin
+
+
+II. Generate .h header from .class
+----------------
+
+  javah -jni -classpath bin -d src/home/main home.main.NativeDemo
+  
+  
+III. Create DLL
+
+1. Open Visual Studio Command Prompt
+2. Create object file in the bin folder
+
+  cl /LD /I "c:\Archivos de programa\Java\jdk1.7.0_79\include" /I "c:\Archivos de programa\Java\jdk1.7.0_79\include\win32" /Fobin/ /c src/home/main/home_main_NativeDemo.c
+
+    /I - add directory to search for includes (#include <jni.h>)
+    /LD - create DLL
+    /Fo - output folder
+    /c - compile without linking
+    
+3. Create DLL file from .obj
+
+  cd bin
+  link /DLL bin/home_main_NativeDemo.obj
+    
+
+IV. Run program
+
+  cd bin
+  java home.main.NativeDemo
+      
+
+=============
+
+
+==Result==
+
+  This is ob.i before the native method:10
+  Starting the native method.
+  i = 10
+  Ending the native method.
+  This is ob.i after the native method:20

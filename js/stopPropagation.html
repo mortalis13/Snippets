@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+  var checkbox
+  
+	window.onload=function(){
+    document.addEventListener("click",function(event){
+      return bubble('Document clicked',event)
+    },false);
+    
+    document.getElementById("divClick").addEventListener("click",function(event){
+      return bubble('Div clicked',event)
+    },false);
+    
+    document.getElementById("buttonClick1").addEventListener("click",function(event){
+      return bubble('Button1 clicked',event)
+    },false);
+    
+    checkbox=document.getElementById('stopPropagation')
+    stopPropagEvent(checkbox)
+    stopPropagEvent(checkbox.parentElement)
+  }
+  
+  function stopPropagEvent(elem){
+    elem.addEventListener("click",function(event){
+      event.stopPropagation()
+    },false)
+  }
+  
+  function bubble(text,event){
+    console.log(text)
+    if(checkbox.checked)
+  		event.stopPropagation();
+	}
+</script>
+
+<style>
+  code{
+    background:#eee;
+    padding: 0.15em 0.3em;
+    font-weight: 700;
+  }
+  .end-step{
+    margin-bottom: 1em;
+  }
+  #divClick{
+    border: 1px solid #aaa;
+    width:60%;
+    height:100px;
+    padding: 1em;
+  }
+</style>
+
+<body>
+  <code>event.stopPropagation()</code> demonstration. <br>
+  Outputs to <b>console</b>.<br><br>
+  Steps to reproduce:
+  <ol>
+    <li>Turn on the checkbox</li>
+    <li>Click <b>Button1</b> => <code>"Button1 clicked"</code></li>
+    <li>Click <b>div</b> (bordered area) => <code>"Div clicked"</code></li>
+    <li class="end-step">Click <b>document</b>, <b>Button2</b>, <b>text field</b> => <code>"Document clicked"</code></li>
+    
+    <li>Turn off the checkbox</li>
+    <li>Click <b>Button1</b> => <code>"Button1 clicked"</code>, <code>"Div clicked"</code>, <code>"Document clicked"</code></li>
+    <li>Click <b>div</b> => <code>"Div clicked"</code>, <code>"Document clicked"</code></li>
+    <li>Click <b>document</b>, <b>Button2</b>, <b>text field</b> => <code>"Document clicked"</code></li>
+  </ol>
+  
+  So when the checkbox is <b>on</b> the events don't bubble and execute only in their handlers if available. <br>
+  If the checkbox is <b>off</b> events bubble to the root element which is <code>document</code>.
+  
+  <br><br>
+  
+  <label><input type="checkbox" id="stopPropagation"> Stop Propagation</label>
+  
+  <br><br>
+  <hr>
+  <br>
+  
+	<div id="divClick">
+		<input type="button" value="Button1" id="buttonClick1"/>
+	</div>
+	
+	<br>
+	<input type="button" value="Button2" id="buttonClick2"/><br>
+	<br>
+	<input id="text" type="text"/><br>
+</body>
+</html>

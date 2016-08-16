@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../1-lib/jquery-1.11.1.js"></script>
+
+<script>
+window.onload=function(){
+	$("#show").click(show)
+	$("#hide").click(hide)
+	$("#toggle").click(toggle)
+}
+
+function show(){
+	$("p").css("background-color","yellow").show("slow")
+}
+function hide(){
+	$("p").hide("fast")
+}
+function toggle(){
+	$("p").toggle("fast")
+}
+</script>
+
+<style>
+	
+</style>
+</head>
+
+<body>
+<input type="button" value="show" id="show"/>
+<input type="button" value="hide" id="hide"/>
+<input type="button" value="toggle" id="toggle"/>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec metus ligula. Aliquam pretium lectus eu venenatis auctor? Etiam sit amet nunc nec justo cursus scelerisque. Nam feugiat maximus arcu, nec venenatis libero pellentesque et. Fusce eget nisl lacinia dolor varius placerat. Pellentesque odio justo, sagittis sit amet lobortis non; scelerisque in neque. Duis velit urna, tincidunt at consectetur in, facilisis eget ante. Nulla porta erat lectus, sit amet porta ante hendrerit a. Nunc faucibus, felis in tempor lacinia, est nibh malesuada purus, nec malesuada libero purus id ipsum. Suspendisse potenti.
+</p>
+
+<p>
+Ut sed aliquam diam. Aliquam leo arcu, blandit sit amet consectetur vel, facilisis vitae nulla. Praesent erat diam, aliquet id consequat sit amet, mattis ac turpis. Duis vel facilisis dui. Vivamus eu mauris sem. Nulla placerat fringilla gravida. Ut porttitor at libero ac blandit.
+</p>
+
+<p>
+Pellentesque iaculis cursus purus, at tincidunt urna. Fusce ut vulputate ligula. Aenean ultricies elit at commodo porta. Nulla eget massa quis diam interdum convallis. Ut tortor leo, dignissim vitae turpis nec, sodales tristique ligula. Donec pellentesque interdum libero nec egestas! Donec in urna sem. Donec pulvinar, arcu non consequat imperdiet, velit diam finibus ligula, quis tincidunt urna nisi ut sem. Duis sodales quam eu nisi accumsan rhoncus.
+</p>
+
+<p>
+Pellentesque pellentesque maximus ipsum, ut consectetur felis congue sit amet! Integer ut dolor nec diam egestas placerat. Integer nec leo sapien! Donec lectus magna, facilisis non fermentum et, pellentesque vitae orci. Ut ut nibh metus. Aenean dolor dui, dignissim ac est eget, sodales porta tellus. Nunc vel tortor a nisl finibus bibendum at malesuada sapien. Nullam blandit nibh eu neque facilisis hendrerit? Nullam sollicitudin commodo mi non accumsan.
+</p>
+
+<p>
+Nam mauris ligula, luctus in pellentesque non, blandit vel elit. Sed eu massa ullamcorper; ornare ligula ut, rhoncus est? Vivamus sodales pellentesque lorem, eget finibus lacus imperdiet sagittis. Curabitur varius aliquam erat in interdum. Etiam arcu tortor, scelerisque eu lectus eleifend, porttitor interdum urna. Aliquam viverra erat vel neque tincidunt, in ultrices mi viverra. Pellentesque non libero felis. Vestibulum sollicitudin auctor ante, sit amet malesuada orci faucibus a. Maecenas pellentesque et nisl id lobortis?
+</p>
+
+<p>
+Sed convallis tristique orci eget mollis. Morbi viverra arcu enim, non suscipit tortor eleifend id. Morbi mattis arcu vel egestas placerat. Morbi consequat varius eros vitae posuere. Donec auctor eros lacus, consequat elementum ligula placerat sodales. Vestibulum a rhoncus risus, sed aliquet odio. Quisque nec mattis lacus.
+</p>
+
+<p>
+Etiam nec dictum sapien. Duis eu velit hendrerit, commodo nisl id, dictum neque. Proin vitae congue ante. Sed sagittis, ipsum et scelerisque aliquam, orci justo aliquam libero, et consectetur eros leo a magna. Nam sit amet risus non metus semper ullamcorper. Cras orci diam, consequat consectetur nisl id, laoreet pellentesque erat. Nulla dignissim purus augue, eu malesuada erat sollicitudin sollicitudin. Morbi nec mauris dictum; vehicula mauris eu, tristique nibh!
+</p>
+</body>
+</html>

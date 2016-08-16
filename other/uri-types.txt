@@ -1,0 +1,8 @@
+
+-- File on a local drive
+file:///D:/temp/file.txt
+
+
+-- File inside a JAR archive
+jar:file:///D:/tools/apache-ant-1.9.6/lib/ant.jar!/org/apache/tools/ant/antlib.xml
+

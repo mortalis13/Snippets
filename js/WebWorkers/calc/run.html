@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Big <for> loop</title>
+  <script>
+	function work(){
+    var worker = new Worker('bigLoop.js');
+    setTimeout(function(){
+      toggleLoader(true)
+    },500)
+    
+    worker.onmessage = function (event) {
+      toggleLoader()
+      alert("Completed " + event.data + " iterations" );
+    };
+  }
+  
+  function toggleLoader(show) {
+    var background="none"
+    var loaderStyle=document.getElementById('loader').style
+    if(show) background="url('dots.gif') no-repeat center #fff"
+    loaderStyle.background=background
+  }
+
+  function sayHello(){
+    alert("Hello sir...." );
+  }
+  
+  </script>
+  
+  <style>
+    #work,
+    #loader{
+      width:70px;
+      height:40px;
+    }
+    #loader{
+      vertical-align: middle;
+      display: inline-block;
+      /*vertical-align: baseline;*/
+      /*border: 1px solid #000;*/
+    }
+    
+  </style>
+  
+</head>
+<body>
+  Press <b>Work</b> to start the <b>for</b> loop with 2.000.000.000 steps in the <b>Worker</b>. <br>
+  While the <b>Worker</b> executes in the background you may <i>press buttons</i> and <i>select text</i>. <br>
+  Visit <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#Performing_computations_in_the_background">Using Web Workers</a> for documentation and examples. <br><br>
+  <input type="button" onclick="sayHello();" value="Say Hello" />
+  You may select the text <br><br>
+  
+  <input type="button" onclick="work();" value="Work" id="work" autofocus/> 
+  <div id="loader"></div>
+  
+</body>
+</html>
+

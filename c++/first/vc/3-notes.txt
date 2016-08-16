@@ -1,0 +1,13 @@
+
+1. Install Visual Studio with Visual C++
+2. Start -> MS Visual Studio -> Visual Studio Tools -> Command Prompt
+3. cd to the directory with .cpp
+4. Enter command
+
+  cl hello.cpp
+  
+or
+
+  cl /EHsc hello.cpp
+  
+  (to enable C++ exception handling)

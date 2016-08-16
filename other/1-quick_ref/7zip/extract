@@ -1,0 +1,18 @@
+e (Extract) command
+
+Extracts files from an archive to the current directory or to the output directory. The output directory can be specified by -o (Set Output Directory) switch.
+
+This command copies all extracted files to one directory. If you want extract files with full paths, you must use x (Extract with full paths) command.
+
+7-Zip will prompt the user before overwriting existing files unless the user specifies the -y (Assume Yes on all queries) switch. If the user gives a no answer, 7-Zip will prompt for the file to be extracted to a new filename. Then a no answer skips that file; or, yes prompts for new filename.
+
+Abbreviated responses are allowed.
+Examples
+
+  7z e archive.zip
+
+extracts all files from archive archive.zip to the current directory.
+
+  7z e archive.zip -oc:\soft *.cpp -r
+
+extracts all *.cpp files from archive archive.zip to c:\soft folder.

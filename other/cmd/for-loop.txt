@@ -1,0 +1,13 @@
+== from command line ==
+
+= for directories (/d) =
+for /d %a in (*) do echo %a
+
+= for files =
+for %a in (*) do echo %a
+
+
+== from .bat ==
+
+for /d %%a in (*) do echo %%a
+for %%a in (*) do echo %%a

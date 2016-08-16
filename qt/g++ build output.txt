@@ -1,0 +1,44 @@
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\main.o ..\HomeDictionary1\main.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\mainwindow.o ..\HomeDictionary1\mainwindow.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\BitStream.o ..\HomeDictionary1\lib\BitStream.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\CArticleHeading.o ..\HomeDictionary1\lib\CArticleHeading.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\CCachePage.o ..\HomeDictionary1\lib\CCachePage.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\CDictionaryDecoder.o ..\HomeDictionary1\lib\CDictionaryDecoder.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\CDictionaryDecoder2.o ..\HomeDictionary1\lib\CDictionaryDecoder2.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\CDictionaryDecoder3.o ..\HomeDictionary1\lib\CDictionaryDecoder3.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\CDictionaryReader.o ..\HomeDictionary1\lib\CDictionaryReader.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\IDictionaryDecoder.o ..\HomeDictionary1\lib\IDictionaryDecoder.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\LenTable.o ..\HomeDictionary1\lib\LenTable.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\tools.o ..\HomeDictionary1\lib\tools.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\fun.o ..\HomeDictionary1\fun.cpp
+
+g++ -c -pipe -std=c++11 -g -frtti -fexceptions -mthreads -Wall -Wextra -DUNICODE -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_NEEDS_QMAIN -I"d:\tools\Qt\4.8.7\include\QtCore" -I"d:\tools\Qt\4.8.7\include\QtGui" -I"d:\tools\Qt\4.8.7\include" -I"d:\tools\Qt\4.8.7\include\ActiveQt" -I"debug" -I"." -I"..\HomeDictionary1" -I"." -
+I"d:\tools\Qt\4.8.7\mkspecs\win32-g++" -o debug\moc_mainwindow.o debug\moc_mainwindow.cpp
+
+g++ -mthreads -Wl,-subsystem,windows -o debug\HomeDictionary1.exe object_script.HomeDictionary1.Debug  -L"d:\tools\Qt\4.8.7\lib" -lmingw32 -lqtmaind -lQtGuid4 -lQtCored4 

@@ -1,0 +1,18 @@
+Bookmark Shortcuts
+Bookmarks Sidebar Button
+Close Other Tabs Shortcuts
+Regex Find
+
+Dev Buttons
+DOM Inspector Toolbar Button
+Downloads Toolbar Button
+Export Bookmarks 
+Fox Restart
+
+Close Tab For Android
+Copy Paste Location
+Droid Restart
+Go To Top Menu
+My Panel
+New Tab For Android
+Tabs Backup

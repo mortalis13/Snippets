@@ -1,0 +1,47 @@
+
+# ===========================
+# Get Prev/Next row indexes
+# ===========================
+
+# 1. Get table with an ordinary query and count rows which are in the 'rank' column after the query is executed
+# Result table
+
+# | rank | id |    date    |
+# | ---- | -- | ---------- |
+# |    1 | 54 | 2014.05.17 |
+# |    2 | 76 | 2014.05.08 |
+# |    3 | 12 | 2014.04.05 |
+# |    4 | 78 | 2014.03.23 |
+# |   .. | .. |     ..     |
+
+
+# 2. From the first table get 'rank' value for the row with the specified 'id' (12)
+# The value is stored in the @r1 variable
+# The result is '3'
+
+# | rank |
+# | ---- |
+# |    3 |
+
+
+# 3. From the same query get previous and next 'id' values
+# Gets 'id's for 'rank' values = '2' and '4' (@r1-1, @r1+1)
+# Result is '76' and '78'
+
+# | id |
+# | -- |
+# | 76 |
+# | 78 |
+
+
+# -----------------------------------
+
+set @rank:=0;
+set @rank1:=0;
+set @rank2:=0;
+set @searchId:=12;
+
+select @rank1:=@rank1+1 rank, id, date from news order by date desc
+
+select rank into @r1 from (select @rank1:=@rank1+1 rank, id, date from news order by date desc) rr where id=@searchId;
+select id from (select @rank:=@rank+1 rank,id,date from news order by date desc) r where rank=@r1-1 or rank=@r1+1;

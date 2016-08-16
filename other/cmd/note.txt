@@ -1,0 +1,12 @@
+
+1. list-files.bat - all folders/files in a directory with full paths without description
+
+2. batch-context.reg - add batch file to directory context menu.
+
+Edit these parts:
+- custom_script - any name
+- Command_title - will be in the context
+- command.bat - the path to the .bat
+Or go to the branch, crate keys and set path:
+
+(Default) => "C:\Documents\scripts\command.bat" "%1"

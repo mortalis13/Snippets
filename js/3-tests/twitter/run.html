@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="TwitterSearch.js"></script>
+  
+  <style>
+    a{
+      color:#55a;
+    }
+    a:hover{
+      color:#333;
+      text-decoration: none;
+    }
+    h4{
+      text-align: center;
+      margin:0 0 0.5em;
+    }
+    
+    .desc,
+    .query,
+    .links{
+      margin-top: 1em;
+      margin-left:1em;
+      width:40%;
+      border:1px solid #bbb;
+      padding:1em;
+    }
+    .query{
+      border: none;
+    }
+    
+  </style>
+</head>
+<body>
+
+<div class="desc">
+  <h4>Search for Tweets using the keywords</h3>
+  <ol>
+    <li>Check the search result on <a href="https://twitter.com/search">https://twitter.com/search</a>.</li>
+    <li>Then type keywords in the field and press the button.</li>
+    <li>The results should appear in the iFrame to the right.</li>
+  </ol>
+  
+  Twitter Search API: <a href="https://dev.twitter.com/rest/public/search">https://dev.twitter.com/rest/public/search</a>
+</div>
+
+<div class="query">
+  <input type="text" id="t" value="music" />
+  <input type="button" id="b" value="Search"/>
+</div>
+
+<div class="links">
+  <h4>Hover over links to see related Tweets</h4>
+  <a href="http://tutorialspoint.com">tutorialspoint.com</a><br>
+  <a href="http://api.jquery.com">api.jquery.com</a><br>
+  <a href="http://metbash.ru">metbash.ru</a><br>
+  <a href="http://w3schools.com">w3schools.com</a><br>
+  <a href="http://guides.gamepressure.com">guides.gamepressure.com</a><br>
+</div>
+
+
+</body>
+</html>

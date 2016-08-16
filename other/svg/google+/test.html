@@ -1,0 +1,28 @@
+
+<style>
+  svg{
+    border:1px solid #bbb;
+    display: block;
+    margin-bottom: 1em;
+  }
+</style>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100px" height="100px">
+  <path d="M 10 10 H 90 V 90 H10 Z" fill="transparent" stroke="#888" />
+</svg>
+
+<!-- Google+ plus -->
+<!-- m - moveTo => [x0,y0 dx1,dy1 dx2,dy2 ... dxn,dyn] => z - closePath -->
+
+<!-- 1. Original -->
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" width="30px" height="18px">
+  <path d="m 13,3 -1,0 0,2 -2,0 0,1 2,0 0,2 1,0 0-2 2,0 0-1-2,0 z"></path>
+</svg>
+
+
+<!-- 2. Own -->
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px">
+  <path d="m 20,5 2,0 0,5 5,0 0,2 -5,0 0,5 -2,0 0,-5 -5,0 0,-2 5,0 z" ></path>
+</svg>

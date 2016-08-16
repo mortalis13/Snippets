@@ -1,0 +1,20 @@
+keytool -genkey -v -alias {aliasname} -keyalg RSA -storetype PKCS12 -keystore client_keystore.p12 -storepass {anypassword} -keypass {anypassword}
+
+---
+
+keytool -genkey -v -alias rhkey -keyalg RSA -storetype PKCS12 -keystore client_keystore.p12 -storepass changeit -keypass changeit
+
+keytool -export -alias rhkey -keystore client_keystore.p12 -storetype PKCS12 -storepass changeit -rfc -file selfsigned.cer
+
+keytool -import -file selfsigned.cer -keystore "c:\tools\glassfish-3.1.2.2\glassfish\domains\domain1\config\cacerts.jks" -alias rhkey -storepass changeit
+
+keytool -import -file selfsigned.cer -keystore "c:\tools\glassfish-3.1.2.2\glassfish\domains\domain1\config\keystore.jks" -alias rhkey -storepass changeit
+
+keytool -import -v -trustcacerts -alias rhkey -file selfsigned.cer -keystore cacerts.jks -keypass changeit -storepass changeit
+
+keytool -genkey -alias server-alias -keyalg RSA -keypass changeit -storepass changeit -keystore keystore.jks
+
+
+keytool -importkeystore -deststorepass changeit -destkeypass changeit  -destkeystore keystore.jks -srckeystore "d:\Documentos\client_keystore.p12" -srcstoretype PKCS12 -alias rhkey
+
+keytool -import -keystore cacerts.jks -storepass changeit -alias rhkey -file "d:\Documentos\selfsigned.cer"

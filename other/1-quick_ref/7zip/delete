@@ -1,0 +1,8 @@
+d (Delete) command
+
+Deletes files from archive.
+Example
+
+  7z d archive.zip *.bak -r
+
+deletes *.bak files from archive archive.zip.

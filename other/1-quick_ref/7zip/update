@@ -1,0 +1,10 @@
+u (Update) command
+
+Update older files in the archive and add files that are not already in the archive.
+
+Note: the updating of solid .7z archives can be slow, since it can require some recompression.
+Example
+
+  7z u archive.zip *.doc
+
+updates *.doc files to archive archive.zip.

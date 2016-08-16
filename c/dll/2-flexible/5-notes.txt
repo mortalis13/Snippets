@@ -1,0 +1,61 @@
+
+// Flexible DLL style with header include (MinGW)
+
+
+I. Create DLL
+----------------
+
+1. Create object file 
+
+  gcc -c -o add.o add.c -D ADD_EXPORTS
+
+    -D - define macro
+
+2. Create DLL
+
+  gcc -o add.dll add.o -s -shared -Wl,--subsystem,windows
+
+    -s - strip symbols
+    -shared - shared library
+    -Wl - pass options to the linker
+
+-------------------
+
+--Short way--
+
+  gcc -o add.dll -s -shared add.c -D ADD_EXPORTS -Wl,--subsystem,windows
+
+
+=============
+
+
+II. Link EXE with DLL
+
+1. Create program object file
+
+  gcc -c -o addtest.o addtest.c
+
+2. Create EXE linked with the DLL
+
+  gcc -o addtest.exe -s addtest.o -L . -l add
+
+    -L - path to the library
+    -l - library name
+
+-------------------
+
+--Short way--
+
+  gcc -o addtest.exe -s addtest.c -L . -l add
+  
+[simpler]
+  
+  gcc -o addtest.exe -s addtest.c add.dll
+
+
+=============
+
+
+==Result==
+
+  29

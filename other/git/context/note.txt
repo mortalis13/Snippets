@@ -1,0 +1,3 @@
+
+git commands to be used in directory context menu
+use cmd/batch-context.reg to add .bat to the context menu

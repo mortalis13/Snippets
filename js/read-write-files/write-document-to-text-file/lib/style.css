@@ -1,0 +1,28 @@
+body{
+	background:#eee;
+	font-size:1.2em;
+	font-family:"Trebuchet MS";
+}
+
+div{
+	width:70%;
+	color:#8742D1;
+}
+
+p{
+	color:#0F49BD;
+}
+
+a{
+	color:black;
+}
+
+div#hidden{
+	margin:20px auto;
+	text-align:center;
+}
+div#hidden div{
+  color:black;
+	text-decoration:underline;
+  width:auto;
+}

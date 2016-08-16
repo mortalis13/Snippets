@@ -1,0 +1,37 @@
+msiexec /i AcroPro.msi
+msiexec /i AcroPro.msi PATCH="AcrobatUpd11012.msp"
+msiexec /i AcroPro.msi PATCH=AcrobatUpd11012.msp TRANSFORMS="1033.mst"
+
+msiexec.exe /i "MyMSI.msi" PATCH="%THISDIR%MyPatch.msp" /qb!
+
+msiexec.exe /i "AcroPro.msi" PATCH="%THISDIR%AcrobatUpd11012.msp"
+
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi"
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp"
+
+msiexec /i d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi PATCH=d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp TRANSFORMS="1033.mst"
+
+-----------------
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp"
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp" IGNOREAAM=1 /qb
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp" IGNOREAAM=1 INSTALLDIR="d:\adobe" /qb
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp" IGNOREAAM=1 INSTALLDIR="d:\Adobe Acrobat XI" TRANSFORMS="d:\acrobatxi\Adobe Acrobat XI\Transforms\1033.mst" /qb
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp" TRANSFORMS="1034.mst" IGNOREAAM=1 INSTALLDIR="d:\Adobe Acrobat XI" /qb
+
+---------------
+
+msiexec /x {AC76BA86-1033-FFFF-7760-000000000006} IGNOREAAM=1 /qf
+
+
+====== working =======
+
+msiexec /i "d:\acrobatxi\Adobe Acrobat XI\AcroPro.msi" PATCH="d:\acrobatxi\Adobe Acrobat XI\AcrobatUpd11012.msp" TRANSFORMS="1034.mst" IGNOREAAM=1 INSTALLDIR="d:\Adobe Acrobat XI" /qb
+
+msiexec /x {AC76BA86-1033-FFFF-7760-000000000006} IGNOREAAM=1 /qf

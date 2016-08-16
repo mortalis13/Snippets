@@ -1,0 +1,3 @@
+sqlplus sys as sysdba;
+create user prueba01 identified by prueba02;
+grant all privileges to prueba01;

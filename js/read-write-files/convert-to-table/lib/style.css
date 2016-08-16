@@ -1,0 +1,70 @@
+
+body{
+	background:#eee;
+	font-size:1.1em;
+	font-family:"Trebuchet MS";
+}
+
+a,
+a:focus,
+a:active{
+  color:#333;
+}
+
+a:hover{
+  color:#b11;
+  text-decoration: none;
+}
+
+.desc{
+  text-align: center;
+  margin-top: 1em;
+}
+
+.options{
+  border: 1px solid #aaa;
+  padding: 1em;
+  margin: 1em 0;
+  width: 30%;
+}
+.optionTitle{
+  display: inline-block;
+  width: 160px;
+}
+.optionFields{
+  display: inline-block;
+  font-family: arial;
+  font-size: 0.8em;
+  font-style: italic;
+}
+.options label{
+  width: 140px;
+  display: inline-block;
+  text-align: left;
+}
+.inputMethod{
+  margin-bottom: 0.5em;
+}
+
+.result{
+  width: 60%;
+  margin: 2em auto;
+  border-collapse: collapse;
+  font-size:0.9rem;
+  border-spacing: 0;
+  table-layout:fixed;
+  word-break: break-all; 
+}
+.result th{
+  font-weight: bold;
+}
+.result th,
+.result td{
+  padding:1rem;
+  border: 1px solid #888;
+}
+
+#buildTable{
+  width:100px;
+  height:40px;
+}

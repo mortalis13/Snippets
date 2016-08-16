@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="open-links/style.css"/>
+<link rel="stylesheet" href="open-links/jquery-ui-redmond.css"/>
+<script src="open-links/jquery-2.0.0.js"></script>
+<script src="open-links/functions.js"></script>
+<script src="open-links/jquery-ui-1.11.2.js"></script>
+<title>Open Links</title>
+</head>
+
+<body>
+<pre>
+Open N links in new tabs from specified page
+Edit this source to set vars (set page location, its host (for relative links) 
+and a rule (parent class or tag) which helps to find the links
+	
+Then press Load to put the file contents to the hidden div
+Press Open to open next N links
+Press Close to close them
+
+(but first put the project files to any parent directory of a target page file)
+</pre>
+<br>
+
+<div id="loadSection">
+	<label for="pagePath">Page Path:</label> <input type="text" id="pagePath" size="100"/><br>
+	<label for="containerSelector">Container Selector:</label> <input type="text" id="containerSelector" size="50"/><br>
+	
+	<input type="button" value="Load File" id="load"/><br>
+</div>	
+	
+<div id="openSection">	
+	<label for="maxLinks">Max Links:</label> <input type="text" value="20" id="maxLinks"/>
+	<input type="button" value="Open" id="open"/>
+	<input type="button" value="Close" id="close"/><br>
+</div>	
+	
+	<div id="status"></div>
+	<div id="links"></div>
+	<div id="loadedContent"></div>
+</body>
+</html>
