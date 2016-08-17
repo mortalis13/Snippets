@@ -1,0 +1,51 @@
+
+Example repository
+github.com/git/git
+
+---
+
+GitHub repository info
+https://api.github.com/repos/:owner/:repo
+https://api.github.com/repos/git/git
+
+
+---
+
+A file info (content)
+https://api.github.com/repos/:owner/:repo/contents/:path
+https://api.github.com/repos/git/git/contents/advice.c
+
+For Blobs (large files)
+https://api.github.com/repos/:owner/:repo/git/blobs/:sha
+
+
+---
+
+Files/folders list
+https://api.github.com/repos/:owner/:repo/git/trees/:sha
+https://api.github.com/repos/git/git/git/trees/07c92928f2b782330df6e78dd9d019e984d820a7
+
+[or]
+
+https://api.github.com/repos/:owner/:repo/git/trees/:branch[::path]
+https://api.github.com/repos/git/git/git/trees/master:Documentation
+https://api.github.com/repos/git/git/git/trees/master
+
+
+---
+
+Get sha of an item
+https://api.github.com/repos/:owner/:repo/git/refs
+https://api.github.com/repos/git/git/git/refs
+
+[copy sha of a branch (master by default)]
+https://api.github.com/repos/:owner/:repo/git/trees/:sha
+
+[will output a tree of items inside the root folder, with SHA properties]
+
+
+---
+
+Direct download link
+https://raw.githubusercontent.com/:owner/:repo/:branch/:path
+https://raw.githubusercontent.com/git/git/master/Documentation/config.txt
