@@ -4,4 +4,4 @@ Windows Registry Editor Version 5.00
 @="Create &Zip [c]"
 
 [HKEY_CLASSES_ROOT\Directory\shell\7zip_zip\command]
-@="\"C:\\1-Roman\\Documents\\3-programming\\4-snippets\\other\\cmd\\7zip\\context\\zip.bat\" \"%1\""
+@="\"D:\\tools\\bats\\zip.bat\" \"%1\""
