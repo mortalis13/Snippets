@@ -1,0 +1,10 @@
+<path-to-eclipse>\eclipse.exe -vm <path-to-vm>\java.exe -application **org.eclipse.jdt.core.JavaCodeFormatter** -verbose -config <path-to-config-file>\org.eclipse.jdt.core.prefs <path-to-your-source-files>\*.java 
+
+c:\1-Datos\Programas\eclipse-kepler\eclipse.exe -vm c:\tools\Java\jdk1.7.0_55\bin\java.exe -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config c:\1-Datos\eclipse\eclipse-test\Tests\.settings\org.eclipse.jdt.core.prefs c:\1-Datos\Docs\5-temp\code\1-temp\WebService.java
+
+c:\1-Datos\Programas\eclipse-kepler\eclipse.exe -vm c:\tools\Java\jdk1.7.0_55\bin\java.exe -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config c:\1-Datos\eclipse\eclipse-test\Tests\.settings\org.eclipse.jdt.core.prefs c:\1-Datos\Docs\5-temp\code\1-temp\Test.java
+
+
+
+['eclipse', '-nosplash', '-application', 'org.eclipse.jdt.core.JavaCodeFormatter', '-config', '/Users/phildopus/Development/config/eclipse/org.eclipse.jdt.core.prefs', 'C:\\1-Datos\\Docs\\5-temp\\code\\1-temp\\WebService.java']
+

@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\sublime_open_folder_new]
+@="Sublime Open Folder New [c]"
+
+[HKEY_CLASSES_ROOT\Directory\shell\sublime_open_folder_new\command]
+@="\"c:\\tools\\other\\bats\\sublime_open_folder_new.bat\" \"%1\""

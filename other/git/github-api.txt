@@ -49,3 +49,6 @@ https://api.github.com/repos/:owner/:repo/git/trees/:sha
 Direct download link
 https://raw.githubusercontent.com/:owner/:repo/:branch/:path
 https://raw.githubusercontent.com/git/git/master/Documentation/config.txt
+
+https://github.com/enriquein/JavaSetterGetter/archive/master.zip
+https://github.com/ervandew/eclim/archive/2.3.1.zip

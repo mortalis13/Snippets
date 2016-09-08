@@ -1,0 +1,53 @@
+
+-- DOCS --
+http://doc.qt.io/qt-5/build-sources.html
+http://doc.qt.io/qt-5/windows-building.html
+http://doc.qt.io/qt-5/configure-options.html
+
+
+1. Download base Qt module from qtbase-opensource-src-5.3.1.7z.
+http://download.qt.io/official_releases/qt/5.3/5.3.1/submodules/qtbase-opensource-src-5.3.1.7z
+
+2. Download MinGW 4.8.2 (for Qt5.3.1)
+https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/4.8.2/threads-posix/dwarf
+
+3. Unpack to a folder without spaces in the path.
+
+4. Add these paths to the Path environment variable (if unpacked to 'QtBase' folder):
+
+  QtBase;QtBase/qtbase/bin
+  
+  ```
+  path %path%;c:\builds\qtbase-5.3.1;c:\builds\qtbase-5.3.1\bin
+  ```
+
+5. Create another empty dir anywhere (path without spaces).
+   Enter it through command line.
+
+6. Run the command:
+
+  ```
+  configure -release -opensource -confirm-license -platform win32-g++ -opengl desktop -no-accessibility -no-icu -no-iconv -no-angle -no-rtti -no-dbus -no-sse2 -no-sse3 -no-ssse3 -no-sse4.1 -no-sse4.2 -no-avx -no-avx2 -no-openssl -no-fontconfig -no-qml-debug -no-freetype -no-style-windowsvista -nomake libs -nomake tools -nomake examples -nomake tests
+  ```
+
+7. Build the library:
+
+  ```
+  mingw32-make
+  ```
+
+
+
+-----------------------
+
+path %path%;c:\builds\qtbase-5.3.1;c:\builds\qtbase-5.3.1\bin
+cd /d c:\builds\qtbase-5.3.1
+configure -opensource -confirm-license -platform win32-g++ -opengl desktop -no-accessibility -no-icu -no-iconv -no-angle -no-rtti -no-dbus -no-sse2 -no-sse3 -no-ssse3 -no-sse4.1 -no-sse4.2 -no-avx -no-avx2 -no-openssl -no-fontconfig -no-qml-debug -no-freetype -no-style-windowsvista -nomake libs -nomake tools -nomake examples -nomake tests
+mingw32-make
+
+
+----------------------- alternative configure options
+
+-developer-build
+
+
