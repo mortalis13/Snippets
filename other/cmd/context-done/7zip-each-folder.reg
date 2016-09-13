@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\7zip_each_folder]
+@="Zip Each &Folder [c]"
+
+[HKEY_CLASSES_ROOT\Directory\shell\7zip_each_folder\command]
+@="\"c:\\tools\\other\\bats\\abc.bat\" \"%1\""
