@@ -1,0 +1,12 @@
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exchars=175&titles=BBC
+
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&titles=BBC
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&utf8=&titles=BBC
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&format=json&titles=BBC
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&format=json&utf8=&titles=BBC
+
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&exsectionformat=plain&titles=BBC
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&exsectionformat=wiki&titles=BBC
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&exsectionformat=raw&titles=BBC
+
+https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&page=Ha%20Noi&redirects&section=4

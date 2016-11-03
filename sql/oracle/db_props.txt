@@ -1,0 +1,3 @@
+SELECT * FROM NLS_DATABASE_PARAMETERS;
+SELECT * FROM NLS_DATABASE_PARAMETERS where PARAMETER='NLS_CHARACTERSET';
+select property_name, property_value, description from database_properties;

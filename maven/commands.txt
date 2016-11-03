@@ -1,8 +1,70 @@
-mvn archetype:generate -DarchetypeCatalog=http://repo.maven.apache.org/maven2/archetype-catalog.xml
+
+-- archetypes --
+
+mvn archetype:generate
 mvn archetype:generate -DarchetypeCatalog=internal
+mvn archetype:generate -DarchetypeCatalog=local
+mvn archetype:generate -DarchetypeCatalog=internal,local,remote
+mvn archetype:generate -DarchetypeCatalog=http://repo.maven.apache.org/maven2/archetype-catalog.xml
+
+mvn archetype:update-local-catalog
+mvn archetype:jar
+mvn archetype:create-from-project
+mvn archetype:help
+mvn archetype:help -Ddetail=true -Dgoal=generate
+
+# export archetypes list to XML
+mvn archetype:crawl -Dcatalog=my-catalog.xml
+
+mvn archetype:generate -DgroupId=org.samples -DartifactId=java-app -Dversion=1.0.0 -DinteractiveMode=false
+mvn archetype:generate -DgroupId=org.samples -DartifactId=java-app -Dversion=1.0.0 -Dpackage=apps.samples -DinteractiveMode=false
+mvn archetype:generate -B -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=org.samples -DartifactId=java-quickstart
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-mojo -DgroupId=org.sample -DartifactId=mojo -B -o
+
+mvn archetype:generate -B -DarchetypeCatalog=http://synapse.apache.org -DarchetypeGroupId=org.apache.synapse -DarchetypeArtifactId=synapse-package-archetype -DarchetypeVersion=2.0.0 -DgroupId=org.samples -DartifactId=synapse-package
+mvn archetype:generate -B -DarchetypeCatalog=file://C:/maven/archetypes/cat.xml -DarchetypeGroupId=org.customArchs -DarchetypeArtifactId=arch1 -DgroupId=org.samples -DartifactId=arch1-app
+
+mvn archetype:generate -B -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.samples -DartifactId=webapp
+
+mvn archetype:generate -B -DarchetypeGroupId=org.codehaus.mojo.archetypes -DarchetypeArtifactId=webapp-javaee6 -DgroupId=org.samples -DartifactId=webapp-jee6
+
+mvn clean install tomcat7:run
+mvn clean install tomcat7:deploy
+mvn clean install tomcat7:redeploy
+mvn clean install tomcat7:undeploy
+
+mvn archetype:generate -B -DarchetypeGroupId=de.akquinet.android.archetypes -DarchetypeArtifactId=android-quickstart -DgroupId=org.samples -DartifactId=android-app
+
+mvn clean install -Dandroid.sdk.path=/path/sdk
+mvn android:deploy -Dandroid.sdk.path=/path/sdk
+
+[https://github.com/kolorobot/spring-mvc-quickstart-archetype]
+mvn archetype:generate -B -DarchetypeGroupId=pl.codeleak -DarchetypeArtifactId=spring-mvc-quickstart -DgroupId=org.samples -DartifactId=spring-app
+
+mvn archetype:generate -DarchetypeGroupId=pl.codeleak -DarchetypeArtifactId=spring-mvc-quickstart -DarchetypeVersion=1.0.0 -DgroupId=org.samples -DartifactId=spring-app -DarchetypeRepository=http://kolorobot.github.io/spring-mvc-quickstart-archetype
+
+mvn test tomcat7:run
+
+
+-- build --
+
+mvn clean install
+mvn clean package
+
+# debug
+mvn clean install -X
+
+
+-- help --
+
+mvn help:system
+mvn help:effective-pom
+
+
+-- dependencies --
+
+mvn dependency:tree
+mvn dependency:build-classpath
+mvn dependency:analyze
 
 mvn dependency:get -DgroupId=org.apache.maven.archetypes -DartifactId=maven-archetype-quickstart -Dversion=1.1
-
-mvn archetype:generate -DarchetypeCatalog=internal -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.0 -DgroupId=com.sample -DartifactId=test -Dversion=1.0-SNAPSHOT -B -o
-
-mvn archetype:generate -DarchetypeCatalog=internal -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-mojo -DarchetypeVersion=1.0 -DgroupId=com.sample -DartifactId=mojo -Dversion=1.0-SNAPSHOT -B -o
