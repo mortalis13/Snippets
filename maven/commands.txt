@@ -1,6 +1,10 @@
 
 -- archetypes --
 
+===
+mvn archetype:generate -DarchetypeGroupId=<> -DarchetypeArtifactId=<> -DarchetypeVersion=<> -DgroupId=<> -DartifactId=<> -Dversion=<> -Dpackage=<>
+===
+
 mvn archetype:generate
 mvn archetype:generate -DarchetypeCatalog=internal
 mvn archetype:generate -DarchetypeCatalog=local
@@ -19,6 +23,8 @@ mvn archetype:crawl -Dcatalog=my-catalog.xml
 mvn archetype:generate -DgroupId=org.samples -DartifactId=java-app -Dversion=1.0.0 -DinteractiveMode=false
 mvn archetype:generate -DgroupId=org.samples -DartifactId=java-app -Dversion=1.0.0 -Dpackage=apps.samples -DinteractiveMode=false
 mvn archetype:generate -B -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=org.samples -DartifactId=java-quickstart
+
+# offline
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-mojo -DgroupId=org.sample -DartifactId=mojo -B -o
 
 mvn archetype:generate -B -DarchetypeCatalog=http://synapse.apache.org -DarchetypeGroupId=org.apache.synapse -DarchetypeArtifactId=synapse-package-archetype -DarchetypeVersion=2.0.0 -DgroupId=org.samples -DartifactId=synapse-package
@@ -60,6 +66,10 @@ mvn clean install -X
 mvn help:system
 mvn help:effective-pom
 
+mvn help:describe -Dplugin=archetype
+mvn help:describe -Dcmd=archetype:generate
+mvn help:describe -Dcmd=archetype:generate -Ddetail
+
 
 -- dependencies --
 
@@ -68,3 +78,15 @@ mvn dependency:build-classpath
 mvn dependency:analyze
 
 mvn dependency:get -DgroupId=org.apache.maven.archetypes -DartifactId=maven-archetype-quickstart -Dversion=1.1
+mvn dependency:get -DgroupId=org.apache.poi -DartifactId=poi -Dversion=3.9 -Dclassifier=sources
+
+mvn dependency:get -DgroupId=org.apache.poi -DartifactId=poi-scratchpad -Dversion=3.9
+mvn dependency:get -DgroupId=org.apache.poi -DartifactId=poi-scratchpad -Dversion=3.9 -Dclassifier=sources
+
+
+-- Spring --
+
+mvn archetype:generate -B -DgroupId=org.home -DartifactId=SpringTest -Dversion=1.0.0 -DarchetypeGroupId=co.ntier -DarchetypeArtifactId=spring-mvc-archetype -DarchetypeVersion=1.0.2 -DarchetypeRepository=http://central.maven.org/maven2
+
+mvn archetype:generate -B -DgroupId=org.home -DartifactId=SpringTest -Dversion=1.0.0 -DarchetypeGroupId=co.ntier -DarchetypeArtifactId=spring-mvc-archetype -DarchetypeVersion=1.0.2 -DarchetypeRepository=http://repo1.maven.org/maven2
+

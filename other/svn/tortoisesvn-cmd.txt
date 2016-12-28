@@ -1,0 +1,268 @@
+
+TortoiseProc.exe /command:commit /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt" /logmsg:"test log message" /closeonend:0
+
+TortoiseProc.exe /command:commit /path:"c:\svn_wc\project_folder"
+
+TortoiseProc.exe /command:update /path:"c:\svn_wc\" /closeonend:0
+
+TortoiseProc.exe /command:log /path:"C:\1-Datos\eclipse\ws-vacaciones\vacaciones"
+
+-------------
+
+
+Command Description
+:about 
+Shows the about dialog. This is also shown if no command is given.
+
+
+:log  
+
+Opens the log dialog. The /path specifies the file or folder for which the log should be shown. Additional options can be set:
+
+    /startrev:xxx,
+
+    /endrev:xxx,
+
+    /strict enables the 'stop-on-copy' checkbox,
+
+    /merge enables the 'include merged revisions' checkbox,
+
+    /datemin:"{datestring}" sets the start date of the filter, and
+
+    /datemax:"{datestring}" sets the end date of the filter. The date format is the same as used for svn date revisions.
+
+    /findstring:"filterstring" fills in the filter text,
+
+    /findtext forces the filter to use text, not regex, or
+
+    /findregex forces the filter to use regex, not simple text search, and
+
+    /findtype:X with X being a number between 0 and 511. The numbers are the sum of the following options:
+
+        /findtype:0 filter by everything
+
+        /findtype:1 filter by messages
+
+        /findtype:2 filter by path
+
+        /findtype:4 filter by authors
+
+        /findtype:8 filter by revisions
+
+        /findtype:16 not used
+
+        /findtype:32 filter by bug ID
+
+        /findtype:64 not used
+
+        /findtype:128 filter by date
+
+        /findtype:256 filter by date range 
+
+    If /outfile:path\to\file is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog. 
+
+An svn date revision can be in one of the following formats:
+
+    {2006-02-17}
+
+    {15:30}
+
+    {15:30:00.200000}
+
+    {"2006-02-17 15:30"}
+
+    {"2006-02-17 15:30 +0230"}
+
+    {2006-02-17T15:30}
+
+    {2006-02-17T15:30Z}
+
+    {2006-02-17T15:30-04:00}
+
+    {20060217T1530}
+
+    {20060217T1530Z}
+
+    {20060217T1530-0500}
+
+:checkout 
+Opens the checkout dialog. The /path specifies the target directory and the /url specifies the URL to checkout from. If you specify the key /blockpathadjustments, the automatic checkout path adjustments are blocked. The /revision:XXX specifies the revision to check out.
+
+
+:import 
+Opens the import dialog. The /path specifies the directory with the data to import. You can also specify the /logmsg switch to pass a predefined log message to the import dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where path points to a file containing the log message.
+
+
+:update 
+Updates the working copy in /path to HEAD. If the option /rev is given then a dialog is shown to ask the user to which revision the update should go. To avoid the dialog specify a revision number /rev:1234. Other options are /nonrecursive, /ignoreexternals and /includeexternals. The /stickydepth indicates that the specified depth should be sticky, creating a sparse checkout. The /skipprechecks can be set to skip all checks that are done before an update. If this is specified, then the Show log button is disabled, and the context menu to show diffs is also disabled after the update.
+
+
+:commit 
+Opens the commit dialog. The /path specifies the target directory or the list of files to commit. You can also specify the /logmsg switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where path points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the /bugid:"the bug id here" to do that.
+
+
+:add  
+Adds the files in /path to version control.
+
+
+:revert 
+Reverts local modifications of a working copy. The /path tells which items to revert.
+
+
+:cleanup  
+Cleans up interrupted or aborted operations and unlocks the working copy in /path. Use /noui to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message). /noprogressui also disables the progress dialog. /nodlg disables showing the cleanup dialog where the user can choose what exactly should be done in the cleanup. The available actions can be specified with the options /cleanup for status cleanup, /revert, /delunversioned, /delignored, /refreshshell and /externals.
+
+
+:resolve  
+Marks a conflicted file specified in /path as resolved. If /noquestion is given, then resolving is done without asking the user first if it really should be done.
+
+
+:repocreate 
+Creates a repository in /path
+
+
+:switch 
+Opens the switch dialog. The /path specifies the target directory and /url the URL to switch to.
+
+
+:export 
+Exports the working copy in /path to another directory. If the /path points to an unversioned directory, a dialog will ask for an URL to export to the directory in /path. If you specify the key /blockpathadjustments, the automatic export path adjustments are blocked.
+
+
+:dropexport 
+Exports the working copy in /path to the directory specified in /droptarget. This exporting does not use the export dialog but executes directly. The option /overwrite specifies that existing files are overwritten without user confirmation, and the option /autorename specifies that if files already exist, the exported files get automatically renamed to avoid overwriting them. The option /extended can specify either localchanges to only export files that got changed locally, or unversioned to also export all unversioned items as well.
+
+
+:dropvendor 
+Copies the folder in /path recursively to the directory specified in /droptarget. New files are added automatically, and missing files get removed in the target working copy, basically ensuring that source and destination are exactly the same.
+
+
+:merge  
+Opens the merge dialog. The /path specifies the target directory. For merging a revision range, the following options are available: /fromurl:URL, /revrange:string. For merging two repository trees, the following options are available: /fromurl:URL, /tourl:URL, /fromrev:xxx and /torev:xxx.
+
+
+:mergeall 
+Opens the merge all dialog. The /path specifies the target directory.
+
+
+:copy 
+Brings up the branch/tag dialog. The /path is the working copy to branch/tag from. And the /url is the target URL. If the urls starts with a ^ it is assumed to be relative to the repository root. To already check the option Switch working copy to new branch/tag you can pass the /switchaftercopy switch. To check the option Create intermediate folders pass the /makeparents switch. You can also specify the /logmsg switch to pass a predefined log message to the branch/tag dialog. Or, if you don't want to pass the log message on the command line, use /logmsgfile:path, where path points to a file containing the log message.
+
+
+:settings 
+Opens the settings dialog.
+
+
+:remove 
+Removes the file(s) in /path from version control.
+
+
+:rename 
+Renames the file in /path. The new name for the file is asked with a dialog. To avoid the question about renaming similar files in one step, pass /noquestion.
+
+
+:diff 
+Starts the external diff program specified in the TortoiseSVN settings. The /path specifies the first file. If the option /path2 is set, then the diff program is started with those two files. If /path2 is omitted, then the diff is done between the file in /path and its BASE. If the specified file also has property modifications, the external diff tool is also started for each modified property. To prevent that, pass the option /ignoreprops. To explicitly set the revision numbers use /startrev:xxx and /endrev:xxx, and for the optional peg revision use /pegrevision:xxx. If /blame is set and /path2 is not set, then the diff is done by first blaming the files with the given revisions. The parameter /line:xxx specifies the line to jump to when the diff is shown.
+
+
+:showcompare  
+
+Depending on the URLs and revisions to compare, this either shows a unified diff (if the option unified is set), a dialog with a list of files that have changed or if the URLs point to files starts the diff viewer for those two files.
+
+The options url1, url2, revision1 and revision2 must be specified. The options pegrevision, ignoreancestry, blame and unified are optional.
+
+If the specified url also has property modifications, the external diff tool is also started for each modified property. To prevent that, pass the option /ignoreprops.
+
+
+:conflicteditor 
+Starts the conflict editor specified in the TortoiseSVN settings with the correct files for the conflicted file in /path.
+
+
+:relocate 
+Opens the relocate dialog. The /path specifies the working copy path to relocate.
+
+
+:help 
+Opens the help file.
+
+
+:repostatus 
+Opens the check-for-modifications dialog. The /path specifies the working copy directory. If /remote is specified, the dialog contacts the repository immediately on startup, as if the user clicked on the Check repository button.
+
+
+:repobrowser  
+Starts the repository browser dialog, pointing to the URL of the working copy given in /path or /path points directly to an URL.
+
+An additional option /rev:xxx can be used to specify the revision which the repository browser should show. If the /rev:xxx is omitted, it defaults to HEAD.
+
+If /path points to an URL, the /projectpropertiespath:path/to/wc specifies the path from where to read and use the project properties.
+
+If /outfile:path\to\file is specified, the selected URL and revision are written to that file when the repository browser is closed. The first line in that text file contains the URL, the second line the revision in text format.
+
+
+:ignore 
+Adds all targets in /path to the ignore list, i.e. adds the svn:ignore property to those files.
+
+
+:blame  
+Opens the blame dialog for the file specified in /path.
+
+If the options /startrev and /endrev are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead.
+
+If the option /line:nnn is set, TortoiseBlame will open with the specified line number showing.
+
+The options /ignoreeol, /ignorespaces and /ignoreallspaces are also supported.
+
+
+:cat  
+Saves a file from an URL or working copy path given in /path to the location given in /savepath:path. The revision is given in /revision:xxx. This can be used to get a file with a specific revision.
+
+
+:createpatch  
+Creates a patch file for the path given in /path. To skip the file Save-As dialog you can pass /savepath:path to specify the path where to save the patch file to directly. To prevent the unified diff viewer from being started showing the patch file, pass /noview.
+
+
+:revisiongraph  
+Shows the revision graph for the path given in /path.
+
+To create an image file of the revision graph for a specific path, but without showing the graph window, pass /output:path with the path to the output file. The output file must have an extension that the revision graph can actually export to. These are: .svg, .wmf, .png, .jpg, .bmp and .gif.
+
+Since the revision graph has many options that affect how it is shown, you can also set the options to use when creating the output image file. Pass these options with /options:XXXX, where XXXX is a decimal value. The best way to find the required options is to start the revision graph the usual way, set all user-interface options and close the graph. Then the options you need to pass on the command line can be read from the registry HKCU\Software\TortoiseSVN\RevisionGraphOptions.
+
+
+:lock 
+Locks a file or all files in a directory given in /path. The 'lock' dialog is shown so the user can enter a comment for the lock.
+
+
+:unlock 
+Unlocks a file or all files in a directory given in /path.
+
+
+:rebuildiconcache 
+Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. To suppress the message box, pass /noquestion.
+
+
+:properties 
+Shows the properties dialog for the path given in /path.
+
+For dealing with versioned properties this command requires a working copy.
+
+Revision properties can be viewed/changed if /path is an URL and /rev:XXX is specified.
+
+To open the properties dialog directly for a specific property, pass the property name as /property:name.
+
+
+:sync 
+Exports/imports settings, either depending on whether the current settings or the exported settings are newer, or as specified.
+
+If a path is passed with /path, then the path is used to store or read the settings from.
+
+The parameter /askforpath will show a file open/save dialog for the user to chose the export/import path.
+
+If neither /load nor /save is specified, then TortoiseSVN determines whether to export or import the settings by looking at which ones are more recent. If the export file is more recent than the current settings, then the settings are loaded from the file. If the current settings are more recent, then the settings are exported to the settings file.
+
+If /load is specified, the settings are imported from the settings file.
+
+If /save is specified, the current settings are exported to the settings file.
+
+The parameter /local forces a settings export to include local settings, i.e. settings that refer to local paths. 

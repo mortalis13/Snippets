@@ -1,0 +1,55 @@
+
+fm -i en1.aac -c:a libmp3lame -b:a 128k en1.mp3
+
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:2 -c:a copy en1.aac
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:2 -c:a copy en2.aac
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:2 -c:a copy en3.aac
+
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:3 -c:a copy ru1-1.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:4 -c:a copy ru1-2.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:5 -c:a copy ru1-3.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:6 -c:a copy en1-1.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:7 -c:a copy en1-2.srt
+
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:3 -c:a copy ru3-1.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:4 -c:a copy ru3-2.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:5 -c:a copy ru3-3.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:6 -c:a copy en3-1.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:7 -c:a copy en3-2.srt
+
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:3 -c:a copy ru2-1.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:4 -c:a copy ru2-2.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:5 -c:a copy ru2-3.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:6 -c:a copy en2-1.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:7 -c:a copy en2-2.srt
+
+
+fm -i "Harry Potter y la Piedra Filosofal [AnimeHD] [DVDRip] [spanish].mp4" -map 0:1 -c:a copy es.aac
+fm -i es.aac -codec:a libmp3lame -b:a 128k es.mp3
+fm -i "2001 - Harry Potter And The Philosophers Stone.EN.mp4" -i es-1.mp3 -i "2001 - Harry Potter And The Philosophers Stone.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 language=eng -metadata:s:a:1 language=esp -metadata:s:a:2 language=rus -metadata:s:a:0 title="Audio EN" -metadata:s:a:1 title="Audio ES" -metadata:s:a:2 title="Audio RU" -c copy hpout15.mp4
+
+
+fm -i "002 2010.03.14 С кем спать.mpg" -c:v libx264 -crf 26 -c:a copy "002 2010.03.14 С кем спать_1.mpg"
+
+fm -i 23.mpg -c:v libx264 -crf 26 -c:a copy 23-1.mpg
+fm -i 23.mpg -c:v libx264 -crf 10 -c:a copy 23-1.mpg
+
+fm -i 23.mpg -c:a copy 23-2.mpg
+
+fm -i 23.mpg -c:v mpeg2video -c:a copy 23-3.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 3000k -c:a copy 23-4.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -c:a copy 23-5.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif -c:a copy 23-6.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif=0:-1:0 -c:a copy 23-7.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif=0:0:0 -c:a copy 23-8.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1500k -vf yadif=0:0:0 -c:a copy 23-9.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -bf 2 -vf yadif=0:0:0 -c:a copy 23-10.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1500k -bf 2 -vf yadif=0:0:0 -c:a copy 23-11.mpg

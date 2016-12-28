@@ -1,0 +1,12 @@
+
+Build lifecycle (default, clean, site)
+|
+Phase (test, package, install; clean; pre-site, site)
+|
+Goal (jar:jar, compiler:compile; clean:clean)
+
+
+Plugin (clean)
+|
+Goal (clean:clean)
+

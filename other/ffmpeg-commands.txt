@@ -1,0 +1,152 @@
+
+fm -i "14_-_Off-Site_Strategy_-_Intro.mp4" -c:v libx264 -crf 26 -c:a copy res14.mp4
+fm -i "14_-_Off-Site_Strategy_-_Intro.mp4" -b:v 1500k -bf 2 -vf yadif=0:0:0 -c:a copy res14-1.mp4
+
+
+-----
+
+fm -i "The.Lord.of.the.Rings-The Fellowship.of.the.Ring.2001.hdrip-avc.dexter_lex.mkv" -i en1.ac3 -map 0:1 -c copy ru.aac
+
+fm -i "The.Lord.of.the.Rings-The Fellowship.of.the.Ring.2001.hdrip-avc.dexter_lex.mkv" -i en1.ac3 -map 0:0 -map 0:1 -map 1 -map 0:2 -map 0:3 -map 0:4 -map 0:5 -metadata:s:a:1 language=eng -metadata:s:a:1 title="Audio EN" -c copy lr4.mkv
+
+!!!
+fm -i "The.Lord.of.the.Rings-The Fellowship.of.the.Ring.2001.hdrip-avc.dexter_lex.mkv" -i en1.ac3 -map 0:0 -map 0:1 -map 1:a -c copy lr3.mkv
+
+fm -i "The.Lord.of.the.Rings-The Fellowship.of.the.Ring.2001.hdrip-avc.dexter_lex.mkv" -i en1.ac3 -map 0 -map 1 -c copy lr2.mkv
+
+fm -i "The.Lord.of.the.Rings-The Fellowship.of.the.Ring.2001.hdrip-avc.dexter_lex.mkv" -i en1.ac3 -map 0 -map 1 -metadata:s:a:0 language=rus -metadata:s:a:1 language=eng -metadata:s:a:0 title="Audio RU" -metadata:s:a:1 title="Audio EN" -c copy lr1.mkv
+
+
+-----
+
+!!!
+fm -i in.mpg -c:v mpeg2video -b:v 1500k -bf 2 -vf yadif=0:0:0 -c:a copy out.mpg
+
+
+-----
+
+fm -i 23.mpg -c:v libx264 -crf 26 -c:a copy 23-1.mpg
+fm -i 23.mpg -c:v libx264 -crf 10 -c:a copy 23-1.mpg
+
+fm -i 23.mpg -c:a copy 23-2.mpg
+
+fm -i 23.mpg -c:v mpeg2video -c:a copy 23-3.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 3000k -c:a copy 23-4.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -c:a copy 23-5.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif -c:a copy 23-6.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif=0:-1:0 -c:a copy 23-7.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif=0:0:0 -c:a copy 23-8.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1500k -vf yadif=0:0:0 -c:a copy 23-9.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -bf 2 -vf yadif=0:0:0 -c:a copy 23-10.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1500k -bf 2 -vf yadif=0:0:0 -c:a copy 23-11.mpg
+
+
+-----
+
+fm -i 01.mpg -c:v libx264 -crf 25 -c:a copy 01-9.mpg
+
+fm -i 01.mpg -c:v libx264 -crf 19 -b:v 1000k -c:a copy 01-1.avi
+
+fm -i 01.mpg -c:v libx264 -t 00:02:00 -c:a copy 01-4.avi
+
+fm -i 01.mpg -c:v libxvid -t 00:01:00 -c:a copy 01-5.avi
+
+fm -i 01.mpg -c:v libx264 -t 00:01:00 -c:a copy 01-6.mpg
+
+fm -i 01.mpg -c:v libx264 -crf 25 -t 00:01:00 -c:a copy 01-8.mpg
+
+
+-----
+
+fm -i in.avi -map 0:1 -c copy audio.ac3
+
+fm -i a.flac -b:a 320k -map_metadata 0 -id3v2_version 3 a.mp3
+
+ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
+
+
+-----
+
+ffmpeg -i q.avi -i a1.mp3 -codec copy output.avi
+
+ffmpeg -i q.avi -i a1.mp3 -map 0 -map 1 -codec copy o1.avi
+
+ffmpeg -i hpen.mp4 -i hpru.mp3 -map 0 -map 1 -codec copy hpres.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.avi -i hpru.mp3 -map 0 -map 1:1 -map 2 -codec copy hpres1.mp4
+
+ffmpeg -i q.avi -i a1.mp3 -map 0 -map 1 -metadata:s:a:0 title="Original" -metadata:s:a:1 title="Add" -codec copy o3.avi
+ffmpeg -i q.avi -i a1.mp3 -map 0 -map 1 -metadata:s:a:0 language=eng -metadata:s:a:1 language=esp -codec copy o3.avi
+
+ffmpeg -i hpes.avi -vn -acodec copy hpes.mp3
+
+ffmpeg -i hpes.avi -vn -acodec copy audio.aac
+
+ffmpeg -i hpen.mp4 -vn -acodec copy hpen.aac
+
+ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
+
+
+ffmpeg -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
+
+ffmpeg -i audio.aac -codec:a libmp3lame -b:a 128k output.mp3
+
+
+-----
+
+ffmpeg -i hpen.aac -codec:a libmp3lame -b:a 128k hpen.mp3
+ffmpeg -i hpes.ac3 -codec:a libmp3lame -b:a 128k hpes.mp3
+ffmpeg -i "2002 - Harry Potter And The Chamber Of Secrets.EN.mp4" -vn -acodec copy hpen.aac
+ffmpeg -i "2002 - Harry Potter And The Chamber Of Secrets.ES.avi" -vn -acodec copy hpes.ac3
+ffmpeg -i "2002 - Harry Potter And The Chamber Of Secrets.EN.mp4" -i hpes.mp3 -i "2002 - Harry Potter And The Chamber Of Secrets.RU.mp3" -map 0 -map 1 -map 2 -codec copy hpout1.mp4
+
+ffmpeg -i "2002 - Harry Potter And The Chamber Of Secrets.EN.mp4" -i hpes.mp3 -i "2002 - Harry Potter And The Chamber Of Secrets.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 title="Audio EN" -metadata:s:a:1 title="Audio ES" -metadata:s:a:2 title="Audio RU" -codec copy hpout3.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -i "2002 - Harry Potter And The Chamber Of Secrets.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 language=eng -metadata:s:a:1 language=esp -metadata:s:a:2 language=rus -codec copy hpout15.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -i "2002 - Harry Potter And The Chamber Of Secrets.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 language=eng -metadata:s:a:0 title="QWE" -metadata:s:a:1 language=esp -metadata:s:a:2 language=rus -codec copy hpout16.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -i "2002 - Harry Potter And The Chamber Of Secrets.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 title="ASD" -codec copy hpout17.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -i "2002 - Harry Potter And The Chamber Of Secrets.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 language=eng  -metadata:s:a:1 language=spa -metadata:s:a:2 language=rus -metadata:s:a:0 title="Audio EN" -metadata:s:a:1 title="Audio ES" -metadata:s:a:2 title="Audio RU" -codec copy hpout18.mp4
+
+ffmpeg -i en.mp4 -i es.mp3 -i ru.mp3 -map 0 -map 1 -map 2 -metadata:s:a:0 language=eng  -metadata:s:a:1 language=spa -metadata:s:a:2 language=rus -metadata:s:a:0 title="Audio EN" -metadata:s:a:1 title="Audio ES" -metadata:s:a:2 title="Audio RU" -codec copy -shortest hpout19.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -map 0 -map 1 -codec copy -metadata:s:a:1 title="Add2" hpout6.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -map 0 -map 1 -codec copy -metadata:s:a:0 title="Add2" hpout7.mp4
+
+ffmpeg -i hpen.mp4 -i hpes.mp3 -map 0 -map 1 -codec copy -metadata:s:a:1 handler_name="Add2" hpout8.mp4
+
+ffmpeg -i hpout8.mp4 -map 0 -codec copy -metadata:s:a:0 handler_name="Add2" hpout9.mp4
+ffmpeg -i hpout8.mp4 -map 0 -codec copy -metadata:s:a:0 title="Add2" hpout10.mp4
+
+ffmpeg -i hpen.mp4 -map 0 -metadata:s:a:0 title="Add2" -codec copy hpout11.mp4
+ffmpeg -i hpen.mp4 -map 0 -metadata:s:a title="Add2" -codec copy hpout12.mp4
+
+ffmpeg -i hpen.mp4 -map 0 -metadata:s:a:0 title="Add2" -codec copy hpout13.mkv
+ffmpeg -i hpen.mp4 -map 0 -metadata:s:a:0 language=eng -codec copy hpout14.mp4
+
+
+ffmpeg -i q.avi -i a1.mp3 -map 0 -map 1 -codec copy o2.avi
+
+ffmpeg -i q.avi -i a1.mp3 -map 0 -map 1 -metadata:s:a:1 title="Add" -codec copy o4.avi
+
+ffmpeg -i w.mp4 -i a1.mp3 -map 0 -map 1 -metadata:s:a:1 title="Add1" -codec copy ou1.avi
+
+ffmpeg -i o4.avi -metadata:s:a:1 title="Add3" -codec copy ou2.avi
+ffmpeg -i o4.avi ou3.avi
+
+ffmpeg -i o4.avi -map 0 -metadata:s:a:1 title="Add3" -codec copy ou4.avi
+
+ffprobe hpout8.mp4
+ffprobe hpout9.mp4
+ffprobe hpout10.mp4

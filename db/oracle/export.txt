@@ -1,0 +1,4 @@
+Oracle SQL Developer
+limited rows export
+
+export -> WHERE Global -> rownum between 1 and 50
