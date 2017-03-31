@@ -1,1 +1,0 @@
-select id,TO_CHAR(datecol, 'YYYY-MM-DD HH24:MI:SS') from audit order by id desc;

@@ -1,0 +1,6 @@
+HKEY_CLASSES_ROOT\*\shell
+HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers
+HKEY_CLASSES_ROOT\AllFileSystemObjects\ShellEx
+
+HKEY_CLASSES_ROOT\Directory\shell
+HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers

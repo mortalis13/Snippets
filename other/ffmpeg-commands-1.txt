@@ -1,4 +1,22 @@
 
+fm -hide_banner -y -i res.mkv -vf scale=iw*.5:ih*.5 -c:v libx264 -crf 20 -c:a copy res_2.mp4
+fm -hide_banner -y -ss 00:30:00 -t 00:01:00 -i res.mkv -vf scale=iw*.5:ih*.5 -c:v libx264 -crf 20 -c:a copy res_1.mp4
+
+-----
+
+fm -hide_banner -y -i "concat:VTS_01_1.VOB|VTS_01_2.VOB|VTS_01_3.VOB|VTS_01_4.VOB|VTS_01_5.VOB|VTS_01_6.VOB" -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy out_all.mp4
+
+fm -hide_banner -y -t 00:02:00 -i VTS_01_1.VOB -c:v libx264 -crf 26 -bf 2 -vf yadif=0:0:0 -g 300 -c:a libmp3lame -b:a 128k out_01_1.mp4
+
+fm -hide_banner -y -i VTS_01_1.VOB -c:v libx264 -crf 26 -bf 2 -vf yadif=0:0:0 -g 300 -c:a libmp3lame -b:a 128k -t 00:02:00 out_01_1.mp4
+
+fm -hide_banner -y -i VTS_01_1.VOB -f avi -c:v mpeg4 -b:v 3000k -g 300 -bf 2 -c:a libmp3lame -b:a 128k -t 00:05:00 out_01_1.avi
+
+fm -hide_banner -y -i VTS_01_1.VOB -f avi -c:v mpeg4 -b:v 800k -g 300 -bf 2 -c:a libmp3lame -b:a 128k -t 00:05:00 out_01_1.avi
+
+
+---------------------------------------
+
 fm -i en1.aac -c:a libmp3lame -b:a 128k en1.mp3
 
 fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:2 -c:a copy en1.aac

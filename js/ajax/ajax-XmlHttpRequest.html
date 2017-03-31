@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .result{
+      margin: 20px 0;
+      padding: 30px;
+      border: 1px solid #aaa;
+    }
+    .result .title{
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .result #response{
+      background: #f2f2f2;
+      color: #333;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="demo">
+  <h1>The XMLHttpRequest Object</h1>
+  <button type="button" onclick="loadDoc()">AJAX Test</button>
+  
+  <div class="result">
+    <div class="title">AJAX Result</div>
+    <pre id="response">
+      
+    </pre>
+  </div>
+</div>
+
+<script>
+  function loadDoc() {
+    var url = "ajax_info.txt";
+    
+    var xhttp = new XMLHttpRequest();
+    
+    xhttp.onload = function() {
+      console.log('onload(): ' + this.response);
+      document.getElementById("response").innerHTML = this.responseText;
+    }
+
+    xhttp.onerror=function(){
+      console.error('onerror(): ' + this.status + ', ' + this.response);
+    }
+    
+    xhttp.open("GET", url);
+    xhttp.responseType = 'text';
+    xhttp.send();
+  }
+</script>
+
+</body>
+</html>

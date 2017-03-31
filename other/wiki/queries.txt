@@ -10,3 +10,16 @@ https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&exsec
 https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&exsectionformat=raw&titles=BBC
 
 https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&page=Ha%20Noi&redirects&section=4
+
+----
+
+https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&page=BBC&redirects&section=4
+https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&page=BBC&redirects
+
+https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=&exsectionformat=raw&titles=BBC
+https://en.wikipedia.org/w/api.php?action=parse&prop=sections&page=Wikipedia:Unusual_articles
+https://en.wikipedia.org/w/api.php?action=parse&page=Wikipedia:Unusual_articles/Places_and_infrastructure&section=2&prop=text
+
+https://en.wikipedia.org/w/api.php?action=parse&page=BBC&section=4&prop=text
+https://en.wikipedia.org/w/api.php?action=parse&page=BBC&section=4&prop=text&format=json
+

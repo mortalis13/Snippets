@@ -106,3 +106,8 @@ range.insertBefore("text");
 // Paragraph paragraph = range.getParagraph(0);
 // paragraph.insertAfter("asd");
 // range.getCharacterRun(0).insertAfter("-333");
+
+
+// --- Convert ArrayList to array
+
+String[] countries = list.toArray(new String[list.size()]);
