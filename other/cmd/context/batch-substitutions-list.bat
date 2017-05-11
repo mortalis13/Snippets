@@ -4,6 +4,8 @@ rem Run the script from a directory/file context menu to check the arguments
 rem To create a context menu for this .bat use the cmd/batch-context.reg file (or search for "Batch file in directory context menu")
 rem The list is from the C:/Windows/Help/ntcmds.chm => 'for' comand (or search for Command Line Reference if no .chm file)
 
+echo call_dir %cd%
+
 echo ~1 %~1
 echo ~f1 %~f1
 echo ~d1 %~d1
