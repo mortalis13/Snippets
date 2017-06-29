@@ -1,0 +1,5 @@
+https://dl-ssl.google.com/android/repository/repository.xml
+
+To download zip:
+- find <sdk:url>platform-tools_r19.0.1-windows.zip</sdk:url>
+- URL https://dl-ssl.google.com/android/repository/platform-tools_r19.0.1-windows.zip

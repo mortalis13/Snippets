@@ -2,3 +2,33 @@ Oracle SQL Developer
 limited rows export
 
 export -> WHERE Global -> rownum between 1 and 50
+
+
+-----
+
+mkdir c:\oraclexe\app\tmp
+sqlplus SYSTEM/sys
+
+CREATE OR REPLACE DIRECTORY dmpdir2 AS 'c:\oraclexe\app\tmp2';
+GRANT READ,WRITE ON DIRECTORY dmpdir TO hr;
+
+-----
+
+
+expdp SYSTEM/sys SCHEMAS=hr DIRECTORY=dmpdir DUMPFILE=schema.dmp LOGFILE=expschema.log
+
+expdp SYSTEM/sys SCHEMAS=hr DIRECTORY=dmpdir DUMPFILE=q1.dmp LOGFILE=q1.log JOB_NAME=jbb1
+
+expdp SYSTEM/sys SCHEMAS=AYTOSTRAMITACION_LOC DIRECTORY=dmpdir DUMPFILE=AYTOSTRAMITACION_LOC.dmp LOGFILE=AYTOSTRAMITACION_LOC.log
+
+
+
+impdp SYSTEM/password SCHEMAS=hr DIRECTORY=dmpdir DUMPFILE=schema.dmp REMAP_SCHEMA=hr:hrdev EXCLUDE=constraint, ref_constraint, index TABLE_EXISTS_ACTION=replace LOGFILE=impschema.log
+
+
+expdp SYSTEM/sys SCHEMAS=TEMP_LOC DIRECTORY=dmpdir DUMPFILE=TEMP_LOC.dmp LOGFILE=TEMP_LOC.log
+
+impdp SYSTEM/sys DIRECTORY=dmpdir SCHEMAS=TEMP2_LOC DUMPFILE=TEMP_LOC.dmp LOGFILE=TEMP_LOC-imp.log
+
+impdp TEMP2_LOC/TEMP2_LOC DIRECTORY=dmpdir DUMPFILE=TEMP_LOC.dmp LOGFILE=TEMP_LOC-imp.log REMAP_SCHEMA=TEMP_LOC:TEMP2_LOC
+
