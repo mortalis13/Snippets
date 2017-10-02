@@ -1,0 +1,35 @@
+
+-- equals without spaces around
+([^\s=])(=+)([^\s=])
+(\S)(=+)(\S)
+
+([^ <>"'=!])=([^ '=])
+_$1 = $2
+([^ "'])([<>!?]?=+)([^ ])
+_$1 $2 $3
+
+
+-- add space after comma
+,(\S)
+_, $1
+
+
+-- remove trailing spaces
+ +$
+
+
+-- line without semicolon at the end
+^( +)((?!else|if|for|case|//))\S([^;{\n]+?)(?=\n| {2,})
+
+return ?.*?[^\n;](?=\n| {2,})
+return ?[^\n ;]*?(?=\n| {2,})
+return ;
+
+
+___ add
+^((?! *else| *if| *//).*[^;,{}\s]{1})$
+
+([^;{}()\s,])$
+^[ \t]*.*?[^;{}(,\s][ \t]*$
+.(?<![;{}(, ])\n
+^(.*[^;,{}\s]{1})$

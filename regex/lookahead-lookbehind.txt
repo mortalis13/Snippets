@@ -1,0 +1,11 @@
+q(?!u)
+a q not followed by a u
+
+q(?=u)
+a q that is followed by a u, without making the u part of the match
+
+(?<!a)b
+matches a "b" that is not preceded by an "a"
+
+(?<=a)b
+matches a "b" that is preceded by an "a"

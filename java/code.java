@@ -111,3 +111,34 @@ range.insertBefore("text");
 // --- Convert ArrayList to array
 
 String[] countries = list.toArray(new String[list.size()]);
+
+
+// --- Download file from a web page
+
+response.setContentType("application/pdf");
+response.setHeader("Content-Disposition", "attachment;filename=downloadfilename.pdf");
+
+byte[] pdfBytes = null;
+ServletOutputStream out = response.getOutputStream();
+out.write(pdfBytes, 0, pdfBytes.length);
+
+out.flush();
+out.close();
+
+
+// --- Download ZIP
+
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+ZipOutputStream zos = new ZipOutputStream(baos);
+
+zos.putNextEntry(new ZipEntry(fileName));
+zos.write(bytes, 0, bytes.length);
+zos.closeEntry();
+
+zos.flush();
+baos.flush();
+zos.close();
+baos.close();
+
+byte[] zip = baos.toByteArray();
+// [download with "application/zip"]

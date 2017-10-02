@@ -7,6 +7,9 @@ TortoiseProc.exe /command:update /path:"c:\svn_wc\" /closeonend:0
 
 TortoiseProc.exe /command:log /path:"C:\1-Datos\eclipse\ws-vacaciones\vacaciones"
 
+TortoiseProc.exe /command:diff /path:"C:/1-Datos/eclipse/ws-eac_branch/eac_branch/eac/eac-web/src/main/webapp/WEB-INF/config/struts/struts-eac-admin-gestor.xml" /path2:"C:/1-Datos/eclipse/ws-eac/eac/eac/eac-web/src/main/webapp/WEB-INF/config/struts/struts-eac-admin-gestor.xml"
+
+
 -------------
 
 

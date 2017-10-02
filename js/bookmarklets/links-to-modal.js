@@ -1,4 +1,11 @@
 javascript:(function(){
+  var res = '';
+  var titles = $('.title');
+  titles.each(function(id, item){
+    var url = item.href;
+    res += url + '\n';
+  });
+  
   var modalInner = '<textarea id="out-text" style="width: 100%; box-sizing: border-box; height: 400px; resize: both; font-family: consolas;"></textarea>';
   var modalContent = '<div class="modal-content" style="background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888; width: 70%;">'+ modalInner + '</div>';
   var modalHTML = '<div id="inject-modal" class="inject-modal" style="display: none; position: fixed; z-index: 10000; padding-top: 10px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: #55555580;">' + modalContent + '</div>';
@@ -8,28 +15,19 @@ javascript:(function(){
   modalDiv.innerHTML = modalHTML;
   document.body.appendChild(modalDiv);
 
-  function hideModal(){
-    var modal = document.getElementById('inject-modal');
-    var modalParent = document.getElementById('inject-modal-parent');
-    modal.style.display = "none";
-    modalParent.parentNode.removeChild(modalParent);
-  }
-  
   var modal = document.getElementById('inject-modal');
   window.onclick = function(event) {
     if (event.target == modal) {
-      hideModal();
+      modal.style.display = "none";
+      var modalParent = document.getElementById('inject-modal-parent');
+      modalParent.parentNode.removeChild(modalParent);
     }
   };
   
-  modal.onkeypress = function(e){
-    if(e.keyCode == 27){
-      hideModal();
-    }
-  };
   modal.style.display = "block";
   
-  var outText = document.getElementById('out-text');
+  var outText = $("#out-text");
+  outText.html(res);
   outText.focus();
-  outText.setSelectionRange(0, 0);
+  outText[0].setSelectionRange(0, 0);
 })()

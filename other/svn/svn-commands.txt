@@ -1,20 +1,24 @@
 
 svnadmin create repository
 
-svn mkdir file:///d:/Documentos/SVN/repository/trunk file:///d:/Documentos/SVN/repository/branches file:///d:/Documentos/SVN/repository/tags -m "creating initial repository layout"
+svn mkdir file:///d:/Documents/SVN/repository/trunk file:///d:/Documents/SVN/repository/branches file:///d:/Documents/SVN/repository/tags -m "creating initial repository layout"
 
 
-svn mkdir file:///d:/Documentos/SVN/repos/trunk file:///d:/Documentos/SVN/repos/branches file:///d:/Documentos/SVN/repos/tags -m "creating initial repository layout"
+svn mkdir file:///d:/Documents/SVN/repos/trunk file:///d:/Documents/SVN/repos/branches file:///d:/Documents/SVN/repos/tags -m "creating initial repository layout"
 
-svn list file:///d:/Documentos/SVN/repos
+svn list file:///d:/Documents/SVN/repos
 
-svn import my-project file:///d:/Documentos/SVN/repos/trunk -m "importing my-project"
+svn import my-project file:///d:/Documents/SVN/repos/trunk -m "importing my-project"
 
-svn checkout file:///d:/Documentos/SVN/repos/trunk myproject
+svn checkout file:///d:/Documents/SVN/repos/trunk myproject
 
 
 ----
 
-
 svn co --depth empty https://github.com/mortalis13/SVN-Test
+
+
+---
+
+svn --non-interactive info
 
