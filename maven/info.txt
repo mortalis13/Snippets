@@ -1,12 +1,69 @@
 
-Build lifecycle (default, clean, site)
+POM (Project Object Model)
+
+
+Build lifecycle (default, clean, site) - a set of phases
 |
-Phase (test, package, install; clean; pre-site, site)
+Phase (test, package, install; pre-clean, clean, post-clean; pre-site, site) - a set of goals (verbs, actions)
 |
-Goal (jar:jar, compiler:compile; clean:clean)
+Goal (jar:jar, compiler:compile; clean:clean) - the goals belong to some plugin (format: 'plugin:goal')
 
 
 Plugin (clean)
 |
 Goal (clean:clean)
 
+
+Notes:
+- you cannot execute a lifecycle by its name (mvn clean)
+- 'mvn clean' executes the 'clean' phase of the 'clean' lifecycle ('clean' goal, 'clean' plugin, 'clean' phase, 'clean' lifecycle)
+- 'mvn compile' - compile goal, compiler plugin, compile phase, default lifecycle
+
+
+The 'default' lifecycle includes the phases:
+- validate
+- initialize
+- generate-sources
+- process-sources
+- generateresources
+- process-resources
+- compile
+- process-classes
+
+- generate-test-sources
+- process-test-sources
+- generate-testresources
+- process-test-resources
+- test-compile
+- process-testclasses
+
+- test
+- prepare-package
+- package
+- pre-integration-test
+- integration-test
+- post-integration-test
+- verify
+- install
+- deploy
+
+
+components.xml - Component descriptor
+MAVEN_HOME/lib/maven-core-3.3.3.jar/META-INF/plex/components.xml
+
+
+Default Maven properties:
+
+- project.version - value of the version element of the project POM file
+- project.groupId - value of the groupId element of the project POM file
+- project.artifactId - value of the artifactId element of the project POM file
+- project.name - value of the name element of the project POM file
+- project.description - value of the description element of the project POM file
+- project.basedir - path of the project's base directory
+
+- settings.localRepository - value of the localRepository property in the settings.xml
+- env.java_home - value of the environment variable
+
+
+Project inheritance - indicate <parent> in children POMs
+Project aggregation - indicate <modules> in the parent POM

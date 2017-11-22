@@ -48,12 +48,16 @@ FROM
   user_constraints
 WHERE 
   CONSTRAINT_TYPE='R';
+  
+
+SELECT * FROM USER_CONSTRAINTS
+WHERE CONSTRAINT_TYPE='R'
+AND R_CONSTRAINT_NAME='EXEF_PK';
 
 
 -- remove all objects in schema
 
 select 'drop '||object_type||' '|| object_name|| DECODE(OBJECT_TYPE,'TABLE',' CASCADE CONSTRAINTS','') || ';'  from user_objects;
-
 
 
 -- date format
@@ -87,3 +91,11 @@ select standard_hash('123', 'MD5') from dual;
 -- random
 
 select round(dbms_random.value() * 2) + 1 from dual;
+
+
+-- regexp
+
+SELECT REGEXP_SUBSTR ('text', 'EC\d+') FROM dual;
+
+
+PROMPT SOME_TEXT;

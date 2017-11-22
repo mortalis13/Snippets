@@ -1,0 +1,7 @@
+(?<=>)[^>\n]+$
+
+<tag1>
+  <tag2>      this is a comment I want to remove
+    value2
+  </tag2>
+</tag1>
