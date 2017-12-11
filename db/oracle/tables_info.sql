@@ -41,7 +41,11 @@ SELECT table_name, column_name, data_type, data_length, data_precision, nullable
 
 SELECT table_name, column_name, data_type, CASE WHEN data_precision is NULL THEN data_length ELSE data_precision END "LENGTH", nullable FROM USER_TAB_COLUMNS where table_name in (select table_name from user_tables);
 
-SELECT column_name, CASE WHEN data_precision is NULL THEN data_length ELSE data_precision END "LENGTH" FROM USER_TAB_COLUMNS where table_name='ACTA';
+SELECT column_name, CASE WHEN data_precision is NULL THEN data_length ELSE data_precision END "LENGTH" FROM USER_TAB_COLUMNS where table_name='TABLE';
+
+SELECT table_name, column_name, data_type, CASE WHEN data_precision is NULL THEN data_length ELSE data_precision END "LENGTH", nullable
+FROM USER_TAB_COLUMNS
+ORDER BY table_name, column_name;
 
 
 -- get info for synonym

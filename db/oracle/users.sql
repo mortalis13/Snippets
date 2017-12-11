@@ -10,3 +10,6 @@ grant all privileges to prueba01;
 
 drop user prueba01;
 drop user prueba01 cascade;
+
+
+alter user myuser identified by mynewpassword account unlock;

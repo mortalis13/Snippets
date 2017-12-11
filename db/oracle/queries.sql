@@ -99,3 +99,10 @@ SELECT REGEXP_SUBSTR ('text', 'EC\d+') FROM dual;
 
 
 PROMPT SOME_TEXT;
+
+
+-- search duplicated
+select multi_field, count(multi_field) from exp
+group by multi_field
+having count(multi_field) > 1;
+
