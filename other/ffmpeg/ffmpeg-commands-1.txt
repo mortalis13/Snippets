@@ -1,0 +1,101 @@
+
+fm -hide_banner -y -ss 00:30:00 -t 00:02:00 -i "Life of Brian - 1979 [1080p][EN-ES-RU][EN-ES].mkv" -i brian-de.mp3 -map 0:0 -map 0:1 -map 0:2 -map 1:0 -map 0:5 -map 0:3 -map 0:4 -metadata:s:a:2 language=deu -metadata:s:a:2 title="Audio DE" -c copy LifeOfBrian.mkv
+
+-----
+
+fm -hide_banner -y -f lavfi -t 2 -i anullsrc=channel_layout=stereo:sample_rate=44100 -c:a libmp3lame -b:a 128k silence.mp3
+fm -hide_banner -y -f lavfi -t 2 -i anullsrc=channel_layout=mono:sample_rate=44100 -c:a libmp3lame -b:a 128k silence.mp3
+
+fm -hide_banner -y -i concat:"c:\delay\sound1.mp3|c:\delay\silence.mp3" -codec copy out.mp3"
+
+fm -hide_banner -y -i Ambient_Empire@CAMP@FP1_1.mp3 -f lavfi -t 2 -i anullsrc=channel_layout=stereo:sample_rate=44100 -filter_complex "[0:0] [1:0] concat=n=2:v=0:a=1" combined.mp3
+
+-----
+
+fm -hide_banner -y -i r.mkv -c:v copy -c:a libmp3lame -b:a 320k -map 0:0 -map 0:1 -map 0:2 res_1.mkv
+
+fm -hide_banner -y -ss 00:30:00 -t 00:01:00 -i r.mkv -c:v copy -c:a libmp3lame -b:a 320k -map 0:0 -map 0:1 -map 0:2 -t 00:01:00 res_1.mkv
+
+fm -hide_banner -y -ss 00:30:00 -t 00:01:00 -i r.mkv -c:a copy -map 0:0 -map 0:1 -map 0:2 -t 00:01:00 res_1.mkv
+
+fm -hide_banner -y -ss 00:30:00 -t 00:01:00 -i r.mkv -c:v libx264 -crf 20 -c:a copy res_1.mp4
+
+
+fm -hide_banner -y -i res.mkv -vf scale=iw*.5:ih*.5 -c:v libx264 -crf 20 -c:a copy res_2.mp4
+fm -hide_banner -y -ss 00:30:00 -t 00:01:00 -i res.mkv -vf scale=iw*.5:ih*.5 -c:v libx264 -crf 20 -c:a copy res_1.mp4
+
+
+-----
+
+fm -hide_banner -y -i "concat:VTS_01_1.VOB|VTS_01_2.VOB|VTS_01_3.VOB|VTS_01_4.VOB|VTS_01_5.VOB|VTS_01_6.VOB" -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy out_all.mp4
+
+fm -hide_banner -y -i "concat:VTS_03_1.VOB|VTS_03_2.VOB|VTS_03_3.VOB|VTS_03_4.VOB" -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy -map 0:1 -map 0:2 -map 0:3 out_all.mp4
+
+fm -hide_banner -y -i "concat:VTS_03_1.VOB|VTS_03_2.VOB|VTS_03_3.VOB|VTS_03_4.VOB" -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy -c:s copy -map 0:1 -map 0:2 -map 0:3 -map 0:4 out_all.mp4
+
+
+fm -hide_banner -y -t 00:02:00 -i VTS_01_1.VOB -c:v libx264 -crf 26 -bf 2 -vf yadif=0:0:0 -g 300 -c:a libmp3lame -b:a 128k out_01_1.mp4
+
+fm -hide_banner -y -i VTS_01_1.VOB -c:v libx264 -crf 26 -bf 2 -vf yadif=0:0:0 -g 300 -c:a libmp3lame -b:a 128k -t 00:02:00 out_01_1.mp4
+
+fm -hide_banner -y -i VTS_01_1.VOB -f avi -c:v mpeg4 -b:v 3000k -g 300 -bf 2 -c:a libmp3lame -b:a 128k -t 00:05:00 out_01_1.avi
+
+fm -hide_banner -y -i VTS_01_1.VOB -f avi -c:v mpeg4 -b:v 800k -g 300 -bf 2 -c:a libmp3lame -b:a 128k -t 00:05:00 out_01_1.avi
+
+
+---------------------------------------
+
+fm -i en1.aac -c:a libmp3lame -b:a 128k en1.mp3
+
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:2 -c:a copy en1.aac
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:2 -c:a copy en2.aac
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:2 -c:a copy en3.aac
+
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:3 -c:a copy ru1-1.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:4 -c:a copy ru1-2.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:5 -c:a copy ru1-3.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:6 -c:a copy en1-1.srt
+fm -i "The Lord of the Rings The Fellowship of the Ring (2001) BDRip.mkv" -map 0:7 -c:a copy en1-2.srt
+
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:3 -c:a copy ru3-1.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:4 -c:a copy ru3-2.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:5 -c:a copy ru3-3.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:6 -c:a copy en3-1.srt
+fm -i "The Lord of the Rings The Return of the King (2003) BDRip.mkv" -map 0:7 -c:a copy en3-2.srt
+
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:3 -c:a copy ru2-1.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:4 -c:a copy ru2-2.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:5 -c:a copy ru2-3.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:6 -c:a copy en2-1.srt
+fm -i "The Lord of the Rings The Two Towers (2002) BDRip.mkv" -map 0:7 -c:a copy en2-2.srt
+
+
+fm -i "Harry Potter y la Piedra Filosofal [AnimeHD] [DVDRip] [spanish].mp4" -map 0:1 -c:a copy es.aac
+fm -i es.aac -codec:a libmp3lame -b:a 128k es.mp3
+fm -i "2001 - Harry Potter And The Philosophers Stone.EN.mp4" -i es-1.mp3 -i "2001 - Harry Potter And The Philosophers Stone.RU.mp3" -map 0 -map 1 -map 2 -metadata:s:a:0 language=eng -metadata:s:a:1 language=esp -metadata:s:a:2 language=rus -metadata:s:a:0 title="Audio EN" -metadata:s:a:1 title="Audio ES" -metadata:s:a:2 title="Audio RU" -c copy hpout15.mp4
+
+
+fm -i "002 2010.03.14 С кем спать.mpg" -c:v libx264 -crf 26 -c:a copy "002 2010.03.14 С кем спать_1.mpg"
+
+fm -i 23.mpg -c:v libx264 -crf 26 -c:a copy 23-1.mpg
+fm -i 23.mpg -c:v libx264 -crf 10 -c:a copy 23-1.mpg
+
+fm -i 23.mpg -c:a copy 23-2.mpg
+
+fm -i 23.mpg -c:v mpeg2video -c:a copy 23-3.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 3000k -c:a copy 23-4.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -c:a copy 23-5.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif -c:a copy 23-6.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif=0:-1:0 -c:a copy 23-7.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -vf yadif=0:0:0 -c:a copy 23-8.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1500k -vf yadif=0:0:0 -c:a copy 23-9.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1000k -bf 2 -vf yadif=0:0:0 -c:a copy 23-10.mpg
+
+fm -i 23.mpg -c:v mpeg2video -b:v 1500k -bf 2 -vf yadif=0:0:0 -c:a copy 23-11.mpg

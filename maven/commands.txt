@@ -85,6 +85,11 @@ mvn dependency:get -DgroupId=org.apache.poi -DartifactId=poi-scratchpad -Dversio
 mvn dependency:get -DgroupId=org.apache.poi -DartifactId=poi-scratchpad -Dversion=3.9 -Dclassifier=sources
 
 
+-- plugins --
+
+mvn archetype:generate -DgroupId=sample.plugin -DartifactId=hello-maven-plugin -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-plugin
+
+
 -- Spring --
 
 mvn archetype:generate -B -DgroupId=org.home -DartifactId=SpringTest -Dversion=1.0.0 -DarchetypeGroupId=co.ntier -DarchetypeArtifactId=spring-mvc-archetype -DarchetypeVersion=1.0.2 -DarchetypeRepository=http://central.maven.org/maven2

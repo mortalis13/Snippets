@@ -1,0 +1,128 @@
+
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:50:32 -to 00:56:10 "Jam Track 01 Lesson 1.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:45:17 -to 00:50:32 "Jam Track 02 Lesson 2.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:39:55 -to 00:45:17 "Jam Track 03 Lesson 3&4.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:34:37 -to 00:39:55 "Jam Track 04 Lesson 5&6.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:29:04 -to 00:34:37 "Jam Track 05 Lesson 7&8.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:22:58 -to 00:29:04 "Jam Track 06 Lesson 9.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:17:43 -to 00:22:58 "Jam Track 07 Lesson 10.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:10:35 -to 00:16:36 "Jam Track 08 Lesson 11.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:05:45 -to 00:10:35 "Jam Track 09 Lesson 12&13.mp3"
+fm -hide_banner -y -i "Jam Tracks_2.mp3" -c:a copy -ss 00:00:00 -to 00:05:45 "Jam Track 10 Lesson 14.mp3"
+
+
+01 Lesson 1      - 50:32 - 56:10
+02 Lesson 2      - 45:17 - 50:32
+03 Lesson 3&4    - 39:55 - 45:17
+04 Lesson 5&6    - 34:37 - 39:55
+05 Lesson 7&8    - 29:04 - 34:37
+06 Lesson 9      - 22:58 - 29:04
+07 Lesson 10     - 17:43 - 22:58
+08 Lesson 11     - 10:35 - 16:36
+09 Lesson 12&13  - 05:45 - 10:35
+10 Lesson 14     - 00:00 - 05:45
+
+
+-----------------------------
+
+fm -hide_banner -y -i VTS_02_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\01 - Lesson 1 - Basic Chord Theory.mp4"
+fm -hide_banner -y -i VTS_03_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\02 - Lesson 2 - Rhythm Technique.mp4"
+fm -hide_banner -y -i VTS_04_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\03 - Lesson 3 - Part 1 Basic Chord Extensions.mp4"
+fm -hide_banner -y -i VTS_05_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\05 - Lesson 4 - Part 1 Bar Chords (E Major Shape).mp4"
+fm -hide_banner -y -i VTS_06_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\08 - Lesson 5 - Part 1 Minor Pentatonic Scale.mp4"
+fm -hide_banner -y -i VTS_07_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\10 - Lesson 6 - Part 1 Minor Pentatonic Sequences.mp4"
+fm -hide_banner -y -i VTS_08_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\12 - Lesson 7 - The Blues Scale.mp4"
+fm -hide_banner -y -i VTS_09_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\09 - Lesson 5 - Part 2 Pentatonic Scale Positions.mp4"
+fm -hide_banner -y -i VTS_10_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\07 - Lesson 4 - Part 3 Bar Chords (7th Shapes).mp4"
+fm -hide_banner -y -i VTS_11_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\06 - Lesson 4 - Part 2 Bar Chords (A Major Shape).mp4"
+fm -hide_banner -y -i VTS_12_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\04 - Lesson 3 - Part 2 Major 7th & Suspended Chords.mp4"
+fm -hide_banner -y -i VTS_13_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\11 - Lesson 6 - Part 2 Two String Pentatonic Sequences.mp4"
+
+fm -hide_banner -y -i VTS_02_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\13 - Lesson 8 - Major Pentatonic Scale.mp4"
+fm -hide_banner -y -i VTS_03_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\14 - Lesson 9 - Soloing Skills.mp4"
+fm -hide_banner -y -i VTS_04_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\15 - Lesson 10 - The Major CAGED System.mp4"
+fm -hide_banner -y -i VTS_05_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\16 - Lesson 11 - The Minor CAGED System.mp4"
+fm -hide_banner -y -i VTS_06_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\17 - Lesson 12 - CAGED Major Scales & Cycle of 4ths.mp4"
+fm -hide_banner -y -i VTS_07_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\18 - Lesson 13 - CAGED Minor Scales.mp4"
+fm -hide_banner -y -i VTS_08_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\19 - Lesson 14 - The Harmonized Scale & Modes.mp4"
+
+fm -hide_banner -y -i VTS_02_0.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\14 - Jam Tracks.mp4"
+fm -hide_banner -y -i VTS_02_0.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy -c:s copy -map 0:1 -map 0:2 -map 0:3 "..\14 - Jam Tracks_2.mp4"
+fm -hide_banner -y -i VTS_02_0.VOB -c:a copy "..\Jam Tracks_2.ac3"
+
+
+02 - 01 - Lesson 1 - Basic Chord Theory                              (19:07)
+03 - 02 - Lesson 2 - Rhythm Technique                                (19:41)
+04 - 03 - Lesson 3 - Part 1 Basic Chord Extensions                   (11:23)
+05 - 05 - Lesson 4 - Part 1 Bar Chords (E Major Shape)               (06:33)
+06 - 08 - Lesson 5 - Part 1 Minor Pentatonic Scale                   (04:07)
+07 - 10 - Lesson 6 - Part 1 Minor Pentatonic Sequences               (14:40)
+08 - 12 - Lesson 7 - The Blues Scale                                 (13:04)
+09 - 09 - Lesson 5 - Part 2 Pentatonic Scale Positions               (13:00)
+10 - 07 - Lesson 4 - Part 3 Bar Chords (7th Shapes)                  (05:34)
+11 - 06 - Lesson 4 - Part 2 Bar Chords (A Major Shape)               (03:00)
+12 - 04 - Lesson 3 - Part 2 Major 7th & Suspended Chords             (06:47)
+13 - 11 - Lesson 6 - Part 2 Two String Pentatonic Sequences          (06:35)
+
+02 - 13 - Lesson 8 - Major Pentatonic Scale                          (16:07)
+03 - 14 - Lesson 9 - Soloing Skills                                  (25:00)
+04 - 15 - Lesson 10 - The Major CAGED System                         (16:54)
+05 - 16 - Lesson 11 - The Minor CAGED System                         (15:55)
+06 - 17 - Lesson 12 - CAGED Major Scales & Cycle of 4ths             (17:28)
+07 - 18 - Lesson 13 - CAGED Minor Scales                             (10:01)
+08 - 19 - Lesson 14 - The Harmonized Scale & Modes                   (17:29)
+
+
+-----------------------
+
+
+fm -hide_banner -y -i "concat:VTS_02_1.VOB|VTS_02_2.VOB" -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\Мастер Класс от Виктора Зинчука.mp4"
+
+
+-----------------------
+
+fm -hide_banner -y -i "concat:VTS_03_1.VOB|VTS_03_2.VOB|VTS_03_3.VOB|VTS_03_4.VOB" -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy -map 0:1 -map 0:2 -map 0:3 out_all.mp4
+
+fm -hide_banner -y -i VTS_01_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\Introduction.mp4"
+fm -hide_banner -y -i VTS_02_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch1 CAGED System - C Major.mp4"
+fm -hide_banner -y -i VTS_03_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch2 Chords & Scales - C Minor.mp4"
+fm -hide_banner -y -i VTS_04_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch2 Chords & Scales - D Minor.mp4"
+fm -hide_banner -y -i VTS_05_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch3 Dominant 7th Chords.mp4"
+fm -hide_banner -y -i VTS_06_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch3 Finger Picking Primer.mp4"
+fm -hide_banner -y -i VTS_08_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch2 Chords & Scales - E Minor.mp4"
+fm -hide_banner -y -i VTS_09_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch1 CAGED System - A Major.mp4"
+fm -hide_banner -y -i VTS_10_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch1 CAGED System - G Major.mp4"
+fm -hide_banner -y -i VTS_11_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch4 F Major.mp4"
+fm -hide_banner -y -i VTS_12_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch4 The Three Chord Trick.mp4"
+fm -hide_banner -y -i VTS_13_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch4 More Scale Practice.mp4"
+fm -hide_banner -y -i VTS_14_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch4 Picking Technique.mp4"
+fm -hide_banner -y -i VTS_15_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch5 Further Dominant Chord Examples.mp4"
+fm -hide_banner -y -i VTS_16_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch5 More Scale Practice.mp4"
+fm -hide_banner -y -i VTS_17_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\Guitar Components & Tuning.mp4"
+fm -hide_banner -y -i VTS_18_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch1 CAGED System - E Major.mp4"
+fm -hide_banner -y -i VTS_19_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch1 CAGED System - D Major.mp4"
+fm -hide_banner -y -i VTS_20_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch1 Counting The Beat.mp4"
+fm -hide_banner -y -i VTS_21_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch2 Counting 8ths.mp4"
+fm -hide_banner -y -i VTS_22_1.VOB -c:v libx264 -crf 24 -bf 2 -vf yadif=0:0:0 -g 300 -c:a copy "..\ch4 Rests & Ties.mp4"
+
+01 - Introduction
+02 - ch1 CAGED System - C Major
+03 - ch2 Chords & Scales - C Minor
+04 - ch2 Chords & Scales - D Minor
+05 - ch3 Dominant 7th Chords
+06 - ch3 Finger Picking Primer
+08 - ch2 Chords & Scales - E Minor
+09 - ch1 CAGED System - A Major
+10 - ch1 CAGED System - G Major
+11 - ch4 F Major
+12 - ch4 The Three Chord Trick
+13 - ch4 More Scale Practice
+14 - ch4 Picking Technique
+15 - ch5 Further Dominant Chord Examples
+16 - ch5 More Scale Practice
+17 - Guitar Components & Tuning
+18 - ch1 CAGED System - E Major
+19 - ch1 CAGED System - D Major
+20 - ch1 Counting The Beat
+21 - ch2 Counting 8ths
+22 - ch4 Rests & Ties

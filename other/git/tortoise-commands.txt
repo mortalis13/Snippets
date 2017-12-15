@@ -1,0 +1,1 @@
+TortoiseGitProc.exe /command:commit /path:"e:\Documents\GitHub\_addons\Bookmarks-Sidebar-Button"
