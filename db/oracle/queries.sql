@@ -106,3 +106,38 @@ select multi_field, count(multi_field) from exp
 group by multi_field
 having count(multi_field) > 1;
 
+
+-- replace subquery with joins
+
+SELECT PKID, QuestionText, Type 
+FROM Questions 
+WHERE PKID IN (
+    SELECT FirstQuestion 
+    FROM Batch 
+    WHERE BatchNumber IN (
+        SELECT BatchNumber 
+        FROM User 
+        WHERE RandomString = '$key'
+    )
+)
+
+
+---------- ↓ ----------
+
+
+SELECT  DISTINCT a.*
+FROM    Questions a
+        INNER JOIN Batch b ON a.PKID = b.FirstQuestion
+        INNER JOIN User c ON b.BatchNumber = c.BatchNumber
+WHERE   c.RandomString = '$key'
+
+
+-- --------------------------------------------------------------------
+
+select user_id from registrations group by user_id;
+select user_id from registrations order by user_id;
+select count(distinct user_id) from registrations;
+select user_id, count(*) from registrations group by user_id having count(*)>1 order by count(*);
+
+select * from user where rownum between 1 and 1;
+

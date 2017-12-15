@@ -1,4 +1,0 @@
-
-# Search films in the DB using the searchterm from the input form
-
-SELECT * FROM `sdvd_products` WHERE (`title` LIKE '%terminator%' AND `title` LIKE '%II%') OR (`country` LIKE '%spain%' AND `country` LIKE '%germany%')
