@@ -4,3 +4,5 @@ HKEY_CLASSES_ROOT\AllFileSystemObjects\ShellEx
 
 HKEY_CLASSES_ROOT\Directory\shell
 HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers
+
+HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers
