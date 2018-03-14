@@ -40,3 +40,9 @@ Java version that a class was compiled with
 
 javap -v <class> | findstr major 
 
+
+---
+
+Heap size
+
+VM Arguments: -Xms512m -Xmx512m

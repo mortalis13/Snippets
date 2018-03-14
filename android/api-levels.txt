@@ -25,3 +25,9 @@ Android 1.6             September 2009      4               Donut               
 Android 1.5             May 2009            3               Cupcake               Android.OS.BuildVersionCodes.Cupcake
 Android 1.1             February 2009       2               Base                  Android.OS.BuildVersionCodes.Base11
 Android 1.0             October 2008        1               Base                  Android.OS.BuildVersionCodes.Base
+
+
+-------------
+Sources:
+https://source.android.com/setup/build-numbers
+https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels

@@ -1,0 +1,146 @@
+"(path to ffmpeg)\ffmpeg.exe" -y -i "(iptv url)" -c:v copy -c:a copy -t 00:00:30 "myrecording.ts"
+
+fm -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c:v copy -c:a copy -t 00:00:30 "myrecording.ts"
+
+fm -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c:v copy -c:a copy -t 00:20:00 "rec2.ts"
+
+ffmpeg -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -vcodec copy -acodec copy MyOutput.mp4
+
+ffmpeg -y -re -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c copy recording_2.mp4 &
+
+ffmpeg -y -re -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -t 00:20:00 -c copy recording_2.mp4
+
+ffmpeg -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -t 00:20:00 -c copy rec3.ts
+
+ffmpeg -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -t 00:20:00 -c copy rec3.ts
+
+ffmpeg -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -t 00:20:00 -c copy scan_all_pmts 1 rec3.ts
+
+fp "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -rw_timeout 50000 -reconnect_streamed 1 -f segment -segment_time 60 -c copy "file-%03d.ts"
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -reconnect_streamed 1 -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -reconnect_at_eof 1 -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 4000 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -reconnect_at_eof 1 -reconnect_streamed 1 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -reconnect_at_eof 1 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -reconnect_streamed 1 -reconnect_at_eof 1 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -y -reconnect_streamed 1 -reconnect_at_eof 1 -multiple_requests 1 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -c copy -rw_timeout 20000 "file-%03d.ts"
+
+ffmpeg -y -reconnect_streamed 1 -reconnect_at_eof 1 -user_agent "Mozilla/5.0" -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -c copy -rw_timeout 20000 -t "00:02:00" "file-%03d.ts"
+
+!!!
+ffmpeg -hide_banner -y -err_detect ignore_err -timeout 100000000 -reconnect_delay_max 4200 -reconnect_streamed 1 -reconnect_at_eof 1 -f mpegts -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -strict experimental -f segment -segment_time 60 -rw_timeout 10000000 -c copy "disney-res-%03d.ts"
+
+ffmpeg -hide_banner -y -err_detect ignore_err -timeout 100000000 -reconnect_delay_max 4200 -reconnect_streamed 1 -reconnect_at_eof 1 -f mpegts -i http://iptv4u.electro-clair.tech:8000/live/nasar/nasar1/1602.ts -strict experimental -rw_timeout 10000000 -c copy "disney-xd-2.ts"
+
+ffmpeg -hide_banner -y -err_detect ignore_err -timeout 100000000 -reconnect_delay_max 4200 -reconnect_streamed 1 -reconnect_at_eof 1 -f mpegts -i http://iptv4u.electro-clair.tech:8000/live/nasar/nasar1/1875.ts -strict experimental -rw_timeout 10000000 -c copy "disney-xd-5.ts"
+
+!!!
+ffmpeg -hide_banner -y -t 00:00:01 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -c copy "disney-1.ts"
+
+ffmpeg -hide_banner -y -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -t 00:00:01 -c copy "disney-2.ts"
+
+ffmpeg -hide_banner -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -listen 1 -c copy "file-01.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 reconnect_streamed -c copy "file-%03d.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f http -c copy "file-%03d.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -t 00:00:30 -c copy "file-%03d.ts"
+
+ffmpeg -t 00:00:10 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -i http://restreamiptv.selfip.net:8000/live/toze_neice/H82RimWChl/1627.ts -c copy "disney-%03d.ts"
+
+ffmpeg -i http://iptv4.me:4321/juniorxd -c copy "disn2.ts"
+
+ffmpeg -i http://109.86.149.27:4022/udp/238.0.0.8:1234 -c copy "file-%03d.ts"
+
+ffmpeg -i rtsp://87.233.226.20/live198/198.low.stream?id=0ad5aac39bb13fbe51933a1dbe75ed8941b9ca3ce593276fd077c51f90dd04b66cddf68aca0505ce5a7fd922e31c5bd3ddb4cb562117edf0932af4c40ddf824d6a33c5f38f04eed611e549064f1c3fb145a37488be87ae4a38aea4abf7807adabe1553c1178106b41a47f3d9df9c4ccd -c copy "f2.ts"
+
+ffmpeg -i rtsp://s7.webport.tv:1935/live/z020101.stream -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -timeout 5000 -f segment -segment_time 60 -c copy "file-%03d.ts"
+
+ffmpeg -y -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -f mpegts -c copy "mpts.ts"
+
+ffmpeg -y -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -hls_time 2 -hls_wrap 5 -f hls -c copy "mpts.ts"
+
+ffmpeg -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -c copy -g 60 -vb 500000 -strict experimental -f segment -segment_time 60 "record-%03d.ts"
+
+
+fm -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c:v copy -c:a copy "rec1.ts"
+
+ffmpeg -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c copy -flags +global_header -f segment -segment_time 60 -segment_format_options movflags=+faststart -reset_timestamps 1 test%d.mp4
+
+ffmpeg -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c copy -flags +global_header -f segment -segment_time 60 -segment_format_options  -reset_timestamps 1 test%d.ts
+
+ffmpeg -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -c copy -flags +global_header -f segment -segment_time 60 -segment_format_options  -reset_timestamps 1 test%d.ts
+
+ffmpeg -i udp://239.0.77.15:5000 -map 0:0 -map 0:1 -s 640x360 -vcodec libx264 -g 60 -vb 500000 -strict experimental -vf yadif -acodec aac -ab 96000 -ac 2 -y -f segment -segment_time 60 "xxx-%03d.ts"
+
+
+fm -y -i "concat:file-000.ts|file-001.ts|file-002.ts|file-003.ts" -c copy res.ts
+
+
+ffmpeg -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -vcodec libx264 -vb 150000 -g 60 -vprofile baseline -level 2.1 -acodec aac -ab 64000 -ar 48000 -ac 2 -vbsf h264_mp4toannexb -strict experimental -f mpegts a2.ts
+
+ffmpeg -y -err_detect ignore_err -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -g 60 -strict experimental -f mpegts -c copy a2.ts
+
+ffmpeg -y -i "http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts" -hls_time 2 out.m3u8
+
+
+
+-------------
+
+fm -y -i "https://ovva-w-03.ovva.tv/vod/ovva-w-03/ovva/_definst_/smil:http/videos/201801/a/a0/a05ad6c6872e8b22a422d80ca523c749ed7a6637e3a6c3a63f1fa22087bdc335.smil/media_b548000_0.ts" -c copy tsn1.ts
+
+fm -i http://178.151.182.25:4022/udp/238.0.0.5:1234 -c copy ictv.ts
+
+-------------
+
+
+fm -i "concat:disney_test_1-1.ts|disney_test_1-2.ts|disney_test_1-3.ts|disney_test_1-4.ts|disney_test_1-5.ts|disney_test_1-6.ts|disney_test_1-7.ts|disney_test_1-8.ts|disney_test_1-9.ts|disney_test_1-10.ts" -c copy d2.ts
+
+fm -y -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.m3u8 -c copy m3-list-disn.ts
+
+fm -y -i https://ovva-w-03.ovva.tv/vod/ovva-w-03/ovva/_definst_/smil:http/videos/201801/a/a0/a05ad6c6872e8b22a422d80ca523c749ed7a6637e3a6c3a63f1fa22087bdc335.smil/chunklist_b6128000.m3u8 -c copy tsn2.ts
+
+fm -y -err_detect ignore_err -timeout 100000000 -reconnect_delay_max 4200 -reconnect_streamed 1 -reconnect_at_eof 1 -i http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.m3u8 -c copy m3-list-disn.ts
+
+-------------
+
+
+
+
+e:\tools\mplayer\mplayer.exe http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -dumpstream -dumpfile mp-disn.ts
+
+e:\tools\mplayer\mplayer.exe http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts -cache 65536 -dumpstream -dumpfile mp-disn.ts
+
+e:\tools\gohls-1.0.5-win64\gohls.exe http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts go-dis.ts
+
+e:\tools\gohls-1.0.5-win64\gohls.exe http://longstorage.co.nf/s/q.m3u8 go-disn.ts
+
+e:\tools\gohls-1.0.5-win64\gohls.exe http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.m3u8 go-disn-2.ts
+
+"e:\Program Files (x86)\VideoLAN\VLC\vlc.exe" -vvv http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts
+
+"e:\Program Files (x86)\VideoLAN\VLC\vlc.exe" -vvv http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts --sout=file/e:/Documents/aa3.ts
+
+for %%a in (*.VOB) do "C:\Program Files\VideoLAN\VLC\vlc" -I dummy -vvv %%a --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst=%%a.mpg} vlc://quit
+
+"e:\Program Files (x86)\VideoLAN\VLC\vlc.exe" -I dummy -vvv http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts --sout=file/ts:e:\Documents\a9.ts vlc://quit
+
+!!!
+"e:\Program Files (x86)\VideoLAN\VLC\vlc.exe" -vvv http://163.172.210.178:8000/live/5Lvyprs736H7ho/JlRopPjP12owqQ/742.ts --sout=file/ts:e:\Documents\5-temp\iptv\disney_test_4.ts

@@ -1,0 +1,127 @@
+
+===
+Add border to the spinner dropdown list.
+Creates a wrapper for each list item filled with border background colot,
+then in the Adapter code adds margins for inner LinearLayout container equal to the border width
+and fills items with main background. This creates effeect of list border. 
+The first item has top border and the last one has bottom border.
+===
+
+== main_layout.xml
+
+<Spinner
+  android:id="@+id/itemsSelector"/>
+
+
+== spinner_list_item.xml
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/spinner_list_border">
+
+  <LinearLayout
+    android:id="@+id/itemWrapper"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+      android:id="@+id/itemText"
+      android:layout_width="match_parent"
+      android:background="@drawable/list_item_background"/>
+  </LinearLayout>
+</LinearLayout>
+
+
+== spinner_view.xml
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  
+  <TextView
+    android:id="@+id/itemText"/>
+</LinearLayout>
+
+
+== drawable/list_item_background.xml
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_activated="true" android:drawable="@color/item_background_activated" />
+  <item android:drawable="@color/item_background_default" />
+</selector>
+
+
+
+== CustomListAdapter.java
+  
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class CustomListAdapter extends ArrayAdapter<CustomListItem> {
+
+  private Context context;
+
+  public CustomListAdapter(Context context, List<CustomListItem> items) {
+    super(context, R.layout.spinner_list_item, items);
+    this.context = context;
+  }
+
+  @Override
+  public View getView(int position, View convertView, ViewGroup parent) {
+    int layoutId = R.layout.spinner_view;
+    return createView(position, convertView, parent, layoutId, false);
+  }
+
+  @Override
+  public View getDropDownView(int position, View convertView, ViewGroup parent) {
+    int layoutId = R.layout.spinner_list_item;
+    return createView(position, convertView, parent, layoutId, true);
+  }
+
+
+  private View createView(int position, View convertView, ViewGroup parent, int layoutId, boolean dropdownView) {
+    if (convertView == null) {
+      LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+      convertView = inflater.inflate(layoutId, null);
+    }
+    
+    TextView itemText = convertView.findViewById(R.id.itemText);
+
+    CustomListItem item = getItem(position);
+    if (item != null) {
+      itemText.setText(item.getText());
+    }
+    
+    if (dropdownView) {
+      LinearLayout itemWrapper = convertView.findViewById(R.id.itemWrapper);
+      LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+      int border = (int) context.getResources().getDimension(R.dimen.dp_1);
+      
+      if (position == getCount() - 1){
+        params.setMargins(border, 0, border, border);
+      }
+      else if(position == 0){
+        params.setMargins(border, border, border, 0);
+      }
+      else {
+        params.setMargins(border, 0, border, 0);
+      }
+      
+      itemWrapper.setLayoutParams(params);
+    }
+
+    return convertView;
+  }
+
+}

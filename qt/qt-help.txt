@@ -1,0 +1,4 @@
+e:\tools\Qt\Qt5.3.1\5.3\mingw482_32\bin\qhelpgenerator "qch-proj.xml" -o "doc.qch"
+e:\tools\Qt\Qt5.3.1\5.3\mingw482_32\bin\qcollectiongenerator qth.qhcp -o qth.qhc
+e:\tools\Qt\Qt5.3.1\5.3\mingw482_32\bin\assistant -collectionFile qth.qhc
+e:\tools\Qt\Qt5.3.1\5.3\mingw482_32\bin\assistant -collectionFile qth.qhc -register doc.qch

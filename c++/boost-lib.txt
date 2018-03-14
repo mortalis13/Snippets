@@ -1,0 +1,116 @@
+
+-- Building Boost 1.50.0 --
+
+- download Boost 1.50.0, https://sourceforge.net/projects/boost/files/boost/1.50.0/boost_1_50_0.7z/download
+- download MinGW (tested with versions 4.7.2, 4.9.4)
+  4.7.2, https://sourceforge.net/projects/mingwbuilds/files/host-windows/releases/4.7.2/32-bit/threads-posix/dwarf/x32-4.7.2-release-posix-dwarf-rev11.7z/download
+  4.9.4, https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/4.9.4/threads-posix/dwarf/i686-4.9.4-release-posix-dwarf-rt_v5-rev0.7z/download
+
+- unpack to c:\boost_1_50_0, c:\mingw32-4.7.2
+- with cmd go to c:\boost_1_50_0
+- execute commands
+
+set PATH=c:\mingw32-4.7.2\bin;%PATH%
+bootstrap.bat mingw
+b2 install --prefix=c:/boost_1_50_0_dist toolset=gcc
+
+- after about 20-50 minutes c:/boost_1_50_0_dist will contain 'include' and 'lib' folders with built Boost modules
+
+- to test write a program using Boost libraries and compile it with these parameters (use the same MinGW as for the Boost building)
+
+c:/mingw32-4.7.2/g++ "-Ic:/boost_1_50_0_dist/include/boost-1_50" -c -o main.o main.cpp
+c:/mingw32-4.7.2/g++ "-Lc:/boost_1_50_0_dist/lib" -o main.exe main.o -lboost_regex-mgw47-mt-1_50
+
+
+-- Boost 1.50.0 built libraries (.a, .dll) --
+
+(use these with -l of g++)
+
+[release]
+
+boost_chrono-mgw47-mt-1_50
+boost_date_time-mgw47-mt-1_50
+boost_exception-mgw47-mt-1_50
+boost_filesystem-mgw47-mt-1_50
+boost_graph-mgw47-mt-1_50
+boost_iostreams-mgw47-mt-1_50
+boost_locale-mgw47-mt-1_50
+boost_math_c99-mgw47-mt-1_50
+boost_math_c99f-mgw47-mt-1_50
+boost_math_c99l-mgw47-mt-1_50
+boost_math_tr1-mgw47-mt-1_50
+boost_math_tr1f-mgw47-mt-1_50
+boost_math_tr1l-mgw47-mt-1_50
+boost_prg_exec_monitor-mgw47-mt-1_50
+boost_program_options-mgw47-mt-1_50
+boost_random-mgw47-mt-1_50
+boost_regex-mgw47-mt-1_50
+boost_serialization-mgw47-mt-1_50
+boost_signals-mgw47-mt-1_50
+boost_system-mgw47-mt-1_50
+boost_test_exec_monitor-mgw47-mt-1_50
+boost_thread-mgw47-mt-1_50
+boost_timer-mgw47-mt-1_50
+boost_unit_test_framework-mgw47-mt-1_50
+boost_wave-mgw47-mt-1_50
+boost_wserialization-mgw47-mt-1_50
+
+[debug]
+
+boost_chrono-mgw47-mt-d-1_50
+boost_date_time-mgw47-mt-d-1_50
+boost_exception-mgw47-mt-d-1_50
+boost_filesystem-mgw47-mt-d-1_50
+boost_graph-mgw47-mt-d-1_50
+boost_iostreams-mgw47-mt-d-1_50
+boost_locale-mgw47-mt-d-1_50
+boost_math_c99-mgw47-mt-d-1_50
+boost_math_c99f-mgw47-mt-d-1_50
+boost_math_c99l-mgw47-mt-d-1_50
+boost_math_tr1-mgw47-mt-d-1_50
+boost_math_tr1f-mgw47-mt-d-1_50
+boost_math_tr1l-mgw47-mt-d-1_50
+boost_prg_exec_monitor-mgw47-mt-d-1_50
+boost_program_options-mgw47-mt-d-1_50
+boost_random-mgw47-mt-d-1_50
+boost_regex-mgw47-mt-d-1_50
+boost_serialization-mgw47-mt-d-1_50
+boost_signals-mgw47-mt-d-1_50
+boost_system-mgw47-mt-d-1_50
+boost_test_exec_monitor-mgw47-mt-d-1_50
+boost_thread-mgw47-mt-d-1_50
+boost_timer-mgw47-mt-d-1_50
+boost_unit_test_framework-mgw47-mt-d-1_50
+boost_wave-mgw47-mt-d-1_50
+boost_wserialization-mgw47-mt-d-1_50
+
+
+-- Commands --
+b2 --help
+b2 --show-libraries
+b2 --with-<library> - build only selected library
+
+
+-- Boost 1.50.0 Libraries --
+
+- chrono
+- date_time
+- exception
+- filesystem
+- graph
+- graph_parallel
+- iostreams
+- locale
+- math
+- mpi
+- program_options
+- python
+- random
+- regex
+- serialization
+- signals
+- system
+- test
+- thread
+- timer
+- wave
