@@ -1,5 +1,0 @@
-
--- Disable UAC in Win10
-
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-EnableLUA -> 0

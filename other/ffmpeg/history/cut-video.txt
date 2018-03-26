@@ -1,4 +1,0 @@
-fm -hide_banner -y -ss 00:00:15 -i 20171219_190109.mp4 -c copy 20171219_190109__.mp4
-fm -hide_banner -y -t 00:00:34 -i 20171219_190109__.mp4 -c copy 20171219_190109____.mp4
-
-fm -hide_banner -y -ss 00:00:07 -t 00:01:26 -i 201701.mp4 -c copy 201701__.mp4

@@ -23,3 +23,8 @@ view.replace(edit, r, res)
 
 # find in file
 pos = view.find('^'+line+'$', 0)
+
+
+# console, select all strings from list
+str_list = ['', '']
+[view.sel().add(view.find(x, 0)) for x in str_list]
