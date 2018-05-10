@@ -49,7 +49,15 @@ num = 6
 str = 'val'
 last_char_code = ord(len(str)-1)
 
-print( '"{}": {}'.format(val, num, last_char_code) )
+'"{}": {}'.format(val, num, last_char_code)
+
+# -- old
+'%s %s' % ('one', 'two')
+'%d %d' % (1, 2)
+
+# -- new
+'{} {}'.format('one', 'two')
+'{} {}'.format(1, 2)
 
 
 # object methods

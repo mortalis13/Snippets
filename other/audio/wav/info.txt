@@ -1,0 +1,31 @@
+bassdrum.wav
+---
+File size: 92 772
+
+-- Header --
+group: 4B; 'RIFF'
+file_size: 4B; 5c 6a 01 00 => 0x00016a5c => 92764 (+ 4 + 4 => 'RIFF' + 'WAVE') => 92772
+type: 4B; 'WAVE'
+
+
+-- Format Chunk --
+group: 4B; 'fmt '
+chunk_size: 4B; 10 00 00 00 => 0x10 => 16 (B)
+format: 2B; 1
+channels: 2B; 1
+sample_rate: 4B; 44 ac => 0xac44 => 44100 (Hz)
+frames_per_sec: 4B; 88 58 01 00 => 0x00015888 => 88200
+block_align: 2B; 2
+bits_per_sample: 2B; 16
+
+
+-- Data Chunk --
+group: 4B; 'data'
+chunk_size: 4B; 0a 6a 01 00 => 0x00016a0a => 92682
+sample_data: [chunk_size] B
+
+
+=== Info ===
+
+Duration: 92682/16/8/44100 = 1.051 s
+audio_data_size / bits_per_sample / 8 (bits per byte) / sample_rate (samples per second) = seconds
