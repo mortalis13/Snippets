@@ -1,0 +1,4 @@
+Location: C:\Windows\System32\cmd.exe
+Arguments: /k echo ${project_name}
+
+Select a project and run this tool

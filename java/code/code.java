@@ -1,6 +1,5 @@
 
 // --- Print all charsets
-
 SortedMap<String, Charset> availableCharsets = Charset.availableCharsets();
 for(String key: availableCharsets.keySet()){
   String charset = availableCharsets.get(key).displayName();
@@ -8,19 +7,14 @@ for(String key: availableCharsets.keySet()){
 }
 
 
-
 // --- HttpServletRequest request list all parameters
-
 Map map = request.getParameterMap();
-
 for (Object key: map.keySet()) {
   System.out.println(key + " " + map.get(key));
 }
 
 
-
 // --- List map entries
-
 for (Map.Entry<String, Integer> entry : map.entrySet()) {
   String key = entry.getKey().toString();
   Integer value = entry.getValue();
@@ -28,12 +22,8 @@ for (Map.Entry<String, Integer> entry : map.entrySet()) {
 }
 
 
-
 // --- Spring model/request attributes
-
-// -------------------------
 System.out.println("\n\n=== START Model attributes ===\n");
-
 Map md = model.asMap();
 for (Object modelKey : md.keySet()) {
   Object modelValue = md.get(modelKey);
@@ -59,8 +49,6 @@ while (reqAttrEnum.hasMoreElements()) {
 }
 
 System.out.println("\n=== END Model attributes ===\n\n");
-// -------------------------
-
 
 
 // === Create .doc file using POI (HWPF) ===
@@ -109,12 +97,10 @@ range.insertBefore("text");
 
 
 // --- Convert ArrayList to array
-
 String[] countries = list.toArray(new String[list.size()]);
 
 
 // --- Download file from a web page
-
 response.setContentType("application/pdf");
 response.setHeader("Content-Disposition", "attachment;filename=downloadfilename.pdf");
 
@@ -127,7 +113,6 @@ out.close();
 
 
 // --- Download ZIP
-
 ByteArrayOutputStream baos = new ByteArrayOutputStream();
 ZipOutputStream zos = new ZipOutputStream(baos);
 
@@ -142,3 +127,34 @@ baos.close();
 
 byte[] zip = baos.toByteArray();
 // [download with "application/zip"]
+
+
+// --- Reverse array
+int[] buf = new int[5];
+int len = bug.length;
+for (int i = 0, j = len-1; i < j; i++, j--) {
+  int tmp = buf[i];
+  buf[i] = buf[j];
+  buf[j] = tmp;
+}
+
+
+// --- Get digits from a number
+void printDigits(int n) {
+  char[] buf = new char[5];
+  int bid = 0;
+  while (n > 0) {
+    buf[bid++] = (char) ((n%10) + '0');
+    n = n/10;
+  }
+  
+  // reverse
+  for (int i = 0, j = bid-1; i < j; i++, j--) {
+    char tmp = buf[i];
+    buf[i] = buf[j];
+    buf[j] = tmp;
+  }
+  
+  for (int i = 0; i < bid; i++) System.out.print(buf[i]);
+  System.out.println();
+}

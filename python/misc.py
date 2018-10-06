@@ -81,3 +81,11 @@ True if 5>0 else False
 # print hex bytes
 [hex(x) for x in 'т'.encode('utf_16_be')]
 ['%02x'%x for x in 'á'.encode('utf_32_be')]
+
+
+# negative signed numbers
+'{:x}'.format(-199703103 & (2**32-1))
+hex(-199703103 & (2**32-1)) # 32-bit
+hex(-199703103 & (2**64-1)) # 64-bit
+
+40000 - 2*2**15 # 16-bit (int) -> (short)

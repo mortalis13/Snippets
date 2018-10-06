@@ -1,0 +1,7 @@
+icon scales:
+
+mdpi    1x
+hdpi    1.5x
+xhdpi   2x
+xxhdpi  3x
+xxxhdpi 4x

@@ -1,0 +1,14 @@
+
+--- submodules
+git clone --recursive [URL]
+
+
+--- add changes to a repository
+git add --all .
+git commit -m new
+git push
+
+
+--- clone tag
+git clone [URL]
+git checkout -b [local_branch_name] [tag_name]

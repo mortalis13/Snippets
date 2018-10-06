@@ -1,0 +1,14 @@
+VS 2013 Paths:
+
+-- Visual Studio .exe
+[install_path]\Common7\IDE\devenv.exe
+
+-- Compiler
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe
+
+-- Developer Command Prompt
+[install_path]\Common7\Tools\VsDevCmd.bat
+
+-- Env setup script for general command line
+[install_path]\Common7\Tools\vsvars32.bat
+

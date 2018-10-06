@@ -1,0 +1,3 @@
+Location: e:\tools\Java\jdk1.7.0_79\bin\javah.exe
+Directory: ${workspace_loc:/${project_name}/bin/classes}
+Arguments: -jni ${java_type_name}

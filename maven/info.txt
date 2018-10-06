@@ -35,9 +35,9 @@ The 'default' lifecycle includes the phases:
 - generate-testresources
 - process-test-resources
 - test-compile
-- process-testclasses
-
+- process-test-classes
 - test
+
 - prepare-package
 - package
 - pre-integration-test

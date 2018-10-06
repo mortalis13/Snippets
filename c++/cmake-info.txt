@@ -1,0 +1,6 @@
+-- build with MinGW
+
+set mingw=e:\tools\mingw32-4.9.0
+path=%path%;%mingw%\bin
+
+cmake -G "MinGW Makefiles" .

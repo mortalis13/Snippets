@@ -1,6 +1,0 @@
-
-To add changes to a repository use this sequence
-
-git add --all .
-git commit -m new
-git push

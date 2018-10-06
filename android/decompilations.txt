@@ -1,0 +1,7 @@
+.so dump
+---
+MinGW, MSYS:
+objdump -TC libz.so
+readelf -Ws libz.so
+nm -g lib.so
+nm -gC lib.so
