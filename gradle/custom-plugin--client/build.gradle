@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'custom-plugin'
+
+buildscript {
+  repositories {
+    flatDir {
+      dirs './repo'
+    }
+  }
+  
+  dependencies {
+    classpath 'org.home:custom-plugin-groovy-1.0.0'
+    // classpath 'org.home:custom-plugin-java-1.0.0'
+  }
+}
+
+
+customPlugin {
+  param1 = 123
+}
+
+println "customPlugin.param1: " + customPlugin.param1

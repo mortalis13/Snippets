@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+
+group = 'org.home'
+version = '1.0.0'
+
+dependencies {
+  compile gradleApi()
+}
+
+// jar {
+//   baseName = 'custom-name'
+// }
+
+archivesBaseName = 'custom-plugin'
+
+// ---
+// Usage:
+// customPlugin {
+//   param1 = 123
+// }
+// gradle customTask
