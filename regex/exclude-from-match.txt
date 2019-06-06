@@ -1,0 +1,8 @@
+if (ok) x1=123;
+if (!res) x2[3]="abc";
+
+INFO:
+Find variable names with assignments, preceded by a space and followed by a =, lookahead/lookbehind exclude the space and = from the final match.
+
+PAT:
+(?<= )[\w\[\]]+?(?==)
