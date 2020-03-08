@@ -5,6 +5,9 @@ Links without "target"
 Links inside text
 ^.+<a((?!target).)*$
 
+All tags except (a-div-header)
+<((?!(a|div|header)).+?>)
+
 
 <a href="http://mortalis.co.nf" rel="home">
 <a href="http://mortalis.co.nf" target="_blank" rel="home">
@@ -22,6 +25,7 @@ Links inside text
       <h2 class="name"><a href="http://mortalis.co.nf" rel="home">Home</a></h2>
       <h4 class="prof">Program Developer</h4>
     </header>
+    <b></b>
     
     <div id="content">
     <a href="http://mortalis.co.nf" target="" rel="home">Home</a>

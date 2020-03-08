@@ -1,0 +1,20 @@
+== nosuch device
+== grub rescue
+
+ls (hd0,1)/
+
+set root=(hd0,1)
+set prefix=(hd0,1)/boot/grub
+insmod normal
+normal
+
+[ -d /sys/firmware/efi ] && echo "UEFI boot" || echo "Legacy boot"
+
+--Legacy
+sudo grub-install /dev/sda --target=i386-pc
+
+--UEFI
+sudo mount /dev/sda2 /boot/efi
+sudo grub-install /dev/sda --target=x86_64-efi --efi-directory=esp
+
+sudo update-grub

@@ -1,5 +1,5 @@
 
-# Print all charsets
+# print all charsets
 from encodings.aliases import aliases
 encs = list(aliases.keys())
 
@@ -89,3 +89,10 @@ hex(-199703103 & (2**32-1)) # 32-bit
 hex(-199703103 & (2**64-1)) # 64-bit
 
 40000 - 2*2**15 # 16-bit (int) -> (short)
+
+
+# get function help
+print(print.__doc__)
+
+from pydoc import help
+help(print)

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background: #888;
+      margin: 0;
+    }
+    .item {
+      display: inline-block;
+      width: 25%;
+      background: #3b3b3b;
+      border: 1px solid #bbb;
+      font-size: 26px;
+      line-height: 1;
+      color: #fff;
+      transition: 0.2s;
+    }
+    .item a {
+      display: inline-block;
+      width: 100%;
+      color: #fff;
+      padding: 13px 20px 28px;
+      text-decoration: none;
+    }
+    .item:hover {
+      background: #222;
+    }
+    .img img {
+      width: 180px;
+      box-shadow: 0 0 10px 2px #fff5;
+      min-height: 270px;
+    }
+    .title {
+      color: #e96e6e;
+      height: 2.0em;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .row2 {
+      margin: 0 auto;
+    }
+    .img {
+      width: 60%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .date {
+      display: inline-block;
+      font-size: 38px;
+      text-align: center;
+      width: 35%;
+    }
+  </style>
+  
+  <!-- <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script> -->
+  <script src='../../1-lib/jquery-1.11.1.min.js'></script>
+  <script>
+    $.getJSON("read-json.json", json => {
+      if (!json) return;
+      let movies = json;
+      var y0 = new Date().getFullYear();
+      
+      movies.sort((a,b) => {
+        let y1 = new Date(a.movie_date).getFullYear();
+        let y2 = new Date(b.movie_date).getFullYear();
+        
+        if (y1 && y1 > y0) y1 -= 100;
+        if (y2 && y2 > y0) y2 -= 100;
+        
+        a.movie_date = y1.toString();
+        b.movie_date = y2.toString();
+        
+        if (!y1) return 1;
+        if (!y2) return -1;
+        return y1 - y2;
+      });
+      
+      movies.forEach(x => {
+        let item = `<div class="item"><a href="${x.movie_url}" target="_blank">
+          <div class="title">${x.movie_title}</div>
+          <div class="row2">
+          <div class="img"><img src="${x.movie_img}" width="100"/></div>
+          <div class="date">${x.movie_date}</div>
+          </div>
+        </a></div>`;
+        $(".main").append(item);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="main"></div>
+</body>
+</html>

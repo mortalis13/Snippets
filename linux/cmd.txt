@@ -1,0 +1,15 @@
+unzip file.zip
+zip file.zip file1 ...
+
+tar -xvf file.tar
+tar -xvzf file.tar.gz
+tar -xvjf file.tar.bz2
+
+bzip2 -dk file.bz2
+
+
+-- clear terminal
+reset
+printf '\ec'
+printf "\x1bc"
+printf "\033c"

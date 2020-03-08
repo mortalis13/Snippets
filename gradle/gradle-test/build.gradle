@@ -1,0 +1,43 @@
+
+defaultTasks 'test'
+
+task test {
+  description = "Test task"
+  
+  ext {
+    taskProp = 'Task Prop'
+  }
+  
+  doFirst {
+    println "[Task] Project Description: $project.description"
+    println "Task Description: $description"
+  }
+  
+  println '--Test--'
+  println 'Task name: ' + name
+  
+  doLast {
+    println "Task Property: '$taskProp'"
+  }
+}
+
+
+task test2 {
+  doFirst {
+    println '==Test Task=='
+    def test_str = ["adb", "shell", "monkey", "-p", "${android.defaultConfig.applicationId} 1"]
+    test_str.addAll(DEV_ARG)
+    println test_str
+    
+    String x1 = "123"
+    println x1
+    
+    def x2 = ["b", "a", "c"]
+    println x2
+  }
+}
+
+
+project.description = "First Gradle"
+println "Project Description: ${project.description}"
+println "Project Description: " + project.description

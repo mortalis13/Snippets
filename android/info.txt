@@ -5,3 +5,12 @@ hdpi    1.5x
 xhdpi   2x
 xxhdpi  3x
 xxxhdpi 4x
+
+mdpi    24px
+hdpi    36px
+xhdpi   48px
+xxhdpi  72px
+xxxhdpi 96px
+
+
+device-info at: /system/build.prop

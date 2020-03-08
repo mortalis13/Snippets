@@ -1,0 +1,3 @@
+-- write to file
+curl URL -o FILE
+curl URL -O

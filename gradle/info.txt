@@ -1,0 +1,6 @@
+gradle tasks
+gradle assembleDebug
+gradle clean
+
+gradle androidDependencies
+gradle dependencies

@@ -1,0 +1,86 @@
+[
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Playmobil: The Movie",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Happy Feet 2",
+    "movie_date": "12/02/11",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Frozen II",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "The Secret Life of Pets 2",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Beowulf",
+    "movie_date": "11/23/07",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "The Angry Birds Movie 2",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Surf’s Up 2: WaveMania",
+    "movie_date": "2017",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Surf’s Up",
+    "movie_date": "2007",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Missing Link",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "The Lion King",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Up",
+    "movie_date": "07/30/09",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "Blame!",
+    "movie_date": "05/20/17",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "The place promised in our early days",
+    "movie_date": "2004",
+    "movie_img": "images/movie_gen.png"
+  },
+  {
+    "movie_url": "https://en.wikipedia.org",
+    "movie_title": "The Queen’s Corgi",
+    "movie_date": "2019",
+    "movie_img": "images/movie_gen.png"
+  }
+]

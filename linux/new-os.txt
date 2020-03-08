@@ -1,0 +1,6 @@
+== Linux Mint
+
+sudo passwd
+sudo apt update
+sudo apt install build-essential -y
+
