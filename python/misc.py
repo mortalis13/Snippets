@@ -1,5 +1,5 @@
 
-# print all charsets
+# Print all charsets
 from encodings.aliases import aliases
 encs = list(aliases.keys())
 
@@ -68,6 +68,9 @@ dir(view)
 [x for x in range(0, 6)]
 ''.join([chr(x) for x in range (0x61, 0x7b)])
 
+# find duplicated lines in text and number of duplicates
+sorted(list(set( [x for x in lines if lines.count(x) > 2] )))
+
 
 # get string from separated string of hex codes ('61 62 63' => 'abc')
 ''.join([chr(int(x, 16)) for x in s.split(' ')])
@@ -91,8 +94,14 @@ hex(-199703103 & (2**64-1)) # 64-bit
 40000 - 2*2**15 # 16-bit (int) -> (short)
 
 
-# get function help
-print(print.__doc__)
+# Named tuples
+from collections import namedtuple
+Item = namedtuple('Item', 'x y z')
+i=Item(x='123',y='234',z='345')
+i.x
 
-from pydoc import help
-help(print)
+
+# Run program
+import subprocess
+subprocess.getoutput('date')
+subprocess.call('date')

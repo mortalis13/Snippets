@@ -8,6 +8,10 @@ for %a in (*) do echo %a
 
 
 == from .bat ==
-
 for /d %%a in (*) do echo %%a
 for %%a in (*) do echo %%a
+
+== sequence loop ==
+for /L %%i IN (1,1,254) do (
+  echo %%i
+)

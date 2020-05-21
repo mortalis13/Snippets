@@ -1,0 +1,10 @@
+#!/bin/bash
+
+p=/home/home/Documents/_upload/*
+a=/storage/sdcard0/1-Install/
+
+for i in $p
+do
+  # echo $i
+  adb push $i $a
+done

@@ -12,3 +12,10 @@ git push
 --- clone tag
 git clone [URL]
 git checkout -b [local_branch_name] [tag_name]
+
+
+--- add commits from another repository
+git remote add <name> <path>
+git fetch <name>
+git cherry-pick -X theirs <sha1>
+git cherry-pick <sha2>
