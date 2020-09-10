@@ -19,3 +19,14 @@ git remote add <name> <path>
 git fetch <name>
 git cherry-pick -X theirs <sha1>
 git cherry-pick <sha2>
+
+
+--- checkout remote branch
+git checkout refs/remotes/origin/<branch>
+
+
+--- get all branches locally
+mkdir repo && cd repo
+git clone --bare <url> .git
+git config --unset core.bare
+git reset --hard
