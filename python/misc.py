@@ -54,10 +54,16 @@ last_char_code = ord(len(str)-1)
 # -- old
 '%s %s' % ('one', 'two')
 '%d %d' % (1, 2)
+'%s %-10d %.4f %x' % ('abc', 5, 7.3, 21)
 
 # -- new
 '{} {}'.format('one', 'two')
 '{} {}'.format(1, 2)
+
+'{0} {1}'.format(21, 3)
+'{a} {p}'.format(a=5, p=2)
+'{0[a]} {0[p]}'.format({'a':3, 'p':5})
+'{0:5d} {1:05.4f}'.format(15, 7.3)
 
 
 # object methods
@@ -109,3 +115,8 @@ i.x
 import subprocess
 subprocess.getoutput('date')
 subprocess.call('date')
+
+
+# Local server (localhost:8000)
+python -m http.server
+python -m http.server 8000 --bind 127.0.0.1

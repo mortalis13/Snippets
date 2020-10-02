@@ -1,33 +1,39 @@
 Android Version         Released            API Level       Name                  Build Version Code
 --------------------------------------------------------------------------------------------------------------------------------------
-Android 7.1             December 2016       25              Nougat                Android.OS.BuildVersionCodes.NMr1
-Android 7.0             August 2016         24              Nougat                Android.OS.BuildVersionCodes.N
-Android 6.0             August 2015         23              Marshmallow           Android.OS.BuildVersionCodes.M
-Android 5.1             March 2015          22              Lollipop              Android.OS.BuildVersionCodes.LollipopMr1
-Android 5.0             November 2014       21              Lollipop              Android.OS.BuildVersionCodes.Lollipop
-Android 4.4W            June 2014           20              Kitkat Watch          Android.OS.BuildVersionCodes.KitKatWatch
-Android 4.4             October 2013        19              Kitkat                Android.OS.BuildVersionCodes.KitKat
-Android 4.3             July 2013           18              Jelly Bean            Android.OS.BuildVersionCodes.JellyBeanMr2
-Android 4.2-4.2.2       November 2012       17              Jelly Bean            Android.OS.BuildVersionCodes.JellyBeanMr1
-Android 4.1-4.1.1       June 2012           16              Jelly Bean            Android.OS.BuildVersionCodes.JellyBean
-Android 4.0.3-4.0.4     December 2011       15              Ice Cream Sandwich    Android.OS.BuildVersionCodes.IceCreamSandwichMr1
-Android 4.0-4.0.2       October 2011        14              Ice Cream Sandwich    Android.OS.BuildVersionCodes.IceCreamSandwich
-Android 3.2             June 2011           13              Honeycomb             Android.OS.BuildVersionCodes.HoneyCombMr2
-Android 3.1.x           May 2011            12              Honeycomb             Android.OS.BuildVersionCodes.HoneyCombMr1
-Android 3.0.x           February 2011       11              Honeycomb             Android.OS.BuildVersionCodes.HoneyComb
-Android 2.3.3-2.3.4     February 2011       10              Gingerbread           Android.OS.BuildVersionCodes.GingerBreadMr1
-Android 2.3-2.3.2       November 2010       9               Gingerbread           Android.OS.BuildVersionCodes.GingerBread
-Android 2.2.x           June 2010           8               Froyo                 Android.OS.BuildVersionCodes.Froyo
-Android 2.1.x           January 2010        7               Eclair                Android.OS.BuildVersionCodes.EclairMr1
-Android 2.0.1           December 2009       6               Eclair                Android.OS.BuildVersionCodes.Eclair01
-Android 2.0             November 2009       5               Eclair                Android.OS.BuildVersionCodes.Eclair
-Android 1.6             September 2009      4               Donut                 Android.OS.BuildVersionCodes.Donut
-Android 1.5             May 2009            3               Cupcake               Android.OS.BuildVersionCodes.Cupcake
-Android 1.1             February 2009       2               Base                  Android.OS.BuildVersionCodes.Base11
-Android 1.0             October 2008        1               Base                  Android.OS.BuildVersionCodes.Base
+Android 11              September 2020      30              Android11             android.os.Build.VERSION_CODES.R
+Android 10              September 2019      29              Android10             android.os.Build.VERSION_CODES.Q
+Android 9               August 2018         28              Pie                   android.os.Build.VERSION_CODES.P
+Android 8.1             December 2017       27              Oreo                  android.os.Build.VERSION_CODES.O_MR1
+Android 8.0             August 2017         26              Oreo                  android.os.Build.VERSION_CODES.O
+Android 7.1             December 2016       25              Nougat                android.os.Build.VERSION_CODES.NMr1
+Android 7.0             August 2016         24              Nougat                android.os.Build.VERSION_CODES.N
+Android 6.0             August 2015         23              Marshmallow           android.os.Build.VERSION_CODES.M
+Android 5.1             March 2015          22              Lollipop              android.os.Build.VERSION_CODES.LollipopMr1
+Android 5.0             November 2014       21              Lollipop              android.os.Build.VERSION_CODES.Lollipop
+Android 4.4W            June 2014           20              Kitkat Watch          android.os.Build.VERSION_CODES.KitKatWatch
+Android 4.4             October 2013        19              Kitkat                android.os.Build.VERSION_CODES.KitKat
+Android 4.3             July 2013           18              Jelly Bean            android.os.Build.VERSION_CODES.JellyBeanMr2
+Android 4.2-4.2.2       November 2012       17              Jelly Bean            android.os.Build.VERSION_CODES.JellyBeanMr1
+Android 4.1-4.1.1       June 2012           16              Jelly Bean            android.os.Build.VERSION_CODES.JellyBean
+Android 4.0.3-4.0.4     December 2011       15              Ice Cream Sandwich    android.os.Build.VERSION_CODES.IceCreamSandwichMr1
+Android 4.0-4.0.2       October 2011        14              Ice Cream Sandwich    android.os.Build.VERSION_CODES.IceCreamSandwich
+Android 3.2             June 2011           13              Honeycomb             android.os.Build.VERSION_CODES.HoneyCombMr2
+Android 3.1.x           May 2011            12              Honeycomb             android.os.Build.VERSION_CODES.HoneyCombMr1
+Android 3.0.x           February 2011       11              Honeycomb             android.os.Build.VERSION_CODES.HoneyComb
+Android 2.3.3-2.3.4     February 2011       10              Gingerbread           android.os.Build.VERSION_CODES.GingerBreadMr1
+Android 2.3-2.3.2       November 2010       9               Gingerbread           android.os.Build.VERSION_CODES.GingerBread
+Android 2.2.x           June 2010           8               Froyo                 android.os.Build.VERSION_CODES.Froyo
+Android 2.1.x           January 2010        7               Eclair                android.os.Build.VERSION_CODES.EclairMr1
+Android 2.0.1           December 2009       6               Eclair                android.os.Build.VERSION_CODES.Eclair01
+Android 2.0             November 2009       5               Eclair                android.os.Build.VERSION_CODES.Eclair
+Android 1.6             September 2009      4               Donut                 android.os.Build.VERSION_CODES.Donut
+Android 1.5             May 2009            3               Cupcake               android.os.Build.VERSION_CODES.Cupcake
+Android 1.1             February 2009       2               Base                  android.os.Build.VERSION_CODES.Base11
+Android 1.0             October 2008        1               Base                  android.os.Build.VERSION_CODES.Base
 
 
 -------------
 Sources:
+https://en.wikipedia.org/wiki/Android_version_history
 https://source.android.com/setup/build-numbers
 https://developer.xamarin.com/guides/android/application_fundamentals/understanding_android_api_levels
