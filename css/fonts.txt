@@ -1,4 +1,9 @@
 Ubuntu
 Roboto
+SourceSansPro
 Exo
 Open Sans
+Raleway
+Alegreya
+Myriad Pro
+Maven Pro

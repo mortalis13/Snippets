@@ -71,6 +71,8 @@ dir(view)
 # find duplicated lines in text and number of duplicates
 sorted(list(set( [x for x in lines if lines.count(x) > 2] )))
 
+# sort by key
+sorted([{'name':'f1','val':5}, {'name':'f2','val':8}], key=lambda x: x['val'], reverse=True)
 
 # get string from separated string of hex codes ('61 62 63' => 'abc')
 ''.join([chr(int(x, 16)) for x in s.split(' ')])
@@ -82,6 +84,8 @@ True if 5>0 else False
 
 
 # print hex bytes
+''.join([hex(x).replace('0x','') for x in 'RIFF'.encode()])
+[hex(x) for x in 'т'.encode()]
 [hex(x) for x in 'т'.encode('utf_16_be')]
 ['%02x'%x for x in 'á'.encode('utf_32_be')]
 

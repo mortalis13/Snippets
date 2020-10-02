@@ -9,3 +9,6 @@ adb shell am
 adb shell pm
 
 adb shell pm list packages
+
+adb install [apk]
+adb uninstall [package]

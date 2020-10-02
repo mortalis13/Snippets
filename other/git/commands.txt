@@ -19,3 +19,9 @@ git remote add <name> <path>
 git fetch <name>
 git cherry-pick -X theirs <sha1>
 git cherry-pick <sha2>
+
+
+--- create release for a previous commit
+git tag [name] [sha]
+git push --tags
+[create release for the new tag]
