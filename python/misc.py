@@ -116,3 +116,41 @@ subprocess.call('date')
 # Local server (localhost:8000)
 python -m http.server
 python -m http.server 8000 --bind 127.0.0.1
+
+
+# zip a folder v1
+import os, shutil
+f = 'c:/temp/folder_to_compress'
+out_name = os.path.basename(f)
+os.chdir(os.path.dirname(f))
+shutil.make_archive(out_name, "zip", '.', out_name)  # use the compressed folder as the archive root
+shutil.make_archive(out_name, "zip", out_name)       # put the files without the root folder
+
+# zip a folder v2
+import os, zipfile
+f = 'c:/temp/folder_to_compress'
+out_name = os.path.basename(f)
+os.chdir(os.path.dirname(f))
+zipf = zipfile.ZipFile(out_name+'.zip', 'w', zipfile.ZIP_DEFLATED)
+for root, dirs, files in os.walk(out_name):
+  for file in files:
+    fp = os.path.join(root, file)
+    arc_path = fp
+    # arc_path = fp[len(out_name)+1:] # uncomment to compress files without root
+    print(arc_path)
+    zipf.write(fp, arc_path)
+zipf.close()
+
+# zip a folder v3
+import os, zipfile
+f = 'c:/temp/folder_to_compress'
+os.chdir(f)
+zipf = zipfile.ZipFile(f+'.zip', 'w', zipfile.ZIP_DEFLATED)
+for root, dirs, files in os.walk('.'):
+  for file in files:
+    fp = os.path.join(root, file)
+    arc_path = fp
+    arc_path = os.path.normpath(os.path.basename(f) + '/' + fp) # comment to compress files without root
+    print(arc_path)
+    zipf.write(fp, arc_path)
+zipf.close()

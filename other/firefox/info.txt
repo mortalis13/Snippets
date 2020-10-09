@@ -1,5 +1,0 @@
-
-Enable not-signed addons
-
-xpinstall.whitelist.required
-false
