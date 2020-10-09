@@ -1,6 +1,0 @@
-Roboto
-Ubuntu
-Raleway
-Alegreya
-Myriad Pro
-Maven Pro
