@@ -38,8 +38,20 @@ git reset --hard
 
 
 --- change username and password (globally and for local repo)
-git config --global user.name "name"
-git config --global user.email name@mail.com
+git config --global user.name name
+git config --global user.email email
 
-git config user.name "name"
-git config user.email name@mail.com
+git config user.name name
+git config user.email email
+
+
+--- change a commit author
+git rebase -i [sha]
+git rebase -i HEAD~2
+
+[i] 'edit' [esc] [:wq]
+
+git commit --amend --author="name <email>"
+git rebase --continue
+
+git push origin master --force
