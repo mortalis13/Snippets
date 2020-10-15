@@ -1,4 +1,3 @@
-
 --- submodules
 git clone --recursive [URL]
 
@@ -36,3 +35,11 @@ mkdir repo && cd repo
 git clone --bare <url> .git
 git config --unset core.bare
 git reset --hard
+
+
+--- change username and password (globally and for local repo)
+git config --global user.name "name"
+git config --global user.email name@mail.com
+
+git config user.name "name"
+git config user.email name@mail.com
