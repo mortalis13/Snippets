@@ -14,3 +14,7 @@ xxxhdpi 96px
 
 
 device-info at: /system/build.prop
+
+
+== Generate release
+keytool -genkey -v -keystore metronomix-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias metronomix-alias

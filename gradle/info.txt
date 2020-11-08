@@ -4,3 +4,6 @@ gradle clean
 
 gradle androidDependencies
 gradle dependencies
+
+-- android .aab bundle for GooglePlay
+gradle bundleRelease

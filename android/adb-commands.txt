@@ -12,3 +12,6 @@ adb shell pm list packages
 
 adb install [apk]
 adb uninstall [package]
+
+-- get flags (DEBUGGABLE for 'debug' build)
+adb shell dumpsys package com.android.phone | findstr flags
