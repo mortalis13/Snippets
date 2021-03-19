@@ -1,0 +1,3 @@
+-- write .img file sdcard
+gzip -d -c LibreELEC-RPi2.arm-9.2.1.img.gz | dd of=/dev/block/mmcblk1 bs=4M
+dd if=/sdcard/0/LibreELEC-RPi2.arm-9.2.1.img of=/dev/block/mmcblk1 bs=4096

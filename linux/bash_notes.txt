@@ -1,0 +1,385 @@
+# == commands
+Ctrl+P - previous command in history
+Ctrl+N - next command in history
+
+printf "%d, %.2f\n" 5 3.2
+type [cmd]
+type ls -> 'alias'
+type pwd -> 'shell builtin'
+type expr -> '/usr/bin/expr'
+
+ls -1           # files in 1 column
+ls --recursive
+
+compgen -c if    # get autocomplete list of commands starting with "if"
+compgen -a l     # autocomplete list of aliases
+compgen -v P     # autocomplete list of shell variables
+compgen -A directory t    # autocomplete list of directories
+
+free -h | grep "^Mem" | tr -s ' ' | cut -d' ' -f2        # get total RAM
+
+xxd -g 1 file.txt    # print hex content of a file, group by 2 hex digits
+
+
+# == user info
+finger
+users
+who
+w
+
+
+# == history
+date
+!d   # executes a previous command matching the 'd'
+
+!!   # repetas the last command
+!-2  # executes a command in position -2 in the history
+!#   # repeats the content of the current command line
+  date; sleep 2; !#
+
+cd -  # switch between the current directory and the last directory
+cd    # return to home directory
+
+
+# == const variable
+readonly text="123"
+
+
+# == user input
+read -p "Enter vars: " var1 var2
+echo $var1 $var2
+read
+echo $REPLY
+
+read -s -p "Enter password: "
+
+
+# == built-ins
+BASH - bash path
+BASH_VERSION
+BASH_PID
+UID
+HOME
+HOSTNAME
+PATH
+PPID - shell parent pid
+PWD
+OLDPWD
+RANDOM
+REPLY
+SECONDS - seconds since the shell start
+HISTFILE
+FUNCNAME - name of the current function
+LINENO - current line number
+
+
+# == arithmetics
+expr "4 + 7"
+let "a = 4 * 8"
+echo $a
+
+
+# == logical && || !
+# && - execute the next command if the exit code is 0
+# || - execute the next command if the exit code is not 0
+! cd /tmp/new && mkdir /tmp/new
+cd /tmp/new || mkdir /tmp/new
+
+
+# == wildcards
+~ - home directory (from the $HOME variable)
+~user_name - home for a user
+~+ - pwd
+~- - old pwd
+
+* - 0 or more characters
+
+? - 1 character
+ls ?? ????? - files with name length 2 or 5
+
+[] - a set of characters
+ls [a-d]*
+ls [!0-9]*
+
+{} - multiple patterns
+ls {*.sh,*.c}
+echo {1..50}
+touch hello{0..9}.cpp
+
+
+# == eval
+params="-lah"
+eval "ls $params"
+
+
+# == set
+# exit on the first failure in a bash script
+set -e
+# enable/disable symbolic links resolution (for 'cd')
+set -P
+set +P
+
+
+# == special params
+$0 - script name
+$# - number of args
+$$ - current process pid
+$? - exit code for the last command
+$_ - the last arg for the last command
+$! - pid of the last background command
+
+
+# == redirection
+echo 'msg' > file
+echo 'appended' >> file
+wc -l < file
+wc -l << EOF
+  line1
+  line2
+  line3
+EOF
+
+cat /var/log/messages | grep 'DHCPOFFER'
+
+# these are identical
+echo 'abc' | tr [:lower:] [:upper:]
+tr [:lower:] [:upper:] <<< 'abc'
+
+# streams
+/dev/stdin    # &0
+/dev/stdout   # &1
+/dev/stderr   # &2
+
+q.sh 2> log_errors   # redirect error stream
+q.sh > log_all >&2   # redirect stdin and stderr to a file
+q.sh &> log_all      # same
+
+ls folder 1>&1   # stdin
+ls folder 2>&1   # stderr to stdin
+ls folder 1>log1 2>&1   # stdin to file and stderr to stdin
+
+
+# == test
+# files
+
+-f file - file exists and is a regular file
+-d file - file is a directory
+-e file - file exists
+-s file - file exists and is not empty
+-r file - file is readable (by your script)
+-w file - file is writable (by your script)
+-x file - file is executable (by your script)
+
+-b file - file is a block device file
+-c file - file is a character device file
+-h file - file is a symbolic link
+-p file - file is a pipe
+-S file - file is a socket
+-t fd   - file descriptor is opened on a terminal
+-N file - file has new content (since the last time it was read)
+
+f1 -nt f2 - f1 is newer than f2
+f1 -ot f2 - f1 is older than f2
+f1 -ef f2 - f1 is a hard link to f2
+
+# strings
+-z - the string is empty
+-n - the string is not empty
+s1 = s2
+s1 != s2
+s1 < s2
+s1 > s2
+
+# numbers
+n1 -eq n2
+n1 -ne n2
+n1 -lt n2
+n1 -le n2
+n1 -gt n2
+n1 -ge n2
+
+
+if test -f "$TMP" -a ! -w "$TMP"; then
+  printf "The file '$TMP' exists and is not writable\n"
+fi
+
+if [ -f "$TMP" -a ! -w "$TMP" ]; then
+
+if [ "$VAR" \< "M" ]; then
+
+
+# == globbing
+if [[ $V = A* ]]; then printf "'$V' starts with A\n"; fi
+if [[ $V = [A-Z]* ]]; then printf "'$V' starts with a letter\n"; fi
+
+# character classes
+[:alnum:] - Alphanumeric
+[:alpha:] - Alphabetic
+[:ascii:] - ASCII characters
+[:blank:] - Space or tab
+[:cntrl:] - Control characters
+[:digit:] - Decimal digits
+[:graph:] - Non-blank characters
+[:lower:] - Lowercase characters
+[:print:] - Non-control characters
+[:punct:] - Punctuation charactersn
+[:space:] - Whitespace
+[:upper:] - Uppercase characters
+[:xdigit:] - Hexadecimal digits
+
+
+# == let
+let "SUM=20 + 10"
+let "SUM=20 - 10"
+let "SUM=20 * 10"
+let "SUM=20 / 10"
+let "SUM=20 % 10"
+let "VAR+=5"
+let "VAR++"
+let "RESULT=(5+3)*2"
+let "RESULT=VALUE > 1 ? 1 : 0"
+
+
+
+# == expressions
+# substring
+V=TestString
+printf "${V:1:3}\n"  # est
+V=`ls -l | wc -l`
+V=$(ls -l | wc -l)
+printf "Result: $((2+9))\n"
+
+
+# == loops
+while (( X-- > 0 )); do
+
+while true; do
+
+for item in i1 i2 i3; do
+  echo $item
+done
+
+for item in $(cat file); do
+
+for file in /var/log/httpd/*; do
+
+for (( i=1; i<10; i++ )); do
+
+
+# == debugging
+bash -n q.sh      # check for errors without executing
+bash -x q.sh      # prints each command before its execution
+shopt -o -s nounset    # shows error if unset vars used
+shopt -o -s xtrace     # as bash -x
+trap ': VAR is $VAR' DEBUG         # prints the text after executing each line
+
+
+# == read script arguments
+R=`getopt --name "q2" --options "-h, -c:" -- "$@"`
+eval set -- "$R"
+printf "1: $1; 2: $2; 3: $3\n"
+
+
+# == jobs
+sleep 10 &
+jobs
+jobs -l   # pids
+disown %2   # remove bg task
+fg  # move task to foreground
+Ctrl+Z -> bg   # move fg task to bg and resume its execution
+
+kill -SIGSTOP 123
+kill -SIGCONT 123
+suspend   # in a script
+
+trap 'printf "term_sig_trapped\n"' SIGTERM
+trap 'printf "user_sig_trapped\n"' SIGUSR1
+
+
+# == text files
+basename /home/home/f.txt         # f.txt
+basename /home/home/f.txt .txt    # f
+dirname /home/home/f.txt          # /home/home
+pathchk "/home/home/progs" && echo "Correct path"
+
+file /var/f.txt     # get type of file
+stat -t f.txt | cut -d" " -f 2      # get file size
+statftime -f "Size: %_s" f.txt
+md5sum f.txt
+split -l 1000 log.txt out_prefix-
+mktemp              # create temp files/folders with unique names
+head -5 f.txt       # show first 5 lines
+tail -5 f.txt       # show last 5 lines
+wc --bytes f.txt
+wc --lines f.txt
+ls -l log | cut -d' ' -f1       # separate a string by delimiters
+ls -l log | cut -c1-5           # get characters from a string
+
+# open file for reading
+exec 3< f.txt
+while read LINE <&3; do printf "%s\n" $LINE; done
+
+# open file for writing
+exec 4> f.txt
+printf "123\n" >&4
+
+# open file for reading and writing
+exec 3<> f.txt
+
+
+# == text processing
+grep -in "^F" f.txt              # lines starting with F, ignore case, show line numbers
+grep -c "^F" f.txt               # print number of matches
+
+tr -d '\r' < dos.txt > linux.txt     # delete \r character from a file
+tr -s ' ' < f.txt                    # replace multiple character repetitions with a single character
+
+sed "s/^package:/--/Ig" file.txt
+sed "/^package/d" file.txt           # delete line that contains text
+sed "/^$/d" file.txt                 # delete empty lines
+sed "1d" file.txt                    # delete the first line
+sed "/package/i*****" file.txt       # insert text before the matching line
+sed -n "l" file.txt                  # show unprintable chars
+sed -n "/package/p" file.txt         # print found lines
+
+tar -c -f pack.tar pack.txt
+tar -c -f pack.bz --bzip pack.txt
+tar -c -f pack.gz --gzip pack.txt
+tar -xvf pack.gz --gzip
+
+
+# == console
+showkey --ascii     # shows typed keys, in a native console only
+setterm -foreground yellow    # set foreground color
+setterm -background red
+setterm -cursor off           # hide cursor
+setterm -repeat off           # disable auto repeat
+
+
+# == file processing
+find . -name "*.txt" -type f
+find . ! -name "*.txt" -type f    # not .txt files
+find . "(" -name "*.txt" -or -name "*.sh" ")" -type f    # .txt or .sh files
+find . -type d -or type f
+find . -type f -name "*.log" -size +1024k       # files > 1MB
+find . -type f -name "*.txt" -printf "%f, size: %s, access_time: %a, mod_time: %TH:%TM\n"
+
+
+# == shell security
+id
+chown -R usr:grp file.txt
+chmod 0755 file.txt
+chmod ugo+r file.txt
+chmod a+rwx file.txt
+chroot /home/usr/new_root
+bash -r            # restricted shell (no redirection, modify files only in the PWD)
+wipe file.txt      # securely erae a file
+
+
+# == network
+host en.wikipeda.org
+lynx en.wikipeda.org          # console browser
+
+# raw request through TCP socket
+cat </dev/tcp/time.nist.gov/13
+exec 5<>/dev/tcp/www.net.cn/80; echo -e "GET / HTTP/1.0\n" >&5; cat <&5
