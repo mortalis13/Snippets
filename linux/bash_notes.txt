@@ -19,6 +19,9 @@ compgen -A directory t    # autocomplete list of directories
 free -h | grep "^Mem" | tr -s ' ' | cut -d' ' -f2        # get total RAM
 
 xxd -g 1 file.txt    # print hex content of a file, group by 2 hex digits
+iconv -f iso8859-7 text_iso-8859-7.txt     # print text using the input encoding
+iconv -t utf-32 file.txt > file_utf32.txt
+echo -n café | iconv -t latin1 | xxd -g 1
 
 
 # == user info

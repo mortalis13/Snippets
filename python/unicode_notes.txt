@@ -1,0 +1,37 @@
+# detect encoding, the script is in /Python/Scripts folder
+chardetect file.txt
+
+eacute = '\u00e9'
+eacute = '\U000000e9'
+eacute = '\N{LATIN SMALL LETTER E WITH ACUTE}'
+
+c = 'é'
+ce = c.encode()        # b'\xc3\xa9'
+[bin(b) for b in ce]   # ['0b11000011', '0b10101001']
+hex(0b00011101001)     # convert from utf8 to codepoint: (00011 + 101001) => 0xe9
+
+text.encode('ascii', errors='ignore')
+text.encode('ascii', errors='replace')
+text.encode('ascii', errors='xmlcharrefreplace')
+text.encode('ascii', errors='backslashreplace')
+text.encode('ascii', errors='namereplace')
+
+# characters representation
+eacute = ['é', 'e\u0301']    # ['é', 'é'], single char and a char with a combining accent
+[len(c) for c in eacute]     # [1, 2]
+
+# normalization
+import unicodedata
+unicodedata.normalize('NFC', 'é') == unicodedata.normalize('NFC', 'e\u0301')   # True
+
+# remove diacritics
+import unicodedata
+text = 'é'
+s = unicodedata.normalize('NFD', text)    # decompose
+s = ''.join(c for c in s if not unicodedata.combining(c))    # remove combining chars
+s = unicodedata.normalize('NFC', s)       # compose
+
+# sort unicode strings
+import pyuca
+collator = pyuca.Collator()
+sorted(['pine', 'port', 'piña'], key=collator.sort_key)
