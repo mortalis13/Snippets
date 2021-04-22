@@ -23,3 +23,7 @@ view.sel().add(sublime.Region(0, view.size())); view.run_command('insert', {"cha
 # remove all from view
 view.run_command('select_all'); view.run_command('left_delete')
 view.sel().add(sublime.Region(0, view.size())); view.run_command('left_delete')
+
+# convert selected numbers to hex and print to the console
+# (to change the active view content the whole text should be replaced)
+[print('0x'+hex(int(view.substr(x))).replace('0x','').zfill(6)) for x in view.sel()]
