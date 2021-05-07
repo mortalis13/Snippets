@@ -1,6 +1,4 @@
-
 -- demo DB
-
 create database export_test;
 use export_test;
 
@@ -19,13 +17,14 @@ insert into department values(3,'dep3');
 insert into department values(4,'dep4');
 
 
-
-# Search films in the DB using the searchterm from the input form
-
+-- search films in the DB using the searchterm from the input form
 SELECT * FROM `sdvd_products` WHERE (`title` LIKE '%terminator%' AND `title` LIKE '%II%') OR (`country` LIKE '%spain%' AND `country` LIKE '%germany%')
 
 
-
 -- select multiple tables
-
 select t1.*, t2.*, t3.* from t1 inner join t2 on t1.id=t2.t1_id inner join t3 on t3.id=t2.t3_id;
+
+
+-- extract date part from a datetime column
+select date(cdate) from log order by id_log desc;
+select * from log where date(cdate)='2025-02-08';
