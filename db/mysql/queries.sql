@@ -28,3 +28,4 @@ select t1.*, t2.*, t3.* from t1 inner join t2 on t1.id=t2.t1_id inner join t3 on
 -- extract date part from a datetime column
 select date(cdate) from log order by id_log desc;
 select * from log where date(cdate)='2025-02-08';
+select * from log where date_format(cdate,'%Y-%m')='2027-07' order by id_log desc;
