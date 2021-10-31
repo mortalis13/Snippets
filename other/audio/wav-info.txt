@@ -4,7 +4,7 @@ File size: 92 772
 
 -- Header --
 group: 4B; 'RIFF'
-file_size: 4B; 5c 6a 01 00 => 0x00016a5c => 92764 (+ 4 + 4 => 'RIFF' + 'WAVE') => 92772
+file_size: 4B; 5c 6a 01 00 => 0x00016a5c => 92764 (+RIFF(4) + file_size(4)) => 92772
 type: 4B; 'WAVE'
 
 
