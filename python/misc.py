@@ -119,7 +119,7 @@ subprocess.call('date')
 
 # Local server (localhost:8000)
 python -m http.server
-python -m http.server 8000 --bind 127.0.0.1
+python -m http.server 5000 --bind 127.0.0.1
 
 
 # zip a folder v1
