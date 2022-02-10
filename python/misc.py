@@ -122,39 +122,57 @@ python -m http.server
 python -m http.server 5000 --bind 127.0.0.1
 
 
-# zip a folder v1
-import os, shutil
-f = 'c:/temp/folder_to_compress'
-out_name = os.path.basename(f)
-os.chdir(os.path.dirname(f))
-shutil.make_archive(out_name, "zip", '.', out_name)  # use the compressed folder as the archive root
-shutil.make_archive(out_name, "zip", out_name)       # put the files without the root folder
+# Zip a folder
+def zip_folder_1(f):
+    import os, shutil
+    out_name = os.path.basename(f)
+    os.chdir(os.path.dirname(f))
+    shutil.make_archive(out_name, "zip", '.', out_name)  # use the compressed folder as the archive root
+    shutil.make_archive(out_name, "zip", out_name)       # put the files without the root folder
 
-# zip a folder v2
-import os, zipfile
-f = 'c:/temp/folder_to_compress'
-out_name = os.path.basename(f)
-os.chdir(os.path.dirname(f))
-zipf = zipfile.ZipFile(out_name+'.zip', 'w', zipfile.ZIP_DEFLATED)
-for root, dirs, files in os.walk(out_name):
-  for file in files:
-    fp = os.path.join(root, file)
-    arc_path = fp
-    # arc_path = fp[len(out_name)+1:] # uncomment to compress files without root
-    print(arc_path)
-    zipf.write(fp, arc_path)
-zipf.close()
+def zip_folder_2(f):
+    import os, zipfile
+    out_name = os.path.basename(f)
+    os.chdir(os.path.dirname(f))
+    zipf = zipfile.ZipFile(out_name+'.zip', 'w', zipfile.ZIP_DEFLATED)
+    for root, dirs, files in os.walk(out_name):
+      for file in files:
+        fp = os.path.join(root, file)
+        arc_path = fp
+        # arc_path = fp[len(out_name)+1:] # uncomment to compress files without root
+        print(arc_path)
+        zipf.write(fp, arc_path)
+    zipf.close()
 
-# zip a folder v3
-import os, zipfile
-f = 'c:/temp/folder_to_compress'
-os.chdir(f)
-zipf = zipfile.ZipFile(f+'.zip', 'w', zipfile.ZIP_DEFLATED)
-for root, dirs, files in os.walk('.'):
-  for file in files:
-    fp = os.path.join(root, file)
-    arc_path = fp
-    arc_path = os.path.normpath(os.path.basename(f) + '/' + fp) # comment to compress files without root
-    print(arc_path)
-    zipf.write(fp, arc_path)
-zipf.close()
+def zip_folder_3(f):
+    import os, zipfile
+    os.chdir(f)
+    zipf = zipfile.ZipFile(f+'.zip', 'w', zipfile.ZIP_DEFLATED)
+    for root, dirs, files in os.walk('.'):
+      for file in files:
+        fp = os.path.join(root, file)
+        arc_path = fp
+        arc_path = os.path.normpath(os.path.basename(f) + '/' + fp) # comment to compress files without root
+        print(arc_path)
+        zipf.write(fp, arc_path)
+    zipf.close()
+
+
+# Convert RGB to HSL (CSS style)
+def convert_rgb_to_hsl(rgb):
+    """
+    Example: [122, 78, 34] => hsl(30, 56.4%, 30.6%)
+    Example: #aaa => hsl(0, 0.0%, 66.7%)
+    Example: #7a78bd => hsl(242, 34.3%, 60.6%)
+    """
+    import colorsys
+    if type(rgb) == str and rgb[0] == '#':
+        if len(rgb) == 4:
+            rgb = [int(rgb[1]*2, 16), int(rgb[2]*2, 16), int(rgb[3]*2, 16)]
+        elif len(rgb) == 7:
+            rgb = [int(rgb[1:3], 16), int(rgb[3:5], 16), int(rgb[5:7], 16)]
+    rgb = [x/255 for x in rgb]
+    
+    hsl = colorsys.rgb_to_hls(rgb[0], rgb[1], rgb[2])
+    hsl = [round(hsl[0]*360), hsl[2]*100, hsl[1]*100]
+    hsl = f'hsl({hsl[0]}, {hsl[1]:.1f}%, {hsl[2]:.1f}%)'
