@@ -59,6 +59,11 @@ def date_test():
   print('time_struct_to_timestamp:', time_struct_to_timestamp)
   print('now_timestamp:', now_timestamp)
   print('timestamp_to_time_struct:', timestamp_to_time_struct)
+  print()
+# --------
+  _date = now.date()
+  print(f'datetime to date: {now} => {_date}')
+  print()
 
 # --------------
 date_test()
