@@ -1,4 +1,5 @@
-; AutoHotkey script, creates shortcuts for printing unicode characters
+;Creates shortcuts for printing unicode characters
+
 #NoTrayIcon
 
 ; Ctrl+Alt+[nN] => [ñÑ]

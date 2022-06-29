@@ -1,4 +1,4 @@
-; Types a text
+;Types a text
 
 ; Ctrl+Alt+E
 ^!e::SendInput an_email
