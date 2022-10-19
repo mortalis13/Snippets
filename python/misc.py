@@ -122,6 +122,11 @@ python -m http.server
 python -m http.server 5000 --bind 127.0.0.1
 
 
+# Convert incorrect rendering for cyrillic characters
+'àáâãä'.encode('cp1252').decode('cp1251')
+'áíóúñ'.encode('cp850').decode('cp866')
+
+
 # Zip a folder
 def zip_folder_1(f):
     import os, shutil
