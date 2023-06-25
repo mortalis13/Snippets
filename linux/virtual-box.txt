@@ -1,2 +1,20 @@
 
 sudo usermod -aG vboxsf $(whoami)
+
+
+== Share a folder with samba (as root)
+VM -> Settings -> Network -> Bridged Adapter
+
+apt install samba
+smbpasswd -a root
+nano /etc/samba/smb.conf
+
+[root]
+  path = /root
+  writable = yes
+
+service smbd restart
+ip addr
+
+\\IP\root
+(user root, password set in smbpasswd)
