@@ -19,8 +19,10 @@ def date_test():
   # === format ===
   #   %Y-%m-%d %H:%M:%S
   #   %Y -> 2019, %y -> 19
-  #   %B -> January, %b -> Jan, %A -> Sunday, %a -> Sun
-  #   %w -> [week], %Z -> UTC
+  #   %B -> January, %b -> Jan,
+  #   %A -> Sunday, %a -> Sun
+  #   %w -> [week],
+  #   %Z -> UTC
   # ==============
   
   str_to_date = datetime.strptime('2017-06-21', '%Y-%m-%d')
@@ -61,8 +63,17 @@ def date_test():
   print('timestamp_to_time_struct:', timestamp_to_time_struct)
   print()
 # --------
+
   _date = now.date()
   print(f'datetime to date: {now} => {_date}')
+  print()
+# --------
+
+  today = date.today()
+  _datetime_1 = datetime.fromisoformat(today.isoformat())
+  _datetime_2 = datetime(year=today.year, month=today.month, day=today.day)
+  print(f'date to datetime: {today} => {_datetime_1}')
+  print(f'date to datetime: {today} => {_datetime_2}')
   print()
 
 # --------------
