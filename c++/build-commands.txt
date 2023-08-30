@@ -1,0 +1,11 @@
+== With make and mingw
+mingw32-make clean && mingw32-make
+
+== With g++
+g++ test.cpp -o test.exe -std=c++11 -I d:/include -DSOME_DEF -L d:/libs -lavcodec -lavutil -lavdevice -lavfilter -lavformat
+
+== Without warnings
+g++ -o %name% %name%.cpp -w
+
+== Compile
+g++ -c %name%.cpp -I d:/include
