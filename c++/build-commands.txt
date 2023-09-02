@@ -9,3 +9,6 @@ g++ -o %name% %name%.cpp -w
 
 == Compile
 g++ -c %name%.cpp -I d:/include
+
+== Print build info including direct compiler build strings
+make --dry-run

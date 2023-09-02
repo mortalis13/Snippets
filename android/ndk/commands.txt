@@ -1,0 +1,8 @@
+-- dump jni fail stacktrace with detailed files/linenumber info
+-- the stacktrace log has to start with line *** *** *** *** ...
+
+-- the project has to be built with debug ndk symbols, with -g c++ flag
+-- for example for cmake and gradle --> android.defaultConfig.externalNativeBuild.cmake.cppFlags "-g"
+-- or in CmakeLists.txt --> target_compile_options(mylib PRIVATE -g)
+
+ndk-stack.cmd -sym [project]\build\intermediates\cmake\debug\obj\arm64-v8a -dump logfile.txt

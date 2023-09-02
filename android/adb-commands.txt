@@ -19,6 +19,12 @@ adb shell dumpsys package com.android.phone | findstr flags
 adb shell ps -A
 adb shell kill $(pgrep app_name)
 
+-- connect over wifi
+>> first connect over usb and run
+adb tcpip 5555
+>> then disconnect and run
+adb connect 192.168.0.19:5555
+
 
 
 ========== Categories ==========
