@@ -1,43 +1,43 @@
---- submodules
+-- submodules
 git clone --recursive [URL]
 
 
---- add changes to a repository
+-- add changes to a repository
 git add --all .
 git commit -m new
 git push
 
 
---- clone tag
+-- clone tag
 git clone [URL]
 git checkout -b [local_branch_name] [tag_name]
 
 
---- add commits from another repository
+-- add commits from another repository
 git remote add <name> <path>
 git fetch <name>
 git cherry-pick -X theirs <sha1>
 git cherry-pick <sha2>
 
 
---- create release for a previous commit
+-- create release for a previous commit
 git tag [name] [sha]
 git push --tags
 [create release for the new tag]
 
 
---- checkout remote branch
+-- checkout remote branch
 git checkout refs/remotes/origin/<branch>
 
 
---- get all branches locally
+-- get all branches locally
 mkdir repo && cd repo
 git clone --bare <url> .git
 git config --unset core.bare
 git reset --hard
 
 
---- change username and password (globally and for local repo)
+-- change username and password (globally and for local repo)
 git config --global user.name name
 git config --global user.email email
 
@@ -45,7 +45,7 @@ git config user.name name
 git config user.email email
 
 
---- change a commit author
+-- change a commit author
 git rebase -i [sha]
 git rebase -i HEAD~2
 
