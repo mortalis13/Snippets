@@ -127,6 +127,11 @@ python -m http.server 5000 --bind 127.0.0.1
 'áíóúñ'.encode('cp850').decode('cp866')
 
 
+# convert dict to correct json string
+import json
+json.dumps({'a': 4}, indent=2)
+
+
 # Zip a folder
 def zip_folder_1(f):
     import os, shutil
