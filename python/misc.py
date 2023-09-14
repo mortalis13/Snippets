@@ -132,6 +132,11 @@ import json
 json.dumps({'a': 4}, indent=2)
 
 
+# get import search path
+import sys
+print(sys.path)
+
+
 # Zip a folder
 def zip_folder_1(f):
     import os, shutil
