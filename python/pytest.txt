@@ -1,0 +1,9 @@
+pytest --cov=. tests
+pytest --cov=. --cov-report=html --cov-report=term-missing tests
+
+-- to detect tests with duplicated names, unused fixtures, dead code
+pytest --cov=. --cov=tests tests
+
+coverage report
+coverage report --show-missing
+coverage html
