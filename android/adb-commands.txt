@@ -267,3 +267,15 @@ alias startintent="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X sh
 alias apkinstall="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X install -r $1"
 alias rmapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X uninstall $1"
 alias clearapp="adb devices | tail -n +2 | cut -sf 1 | xargs -I X adb -s X shell pm clear $1"
+
+
+=== Fire TV
+
+adb shell settings list global
+adb shell settings list secure
+adb shell settings list system
+
+adb shell settings get secure sleep_timeout
+
+adb shell settings put secure sleep_timeout 60000
+adb shell settings put system screen_off_timeout 60000

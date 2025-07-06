@@ -1,13 +1,12 @@
+# log all actions in the console
+sublime.log_commands(True)
+
 
 # show message dialog
 sublime.message_dialog('ok')
 
 
-# print to console
-print("message")
-
-
-#process all file line by line
+# process whole file line by line
 view = self.view
 r = sublime.Region(0, view.size())
 
